@@ -25,7 +25,7 @@
 		D83E1C622B0694E600B9955F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */; };
 		D83E1C652B06951D00B9955F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C642B06951D00B9955F /* NetworkManager.swift */; };
 		D83E1C672B06956700B9955F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C662B06956700B9955F /* FeedVC.swift */; };
-		D83E1C692B06957B00B9955F /* DetailedAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C682B06957B00B9955F /* DetailedAppVC.swift */; };
+		D83E1C6F2B069FE400B9955F /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C6E2B069FE400B9955F /* Filters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		D83E1C642B06951D00B9955F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D83E1C662B06956700B9955F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
-		D83E1C682B06957B00B9955F /* DetailedAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedAppVC.swift; sourceTree = "<group>"; };
+		D83E1C6E2B069FE400B9955F /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +103,7 @@
 				D83E1C592B06940800B9955F /* Club.swift */,
 				D83E1C5B2B06941200B9955F /* Category.swift */,
 				D83E1C5D2B06941A00B9955F /* Data.swift */,
+				D83E1C6E2B069FE400B9955F /* Filters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				D83E1C662B06956700B9955F /* FeedVC.swift */,
-				D83E1C682B06957B00B9955F /* DetailedAppVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 				D83E1C472B06923600B9955F /* ViewController.swift in Sources */,
 				D83E1C672B06956700B9955F /* FeedVC.swift in Sources */,
 				D83E1C602B06949500B9955F /* ClubCollectionViewCell.swift in Sources */,
-				D83E1C692B06957B00B9955F /* DetailedAppVC.swift in Sources */,
 				D83E1C5E2B06941A00B9955F /* Data.swift in Sources */,
+				D83E1C6F2B069FE400B9955F /* Filters.swift in Sources */,
 				D83E1C5C2B06941200B9955F /* Category.swift in Sources */,
 				D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */,
 				D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */,

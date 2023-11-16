@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 import SnapKit
 
 class ClubCollectionViewCell: UICollectionViewCell {
@@ -17,7 +18,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     private let image = UIImageView()
     private var club: Club?
         
-    static let reuse: String = "ClubViewCell"
+    static let reuse: String = "ClubCollectionViewCellReuseIdentifier"
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -42,12 +43,12 @@ class ClubCollectionViewCell: UICollectionViewCell {
         //category_id.text = club.category_id
         deadline.text = club.deadline
         
-        
         self.club = club
     }
+    
     private func setUpImage(){
         image.contentMode = .scaleAspectFit
-        image.sd_setImage(with: URL(string: club?.imageUrl ?? ""))
+//        image.sd_setImage(with: URL(string: club?.imageUrl ?? ""))
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
         

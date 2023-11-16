@@ -26,7 +26,6 @@ let dummyData = [
           deadline: "10/16/2024",
           imageUrl: "https://media.licdn.com/dms/image/C560BAQF6BdkkywgBhQ/company-logo_200_200/0/1631391332655?e=2147483647&v=beta&t=tqHePxQsTKsPVgSW7OtZV3oaMSt586YT4QyEVjp32zU"
           )
-    
-            
-
 ]
+
+
