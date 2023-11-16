@@ -13,6 +13,14 @@
 		D83E1C4A2B06923600B9955F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83E1C482B06923600B9955F /* Main.storyboard */; };
 		D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83E1C4B2B06923800B9955F /* Assets.xcassets */; };
 		D83E1C4F2B06923800B9955F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83E1C4D2B06923800B9955F /* LaunchScreen.storyboard */; };
+		D83E1C5A2B06940800B9955F /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C592B06940800B9955F /* Club.swift */; };
+		D83E1C5C2B06941200B9955F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C5B2B06941200B9955F /* Category.swift */; };
+		D83E1C5E2B06941A00B9955F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C5D2B06941A00B9955F /* Data.swift */; };
+		D83E1C602B06949500B9955F /* ClubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C5F2B06949500B9955F /* ClubCollectionViewCell.swift */; };
+		D83E1C622B0694E600B9955F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */; };
+		D83E1C652B06951D00B9955F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C642B06951D00B9955F /* NetworkManager.swift */; };
+		D83E1C672B06956700B9955F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C662B06956700B9955F /* FeedVC.swift */; };
+		D83E1C692B06957B00B9955F /* DetailedAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C682B06957B00B9955F /* DetailedAppVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		D83E1C4B2B06923800B9955F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D83E1C4E2B06923800B9955F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D83E1C502B06923800B9955F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83E1C592B06940800B9955F /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		D83E1C5B2B06941200B9955F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D83E1C5D2B06941A00B9955F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D83E1C5F2B06949500B9955F /* ClubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCollectionViewCell.swift; sourceTree = "<group>"; };
+		D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		D83E1C642B06951D00B9955F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D83E1C662B06956700B9955F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		D83E1C682B06957B00B9955F /* DetailedAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedAppVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,10 @@
 		D83E1C412B06923500B9955F /* HackChallenge2023 */ = {
 			isa = PBXGroup;
 			children = (
+				D83E1C632B06950F00B9955F /* Networking */,
+				D83E1C582B0693AD00B9955F /* Controllers */,
+				D83E1C572B06938F00B9955F /* Views */,
+				D83E1C562B06935E00B9955F /* Models */,
 				D83E1C422B06923600B9955F /* AppDelegate.swift */,
 				D83E1C442B06923600B9955F /* SceneDelegate.swift */,
 				D83E1C462B06923600B9955F /* ViewController.swift */,
@@ -65,6 +85,42 @@
 				D83E1C502B06923800B9955F /* Info.plist */,
 			);
 			path = HackChallenge2023;
+			sourceTree = "<group>";
+		};
+		D83E1C562B06935E00B9955F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D83E1C592B06940800B9955F /* Club.swift */,
+				D83E1C5B2B06941200B9955F /* Category.swift */,
+				D83E1C5D2B06941A00B9955F /* Data.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D83E1C572B06938F00B9955F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D83E1C5F2B06949500B9955F /* ClubCollectionViewCell.swift */,
+				D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D83E1C582B0693AD00B9955F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D83E1C662B06956700B9955F /* FeedVC.swift */,
+				D83E1C682B06957B00B9955F /* DetailedAppVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D83E1C632B06950F00B9955F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D83E1C642B06951D00B9955F /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83E1C652B06951D00B9955F /* NetworkManager.swift in Sources */,
 				D83E1C472B06923600B9955F /* ViewController.swift in Sources */,
+				D83E1C672B06956700B9955F /* FeedVC.swift in Sources */,
+				D83E1C602B06949500B9955F /* ClubCollectionViewCell.swift in Sources */,
+				D83E1C692B06957B00B9955F /* DetailedAppVC.swift in Sources */,
+				D83E1C5E2B06941A00B9955F /* Data.swift in Sources */,
+				D83E1C5C2B06941200B9955F /* Category.swift in Sources */,
 				D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */,
 				D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */,
+				D83E1C622B0694E600B9955F /* FilterCollectionViewCell.swift in Sources */,
+				D83E1C5A2B06940800B9955F /* Club.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
