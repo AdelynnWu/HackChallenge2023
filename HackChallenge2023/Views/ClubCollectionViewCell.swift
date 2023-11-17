@@ -107,8 +107,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
         
         deadline.snp.makeConstraints{ make in
             make.leading.equalTo(image.snp.trailing).offset(34)
-            make.top.equalTo(descriptions.snp.bottom).offset(8)
-            make.width.equalTo(65)
+            make.top.equalToSuperview().offset(80)
+            make.width.equalTo(75)
         }
     }
     
@@ -120,7 +120,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(clockIconView)
         
         clockIconView.snp.makeConstraints {make in
-            make.top.equalTo(descriptions.snp.bottom).offset(7)
+            make.top.equalToSuperview().offset(80)
             make.leading.equalTo(club_name.snp.leading)
             make.size.equalTo(14)
         }
