@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 3. Create a view hierarchy programmatically
         let rootVC = FeedVC()
         let navController = UINavigationController(rootViewController: rootVC)
+        // wrap diff VC in tabBarController
         
         // 4. Set the navigation controller as the window's root view controller
         window.rootViewController = navController

@@ -12,14 +12,20 @@ import SnapKit
 import SwiftUI
 
 class ClubCollectionViewCell: UICollectionViewCell {
+    
+    //MARK: - Properties (views)
     private let club_name = UILabel()
     private let descriptions = UILabel()
     private let deadline = UILabel()
     private let image = UIImageView()
     private var club: Club?
     private let clockIconView = UIImageView()
-        
+    private let starButton = UIButton()
+    
+    //MARK: - Properties (data)
     static let reuse: String = "ClubCollectionViewCellReuseIdentifier"
+    private var clubName: String = ""
+    weak var delegate: starredClubsDelegate?
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -34,6 +40,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
         setUpDescription()
         setUpDeadline()
         setUpClockIcon()
+        setupStarButton()
     }
     
     required init?(coder: NSCoder) {
@@ -41,11 +48,23 @@ class ClubCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: Configure
-    func configure(club: Club){
+    func configure(club: Club, starred: Bool){
+        self.clubName = club.club_name
+        
         image.sd_setImage(with: URL(string: club.imageUrl))
         club_name.text = club.club_name
         descriptions.text = club.descriptions
         deadline.text = club.deadline
+        
+        if starred{
+            // is starred
+            starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            starButton.tintColor = UIColor.hc.yellowOrange
+        } else {
+            // not starred
+            starButton.setImage(UIImage(systemName: "star"), for: .normal)
+            starButton.tintColor = UIColor.hc.gray
+        }
 
     }
     
@@ -126,8 +145,31 @@ class ClubCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private func setupStarButton(){
+        
+        contentView.addSubview(starButton)
+        
+        // button being clicked -> call func
+        starButton.addTarget(self, action: #selector(starClub), for: .touchUpInside)
+        starButton.isUserInteractionEnabled = true
+        
+        starButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(10)
+            make.top.equalToSuperview().offset(10)
+            make.size.equalTo(19)
+        }
+        
+    }
+    
+    @objc func starClub(){
+     
+        delegate?.updateStarred(clubName: clubName)
+        
+    }
     
 }
+
+
 
 
 //    private func setUpCategoryId(){

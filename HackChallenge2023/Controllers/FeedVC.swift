@@ -20,6 +20,9 @@ class FeedVC: UIViewController {
     var clubs: [Club] = dummyData
     var selected_clubs: [Club] = dummyData
     var filter: [String] = filters
+    var starredClubs: [String]  {
+        UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
+    }
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
@@ -143,7 +146,9 @@ extension FeedVC: UICollectionViewDataSource {
         else if collectionView == clubCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell{
                 let clubs = selected_clubs[indexPath.row]
-                cell.configure(club: clubs)
+                var isStarred = self.starredClubs.contains(clubs.club_name)
+                cell.delegate = self
+                cell.configure(club: clubs, starred: isStarred)
                 return cell
             }
         }
@@ -163,4 +168,27 @@ extension FeedVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 327, height: 103)
         }
     }
+}
+
+
+extension FeedVC: starredClubsDelegate{
+    func updateStarred(clubName: String) {
+            if self.starredClubs.contains(clubName){
+                var newStarredClubs = self.starredClubs
+                newStarredClubs.removeAll() { name in
+                    return name == clubName
+                }
+                UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+            } else {
+                var newStarredClubs = self.starredClubs
+                newStarredClubs.append(clubName)
+                UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+            }
+            clubCollectionView.reloadData()
+        }
+    }
+
+// delegation
+protocol starredClubsDelegate: AnyObject {
+    func updateStarred(clubName: String)
 }
