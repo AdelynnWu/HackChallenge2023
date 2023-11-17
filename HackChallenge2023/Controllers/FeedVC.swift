@@ -18,7 +18,7 @@ class FeedVC: UIViewController {
     
     // MARK: Properties Data
     var clubs: [Club] = dummyData
-    var selected_clubs: [Club] = []
+    var selected_clubs: [Club] = dummyData
     var filter: [String] = filters
     
     //MARK: ViewdidLoad
@@ -101,20 +101,17 @@ extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == clubCollectionView {
             let selectedItem = self.clubs[indexPath.row]
-        }
-        else if collectionView == filterCollectionView {
-            
+        } else if collectionView == filterCollectionView {
+    
             let selectedItem = self.filter[indexPath.row]
             selected_clubs = clubs
             if selectedItem == "All"{
                 selected_clubs = clubs
-            }
-            else{
+            } else {
                 let ls = clubs.filter ({ $0.category_id == selectedItem})
                 selected_clubs = ls
             }
             clubCollectionView.reloadData()
-            
         }
     }
     
