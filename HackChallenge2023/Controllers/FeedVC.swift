@@ -101,6 +101,10 @@ extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == clubCollectionView {
             let selectedItem = self.clubs[indexPath.row]
+            
+            let detailedVC = DetailedVC()
+            navigationController?.pushViewController(detailedVC, animated: true)
+            
         } else if collectionView == filterCollectionView {
     
             let selectedItem = self.filter[indexPath.row]
