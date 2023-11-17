@@ -25,6 +25,9 @@
 		D83E1C672B06956700B9955F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C662B06956700B9955F /* FeedVC.swift */; };
 		D83E1C6F2B069FE400B9955F /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C6E2B069FE400B9955F /* Filters.swift */; };
 		D83E1C722B07157100B9955F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C712B07157100B9955F /* UIColor+Extension.swift */; };
+		D83E1C742B07227000B9955F /* DetailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C732B07227000B9955F /* DetailedVC.swift */; };
+		D83E1C762B07228B00B9955F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C752B07228B00B9955F /* ProfileVC.swift */; };
+		D83E1C782B07229E00B9955F /* PostAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C772B07229E00B9955F /* PostAppVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		D83E1C662B06956700B9955F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		D83E1C6E2B069FE400B9955F /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		D83E1C712B07157100B9955F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D83E1C732B07227000B9955F /* DetailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedVC.swift; sourceTree = "<group>"; };
+		D83E1C752B07228B00B9955F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D83E1C772B07229E00B9955F /* PostAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				D83E1C662B06956700B9955F /* FeedVC.swift */,
+				D83E1C732B07227000B9955F /* DetailedVC.swift */,
+				D83E1C752B07228B00B9955F /* ProfileVC.swift */,
+				D83E1C772B07229E00B9955F /* PostAppVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,12 +232,15 @@
 			files = (
 				D83E1C652B06951D00B9955F /* NetworkManager.swift in Sources */,
 				D83E1C672B06956700B9955F /* FeedVC.swift in Sources */,
+				D83E1C782B07229E00B9955F /* PostAppVC.swift in Sources */,
 				D83E1C602B06949500B9955F /* ClubCollectionViewCell.swift in Sources */,
 				D83E1C722B07157100B9955F /* UIColor+Extension.swift in Sources */,
 				D83E1C5E2B06941A00B9955F /* Data.swift in Sources */,
 				D83E1C6F2B069FE400B9955F /* Filters.swift in Sources */,
 				D83E1C5C2B06941200B9955F /* Category.swift in Sources */,
 				D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */,
+				D83E1C762B07228B00B9955F /* ProfileVC.swift in Sources */,
+				D83E1C742B07227000B9955F /* DetailedVC.swift in Sources */,
 				D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */,
 				D83E1C622B0694E600B9955F /* FilterCollectionViewCell.swift in Sources */,
 				D83E1C5A2B06940800B9955F /* Club.swift in Sources */,
