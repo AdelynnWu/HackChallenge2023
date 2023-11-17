@@ -29,8 +29,16 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: Configure
-    func configure(category: String){
+    func configure(category: String, filterSelected: String){
         category_id.text = category
+        
+        if filterSelected == category {
+            category_id.backgroundColor = UIColor.hc.yellowOrange
+            category_id.textColor = UIColor.hc.white
+        } else {
+            category_id.backgroundColor = UIColor.hc.offWhite
+            category_id.textColor = UIColor.hc.black
+        }
     }
     
     
@@ -41,9 +49,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
         category_id.textAlignment = .center
         category_id.layer.cornerRadius = 16
         category_id.clipsToBounds = true
-        category_id.layer.borderColor = UIColor.hc.yellowOrange.cgColor
-        category_id.layer.borderWidth = 1
-        category_id.backgroundColor = UIColor.white
+//        category_id.layer.borderColor = UIColor.hc.yellowOrange.cgColor
+//        category_id.layer.borderWidth = 1
+        category_id.backgroundColor = UIColor.hc.offWhite
         
         contentView.addSubview(category_id)
         

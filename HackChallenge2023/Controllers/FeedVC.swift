@@ -23,12 +23,14 @@ class FeedVC: UIViewController {
     var starredClubs: [String]  {
         UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
     }
+    private var filterSelected: String = ""
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Organizations"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor.white
         
@@ -104,21 +106,21 @@ extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == clubCollectionView {
             let selectedItem = self.clubs[indexPath.row]
-            
             let detailedVC = DetailedVC()
             navigationController?.pushViewController(detailedVC, animated: true)
             
         } else if collectionView == filterCollectionView {
-    
-            let selectedItem = self.filter[indexPath.row]
+            let selectedFilter = self.filter[indexPath.row]
+            filterSelected = selectedFilter
             selected_clubs = clubs
-            if selectedItem == "All"{
+            if selectedFilter == "All"{
                 selected_clubs = clubs
             } else {
-                let ls = clubs.filter ({ $0.category_id == selectedItem})
+                let ls = clubs.filter ({ $0.category_id == selectedFilter})
                 selected_clubs = ls
             }
             clubCollectionView.reloadData()
+            filterCollectionView.reloadData()
         }
     }
     
@@ -139,7 +141,7 @@ extension FeedVC: UICollectionViewDataSource {
         if collectionView == filterCollectionView {
             if let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.reuse, for: indexPath) as? FilterCollectionViewCell {
                 let filter = filter[indexPath.row]
-                cell.configure(category: filter)
+                cell.configure(category: filter, filterSelected: filterSelected)
                 return cell
             }
         }
