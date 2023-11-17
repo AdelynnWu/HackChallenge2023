@@ -17,8 +17,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        layer.cornerRadius = 16
-        backgroundColor = UIColor.systemRed
+//        layer.cornerRadius = 16
+//        backgroundColor = UIColor.systemRed
+        
         setUpCategory_Id()
     }
     
@@ -34,14 +35,14 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     
     private func setUpCategory_Id(){
-        category_id.font = .systemFont(ofSize: 12, weight: .semibold)
-        category_id.textColor = UIColor.white
-        category_id.numberOfLines = 1
+        category_id.font = .systemFont(ofSize: 12)
+        category_id.textColor = UIColor.black
+//        category_id.numberOfLines = 1
         category_id.textAlignment = .center
         category_id.layer.cornerRadius = 16
         category_id.clipsToBounds = true
-        category_id.layer.borderColor = UIColor.yellow.cgColor
-        category_id.layer.borderWidth = 3
+        category_id.layer.borderColor = UIColor.hc.yellowOrange.cgColor
+        category_id.layer.borderWidth = 1
         category_id.backgroundColor = UIColor.white
         
         contentView.addSubview(category_id)

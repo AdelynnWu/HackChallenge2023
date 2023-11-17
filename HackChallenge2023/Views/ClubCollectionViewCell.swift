@@ -13,10 +13,10 @@ import SnapKit
 class ClubCollectionViewCell: UICollectionViewCell {
     private let club_name = UILabel()
     private let descriptions = UILabel()
-    //private let category_id = UILabel()
     private let deadline = UILabel()
     private let image = UIImageView()
     private var club: Club?
+    private let clockIconView = UIImageView()
         
     static let reuse: String = "ClubCollectionViewCellReuseIdentifier"
     
@@ -24,11 +24,12 @@ class ClubCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         // Do any additional setup after loading the view.
         backgroundColor = UIColor.white
+        
         setUpImage()
-        setUpDeadline()
         setUpClubName()
         setUpDescription()
-        //setUpCategoryId()
+        setUpDeadline()
+        setUpClockIcon()
     }
     
     required init?(coder: NSCoder) {
@@ -40,24 +41,25 @@ class ClubCollectionViewCell: UICollectionViewCell {
         image.sd_setImage(with: URL(string: club.imageUrl))
         club_name.text = club.club_name
         descriptions.text = club.descriptions
-        //category_id.text = club.category_id
         deadline.text = club.deadline
-        
-        self.club = club
+
     }
     
     private func setUpImage(){
         image.contentMode = .scaleAspectFit
-//        image.sd_setImage(with: URL(string: club?.imageUrl ?? ""))
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
+//        image.layer.cornerRadius = 10
+//        image.clipsToBounds = true
         
         contentView.addSubview(image)
         
         image.snp.makeConstraints {make in
-            make.leading.equalToSuperview().offset(10)
+//            make.leading.equalToSuperview().offset(10)
+//            make.top.equalToSuperview().offset(26.5)
+//            make.size.equalTo(50)
             make.top.equalToSuperview().offset(26.5)
-            make.size.equalTo(50)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().inset(267)
+            make.height.equalTo(50)
         }
     }
     
@@ -69,24 +71,61 @@ class ClubCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(club_name)
         
         club_name.snp.makeConstraints { make in
-            make.leading.equalTo(image.snp.trailing).offset(14)
+            make.leading.equalToSuperview().offset(74)
             make.top.equalToSuperview().offset(10)
         }
     }
     
     private func setUpDescription(){
         descriptions.textColor = UIColor.black
-        descriptions.font = .systemFont(ofSize: 16, weight: .semibold)
-        descriptions.numberOfLines = 4
+        descriptions.font = .systemFont(ofSize: 10)
+        descriptions.numberOfLines = 0
+        descriptions.lineBreakMode = .byWordWrapping
         
         contentView.addSubview(descriptions)
         
         descriptions.snp.makeConstraints { make in
-            make.leading.equalTo(image.snp.trailing).offset(14)
-            make.top.equalTo(club_name.snp.bottom).offset(7)
-            make.width.equalTo(243)
+//            make.leading.equalTo(image.snp.trailing).offset(14)
+//            make.top.equalTo(club_name.snp.bottom).offset(7)
+//            make.width.equalTo(243)
+            make.leading.equalToSuperview().offset(74)
+            make.trailing.equalToSuperview().inset(10)
+            make.top.equalToSuperview().offset(36)
         }
     }
+
+    private func setUpDeadline(){
+        deadline.textColor = UIColor.hc.gray
+        deadline.font = .systemFont(ofSize: 12, weight: .semibold)
+        deadline.numberOfLines = 1
+        
+        contentView.addSubview(deadline)
+        
+        deadline.snp.makeConstraints{ make in
+            make.leading.equalTo(image.snp.trailing).offset(34)
+            make.top.equalTo(descriptions.snp.bottom).offset(8)
+            make.width.equalTo(65)
+        }
+    }
+    
+    private func setUpClockIcon(){
+        
+        clockIconView.image = UIImage(systemName: "clock")
+        clockIconView.tintColor = UIColor.hc.gray
+        
+        contentView.addSubview(clockIconView)
+        
+        clockIconView.snp.makeConstraints {make in
+            make.top.equalTo(descriptions.snp.bottom).offset(7)
+            make.leading.equalTo(club_name.snp.leading)
+            make.size.equalTo(14)
+        }
+    }
+    
+    
+}
+
+
 //    private func setUpCategoryId(){
 //        category_id.textColor = UIColor.black
 //        category_id.font = .systemFont(ofSize: 12, weight: .semibold)
@@ -102,19 +141,3 @@ class ClubCollectionViewCell: UICollectionViewCell {
 //            make.width.equalTo(100)
 //        }
 //    }
-    private func setUpDeadline(){
-        deadline.textColor = UIColor.black
-        deadline.font = .systemFont(ofSize: 12, weight: .semibold)
-        deadline.numberOfLines = 1
-        
-        contentView.addSubview(deadline)
-        
-        deadline.snp.makeConstraints{ make in
-            make.leading.equalTo(image.snp.trailing).offset(14)
-            make.top.equalTo(descriptions.snp.bottom).offset(7)
-            make.width.equalTo(50)
-        }
-    }
-    
-    
-}
