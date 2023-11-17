@@ -18,6 +18,7 @@ class FeedVC: UIViewController {
     
     // MARK: Properties Data
     var clubs: [Club] = dummyData
+    var selected_clubs: [Club] = []
     var filter: [String] = filters
     
     //MARK: ViewdidLoad
@@ -95,13 +96,29 @@ class FeedVC: UIViewController {
 }
 
 //MARK: UICollectionViewDelegate
-//extension FeedVC: UICollectionViewDelegate {
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-//    
-//}
+extension FeedVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == clubCollectionView {
+            let selectedItem = self.clubs[indexPath.row]
+        }
+        else if collectionView == filterCollectionView {
+            
+            let selectedItem = self.filter[indexPath.row]
+            selected_clubs = clubs
+            if selectedItem == "All"{
+                selected_clubs = clubs
+            }
+            else{
+                let ls = clubs.filter ({ $0.category_id == selectedItem})
+                selected_clubs = ls
+            }
+            clubCollectionView.reloadData()
+            
+        }
+    }
+    
+}
 
 //MARK: UICollectionViewDataSource
 extension FeedVC: UICollectionViewDataSource {
@@ -110,26 +127,27 @@ extension FeedVC: UICollectionViewDataSource {
         if collectionView == filterCollectionView {
             return filter.count
         } else {
-            return clubs.count
+            return selected_clubs.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == filterCollectionView {
-            guard let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.reuse, for: indexPath) as? FilterCollectionViewCell else{
-                return UICollectionViewCell()
+            if let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.reuse, for: indexPath) as? FilterCollectionViewCell {
+                let filter = filter[indexPath.row]
+                cell.configure(category: filter)
+                return cell
             }
-            
-            cell.configure(category: filter[indexPath.row])
-            return cell
-        } else {
-            guard let cell = clubCollectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell else{
-                return UICollectionViewCell()
-            }
-        
-            cell.configure(club: clubs[indexPath.row])
-            return cell
         }
+        else if collectionView == clubCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell{
+                let clubs = selected_clubs[indexPath.row]
+                cell.configure(club: clubs)
+                return cell
+            }
+        }
+
+        return UICollectionViewCell()
     }
     
 }

@@ -7,4 +7,4 @@
 
 import Foundation
 
-let filters = ["Project Team","STEM", "Business","GreekLife", "Arts", "Music", "Cultural","Environmental", "Community", "Other"]
+let filters = ["All","Project Team","STEM", "Business","GreekLife", "Arts", "Music", "Cultural","Environmental", "Community", "Other"]
