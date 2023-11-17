@@ -50,6 +50,7 @@ class FeedVC: UIViewController {
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filterCollectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        filterCollectionView.showsHorizontalScrollIndicator = false
         
         view.addSubview(filterCollectionView)
         
@@ -76,6 +77,7 @@ class FeedVC: UIViewController {
         clubCollectionView.register(ClubCollectionViewCell.self, forCellWithReuseIdentifier: ClubCollectionViewCell.reuse)
         clubCollectionView.delegate = self
         clubCollectionView.dataSource = self
+        clubCollectionView.showsVerticalScrollIndicator = false
 
         view.addSubview(clubCollectionView)
         

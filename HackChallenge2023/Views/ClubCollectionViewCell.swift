@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SDWebImage
 import SnapKit
+import SwiftUI
 
 class ClubCollectionViewCell: UICollectionViewCell {
     private let club_name = UILabel()
@@ -23,7 +24,10 @@ class ClubCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.hc.white
+        self.layer.cornerRadius = 10
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.hc.offWhite.cgColor
         
         setUpImage()
         setUpClubName()
@@ -79,7 +83,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     private func setUpDescription(){
         descriptions.textColor = UIColor.black
         descriptions.font = .systemFont(ofSize: 10)
-        descriptions.numberOfLines = 0
+        descriptions.numberOfLines = 3
         descriptions.lineBreakMode = .byWordWrapping
         
         contentView.addSubview(descriptions)
