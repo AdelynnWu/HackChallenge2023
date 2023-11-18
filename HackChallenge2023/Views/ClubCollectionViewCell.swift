@@ -65,6 +65,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
             starButton.setImage(UIImage(systemName: "star"), for: .normal)
             starButton.tintColor = UIColor.hc.gray
         }
+        
 
     }
     
@@ -151,6 +152,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
         
         // button being clicked -> call func
         starButton.addTarget(self, action: #selector(starClub), for: .touchUpInside)
+        // don't know why animation applies to another cell's star button when one is clicked
+//        starButton.addTarget(self, action: #selector(starAnimation), for: .touchUpInside)
         starButton.isUserInteractionEnabled = true
         
         starButton.snp.makeConstraints { make in
@@ -165,6 +168,15 @@ class ClubCollectionViewCell: UICollectionViewCell {
      
         delegate?.updateStarred(clubName: clubName)
         
+    }
+    
+    @objc private func starAnimation(){
+        UIButton.animate(withDuration: 0.6, animations: {self.starButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
+            UIButton.animate(withDuration: 0.6, animations: {
+                self.starButton.transform = CGAffineTransform.identity
+            })
+        }
+        )
     }
     
 }
