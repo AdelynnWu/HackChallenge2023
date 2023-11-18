@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // wrap diff VC in tabBarController
         
         // 4. Set the navigation controller as the window's root view controller
-        window.rootViewController = navController
+        window.rootViewController = TabController()
         
         // 5. Set the window and call makeKeyAndVisible()
         self.window = window

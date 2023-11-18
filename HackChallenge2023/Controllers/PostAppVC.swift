@@ -6,5 +6,12 @@
 //
 
 import Foundation
-
+import UIKit
 // for posting new application
+class PostAppVC: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .systemBlue
+    }
+}

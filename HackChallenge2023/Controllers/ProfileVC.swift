@@ -6,5 +6,13 @@
 //
 
 import Foundation
-
+import UIKit
 // for profile and starred application
+
+class ProfileVC: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .systemBlue
+    }
+}
