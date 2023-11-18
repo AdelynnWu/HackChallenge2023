@@ -35,6 +35,13 @@ class ClubCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.hc.offWhite.cgColor
         
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+        
+        
         setUpImage()
         setUpClubName()
         setUpDescription()
