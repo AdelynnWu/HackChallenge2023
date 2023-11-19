@@ -13,5 +13,6 @@ class PostAppVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBlue
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

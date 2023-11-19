@@ -39,7 +39,7 @@ class TabController: UITabBarController {
         
         nav.tabBarItem.title = title
         nav.tabBarItem.image = image
-        nav.viewControllers.first?.navigationItem.title = title + " Controller"
+//        nav.viewControllers.first?.navigationItem.title = title + " Controller"
         return nav
     }
 }

@@ -12,9 +12,11 @@ import SnapKit
 class FeedVC: UIViewController {
     
     // MARK: Properties View
+    private let titles = UILabel()
     private var clubCollectionView: UICollectionView!
     private var filterCollectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
+    
     
     // MARK: Properties Data
     var clubs: [Club] = dummyData
@@ -29,20 +31,32 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.navigationItem.title = "Organizations"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+        
+        
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
+//        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor.white
         
 //      fetchData func
 // setup collectionView func
+
         setupFilterCollectionView()
         setupClubCollectionView()
+        
+        
     }
     
     //MARK: Networking
     
     //MARK: SetUpViews
+
     
     private func setupFilterCollectionView(){
         
@@ -188,9 +202,13 @@ extension FeedVC: starredClubsDelegate{
             }
             clubCollectionView.reloadData()
         }
+    
+    
     }
 
 // delegation
 protocol starredClubsDelegate: AnyObject {
     func updateStarred(clubName: String)
 }
+
+
