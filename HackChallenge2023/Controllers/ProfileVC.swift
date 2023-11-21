@@ -17,4 +17,21 @@ class ProfileVC: UIViewController {
         self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    override func viewWillAppear(_ animated: Bool) {
+
+            super.viewWillAppear(animated)
+            navigationController?.navigationBar.prefersLargeTitles = true
+
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+//            appearance.backgroundColor = UIColor.systemPink
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
 }

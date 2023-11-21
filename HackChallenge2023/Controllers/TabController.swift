@@ -21,10 +21,11 @@ class TabController: UITabBarController {
         self.setupTabs()
         
 
-        self.tabBar.tintColor = UIColor.systemPink
+        self.tabBar.tintColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
         self.tabBar.isTranslucent = false
         //self.tabBar.backgroundColor = UIColor.purple
         self.tabBar.backgroundColor = UIColor.white
+        self.tabBar.unselectedItemTintColor = UIColor.black
         // Do any additional setup after loading the view.
     }
     

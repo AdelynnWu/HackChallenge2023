@@ -34,7 +34,7 @@ class FeedVC: UIViewController {
         self.navigationItem.title = "Organizations"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
+//        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
         
@@ -48,11 +48,28 @@ class FeedVC: UIViewController {
         setupFilterCollectionView()
         setupClubCollectionView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+
+            super.viewWillAppear(animated)
+            navigationController?.navigationBar.prefersLargeTitles = true
+
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+//            appearance.backgroundColor = UIColor.systemPink
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
     
     //MARK: Networking
     
     //MARK: SetUpViews
-
+    
     
     private func setupFilterCollectionView(){
         
@@ -73,7 +90,7 @@ class FeedVC: UIViewController {
         // Constraints
         filterCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.height.equalTo(25)
         }
         
