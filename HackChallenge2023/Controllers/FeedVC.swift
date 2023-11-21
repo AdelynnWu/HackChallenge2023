@@ -31,8 +31,6 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         self.navigationItem.title = "Organizations"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.navigationItem.largeTitleDisplayMode = .never
@@ -49,8 +47,6 @@ class FeedVC: UIViewController {
 
         setupFilterCollectionView()
         setupClubCollectionView()
-        
-        
     }
     
     //MARK: Networking

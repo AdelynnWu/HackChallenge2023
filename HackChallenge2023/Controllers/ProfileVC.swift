@@ -14,7 +14,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Profile"
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
