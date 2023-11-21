@@ -20,7 +20,7 @@ class ProfileVC: UIViewController {
         UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
     }
     var selected_clubs: [Club] = dummyData
-    
+
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
@@ -47,8 +47,60 @@ class ProfileVC: UIViewController {
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
-
     
+//    private func setUpNavigationBar() {
+////        contentView.addSubview(UIImage.init(systemName: "bookmark"))
+//        // Check UserDefaults
+//        let starred = UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
+//
+//        var imageName = ""
+//        for club in clubs {
+//            if starred.contains(club.club_name){
+//                imageName = "star.fill"
+//
+//            }
+//            else {
+//                starred.append(club.club_name)
+//            }
+//
+//        }
+//        if starred.contains(recipe.id) {
+//        // Is stored in favorites
+//            imageName = "bookmark.fill"
+//            bookmarkIcon.image = UIImage(systemName: "bookmark.fill")
+//        } else {
+//        // Not stored in favorites
+//            imageName = "bookmark"
+//            bookmarkIcon.image = UIImage(systemName: "bookmark")
+//        }
+//
+//        let barbutton = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(toggleSave))
+//        navigationItem.rightBarButtonItem = barbutton
+//    }
+
+//    @objc private func toggleSave() {
+//
+//        var starred = UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
+//        for club in clubs{
+//            if starred.contains(club.club_name){
+//                starred.removeAll{ name in
+//                    name == club.club_name}
+//            }
+//            else {
+//                starred.append(club.club_name)
+//            }
+//        }
+//
+//
+//
+//        UserDefaults.standard.setValue(starred, forKey: "starred")
+//
+//
+//        //setUpNavigationBar()
+//        
+//
+//
+//    }
     //MARK: setupViews
     private func setupClubCollectionView(){
         
@@ -96,12 +148,6 @@ extension ProfileVC: UICollectionViewDelegate {
             }
         }
         let selectedItem = favorites[indexPath.row]
-//        let ls = clubs.filter ({ $0.club_name in })
-//        selected_recipes = ls
-//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell{
-//            let clubs = selected_clubs[indexPath.row]
-//            if isStarred == self.starredClubs.contains(clubs.club_name)
-        
         let detailedVC = DetailedVC()
         navigationController?.pushViewController(detailedVC, animated: true)
         clubCollectionView.reloadData()
@@ -152,4 +198,8 @@ extension ProfileVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 327, height: 103)
     }
 }
+
+
+
+
 

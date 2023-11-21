@@ -90,7 +90,7 @@ class FeedVC: UIViewController {
         // Constraints
         filterCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(2)
             make.height.equalTo(25)
         }
         
@@ -192,7 +192,7 @@ extension FeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == filterCollectionView {
-            return CGSize(width: 110, height: 25)
+            return CGSize(width: 110, height: 23)
         } else {
             return CGSize(width: 327, height: 103)
         }
