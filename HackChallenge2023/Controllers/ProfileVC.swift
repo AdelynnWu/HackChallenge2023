@@ -16,11 +16,9 @@ class ProfileVC: UIViewController {
     
     // MARK: Properties Data
     var clubs: [Club] = dummyData
-    var starredClubs: [String]  {
-        UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
-    }
+    var starredClubs: [String] = []
     var selected_clubs: [Club] = dummyData
-
+    var favorites = [Club]()
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
@@ -28,7 +26,28 @@ class ProfileVC: UIViewController {
         self.navigationItem.title = "Profile"
         self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        updateFavorites()
         setupClubCollectionView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateFavorites()
+        clubCollectionView.reloadData()
+    }
+    
+    func updateFavorites() {
+        starredClubs = UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
+        favorites = []
+        for club in clubs {
+            for names in starredClubs {
+                if club.club_name == names{
+                    favorites.append(club)
+                }
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
 
@@ -107,7 +126,6 @@ class ProfileVC: UIViewController {
         // Create a FlowLayout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.collectionView?.alwaysBounceVertical = true
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 14
 
@@ -116,6 +134,7 @@ class ProfileVC: UIViewController {
         clubCollectionView.register(ClubCollectionViewCell.self, forCellWithReuseIdentifier: ClubCollectionViewCell.reuse)
         clubCollectionView.delegate = self
         clubCollectionView.dataSource = self
+        clubCollectionView.alwaysBounceVertical = true
         clubCollectionView.showsVerticalScrollIndicator = false
 
         view.addSubview(clubCollectionView)
@@ -131,60 +150,75 @@ class ProfileVC: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//       //Check the scroll direction here
+//        if(scrollView.panGestureRecognizer.translation(in: scrollView.superview).y > 0) {
+//            print("Show")
+//            self.navigationController?.setNavigationBarHidden(false, animated: true)
+//            self.navigationController?.setToolbarHidden(false, animated: true)
+//        }
+//        else {
+////            print("Hide")
+////            self.navigationController?.setNavigationBarHidden(true, animated: true)
+////            self.navigationController?.setToolbarHidden(true, animated: true)
+//        }
+//    }
 }
 
 
 //MARK: UICollectionViewDelegate
 extension ProfileVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let selectedItem = self.clubs[indexPath.row]
-        var favorites = [Club]()
 
-        for club in clubs{
-            for names in starredClubs {
-                if club.club_name == names{
-                    favorites.append(club)
-                }
-            }
-        }
+//        var favorites = [Club]()
+//
+//        for club in clubs{
+//            for names in starredClubs {
+//                if club.club_name == names{
+//                    favorites.append(club)
+//                }
+//            }
+//        }
         let selectedItem = favorites[indexPath.row]
         let detailedVC = DetailedVC()
         navigationController?.pushViewController(detailedVC, animated: true)
-        clubCollectionView.reloadData()
+//        clubCollectionView.reloadData()
     }
     
 }
 //MARK: UICollectionViewDataSource
 extension ProfileVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        clubCollectionView.reloadData()
-        var favorites = [Club]()
-
-        for club in clubs{
-            for names in starredClubs {
-                if club.club_name == names{
-                    favorites.append(club)
-                }
-            }
-        }
+//        clubCollectionView.reloadData()
+//        var favorites = [Club]()
+//
+//        for club in clubs{
+//            for names in starredClubs {
+//                if club.club_name == names{
+//                    favorites.append(club)
+//                }
+//            }
+//        }
         return favorites.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell{
-            clubCollectionView.reloadData()
-            var favorites = [Club]()
-
-            for club in clubs{
-                for names in starredClubs {
-                    if club.club_name == names{
-                        favorites.append(club)
-                    }
-                }
-            }
+//            clubCollectionView.reloadData()
+//            var favorites = [Club]()
+//
+//            for club in clubs{
+//                for names in starredClubs {
+//                    if club.club_name == names{
+//                        favorites.append(club)
+//                    }
+//                }
+//            }
             let clubs = favorites[indexPath.row]
-            var isStarred = self.starredClubs.contains(clubs.club_name)
+            let isStarred = self.starredClubs.contains(clubs.club_name)
             cell.configure(club: clubs, starred: isStarred)
+            cell.delegate = self
             return cell
         }
         return UICollectionViewCell()
@@ -198,8 +232,23 @@ extension ProfileVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 327, height: 103)
     }
 }
-
-
+//MARK: delegate for star butgton
+extension ProfileVC: starredClubsDelegate{
+    func updateStarred(clubName: String) {
+        print("HI")
+            if self.starredClubs.contains(clubName){
+                var newStarredClubs = self.starredClubs
+                newStarredClubs.removeAll() { name in
+                    return name == clubName
+                }
+                UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+            }
+            updateFavorites()
+            clubCollectionView.reloadData()
+        }
+    
+    
+    }
 
 
 

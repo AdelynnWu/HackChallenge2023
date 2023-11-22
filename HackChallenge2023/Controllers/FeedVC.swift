@@ -30,9 +30,12 @@ class FeedVC: UIViewController {
     //MARK: ViewdidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationController?.hidesBarsOnSwipe = true
+
         
         self.navigationItem.title = "Organizations"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+
 //        self.navigationItem.largeTitleDisplayMode = .never
 //        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.hidesSearchBarWhenScrolling = true
@@ -51,7 +54,7 @@ class FeedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
             super.viewWillAppear(animated)
-            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.prefersLargeTitles = false
 
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
@@ -64,6 +67,7 @@ class FeedVC: UIViewController {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
     }
     
     //MARK: Networking
@@ -125,6 +129,7 @@ class FeedVC: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
 }
 
 //MARK: UICollectionViewDelegate

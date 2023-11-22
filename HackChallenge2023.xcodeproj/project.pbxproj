@@ -33,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		603FCC5F2B095A14002C6BA9 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		6045BF652B0DA0CD00A9C3AB /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		605ED8B22B0C5934005F53C3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		D83E1C3F2B06923500B9955F /* HackChallenge2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackChallenge2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E1C422B06923600B9955F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6045BF602B0DA03C00A9C3AB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6045BF652B0DA0CD00A9C3AB /* Oswald-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D83E1C362B06923500B9955F = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +108,7 @@
 				D83E1C4B2B06923800B9955F /* Assets.xcassets */,
 				D83E1C4D2B06923800B9955F /* LaunchScreen.storyboard */,
 				D83E1C502B06923800B9955F /* Info.plist */,
+				6045BF602B0DA03C00A9C3AB /* Fonts */,
 			);
 			path = HackChallenge2023;
 			sourceTree = "<group>";

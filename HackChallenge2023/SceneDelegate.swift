@@ -20,21 +20,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // 3. Create a view hierarchy programmatically
-        let rootVC = FeedVC()
-        //let navController = UINavigationController(rootViewController: rootVC)
+        let rootVC = TabController()
+//        let navController = UINavigationController(rootViewController: rootVC)
+        
         // wrap diff VC in tabBarController
         
 //        navController.setUpNavBarColor()
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont(name: "Georgia", size: 30)!
-        ]
-
-        UINavigationBar.appearance().largeTitleTextAttributes = attrs
+//        let attrs = [
+//            NSAttributedString.Key.foregroundColor: UIColor.black,
+//            NSAttributedString.Key.font: UIFont(name: "Georgia", size: 30)!
+//        ]
+//
+//        UINavigationBar.appearance().largeTitleTextAttributes = attrs
 
         
         // 4. Set the navigation controller as the window's root view controller
-        window.rootViewController = TabController()
+        window.rootViewController = rootVC
 
         
         // 5. Set the window and call makeKeyAndVisible()
