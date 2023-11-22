@@ -30,7 +30,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        backgroundColor = UIColor.hc.white
+        backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.hc.offWhite.cgColor
@@ -66,7 +66,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
         if starred{
             // is starred
             starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            starButton.tintColor = UIColor.hc.yellowOrange
+            starButton.tintColor = UIColor(red: 1, green: 70/255, blue: 140/255, alpha: 1.0)
         } else {
             // not starred
             starButton.setImage(UIImage(systemName: "star"), for: .normal)

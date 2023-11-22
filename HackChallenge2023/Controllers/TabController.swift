@@ -24,7 +24,7 @@ class TabController: UITabBarController {
         self.tabBar.tintColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
         self.tabBar.isTranslucent = false
         //self.tabBar.backgroundColor = UIColor.purple
-        self.tabBar.backgroundColor = UIColor.white
+        self.tabBar.backgroundColor = UIColor.systemGray6
         self.tabBar.unselectedItemTintColor = UIColor.black
         // Do any additional setup after loading the view.
     }
@@ -46,4 +46,3 @@ class TabController: UITabBarController {
         return nav
     }
 }
-
