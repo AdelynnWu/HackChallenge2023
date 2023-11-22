@@ -235,7 +235,6 @@ extension ProfileVC: UICollectionViewDelegateFlowLayout {
 //MARK: delegate for star butgton
 extension ProfileVC: starredClubsDelegate{
     func updateStarred(clubName: String) {
-        print("HI")
             if self.starredClubs.contains(clubName){
                 var newStarredClubs = self.starredClubs
                 newStarredClubs.removeAll() { name in

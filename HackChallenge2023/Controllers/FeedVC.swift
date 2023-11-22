@@ -94,7 +94,7 @@ class FeedVC: UIViewController {
         // Constraints
         filterCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(2)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(7)
             make.height.equalTo(25)
         }
         
