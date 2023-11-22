@@ -43,7 +43,8 @@ class FeedVC: UIViewController {
         
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = UIColor.white
+        //view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(red: 222/255, green: 246/255, blue: 239/255, alpha: 1.0)
         
 //      fetchData func
 // setup collectionView func
@@ -108,6 +109,7 @@ class FeedVC: UIViewController {
         layout.collectionView?.alwaysBounceVertical = true
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 14
+        
 
         // Initialize CollectionView with the layout
         clubCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -197,8 +199,12 @@ extension FeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == filterCollectionView {
+            // changes collectionview background color
+            collectionView.backgroundColor = UIColor.clear
             return CGSize(width: 110, height: 23)
+            
         } else {
+            collectionView.backgroundColor = UIColor.clear
             return CGSize(width: 327, height: 103)
         }
     }
