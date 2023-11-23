@@ -30,16 +30,16 @@ class ClubCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        backgroundColor = UIColor.hc.cream
+        backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
 //        self.layer.borderWidth = 2
 //        self.layer.borderColor = UIColor.hc.offWhite.cgColor
         
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 1.0)
-//        layer.shadowRadius = 2.0
-//        layer.shadowOpacity = 0.5
-//        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
         
         
         setUpImage()
@@ -66,8 +66,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
         if starred{
             // is starred
             starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            starButton.tintColor = UIColor.hc.pastelBlue
-//            starButton.tintColor = UIColor(red: 1, green: 70/255, blue: 140/255, alpha: 1.0)
+ //           starButton.tintColor = UIColor.hc.pastelBlue
+            starButton.tintColor = UIColor(red: 246/255, green: 188/255, blue: 102/255, alpha: 1.0)
         } else {
             // not starred
             starButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -110,7 +110,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     
     private func setUpDescription(){
         descriptions.textColor = UIColor.hc.black
-        descriptions.font = .systemFont(ofSize: 10)
+        descriptions.font = .systemFont(ofSize: 12)
         descriptions.numberOfLines = 3
         descriptions.lineBreakMode = .byWordWrapping
         
@@ -122,7 +122,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
 //            make.width.equalTo(243)
             make.leading.equalToSuperview().offset(74)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalToSuperview().offset(36)
+            make.top.equalToSuperview().offset(31)
         }
     }
 
@@ -135,7 +135,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
         
         deadline.snp.makeConstraints{ make in
             make.leading.equalTo(image.snp.trailing).offset(34)
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(90)
             make.width.equalTo(75)
         }
     }
@@ -148,7 +148,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(clockIconView)
         
         clockIconView.snp.makeConstraints {make in
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(90)
             make.leading.equalTo(club_name.snp.leading)
             make.size.equalTo(14)
         }

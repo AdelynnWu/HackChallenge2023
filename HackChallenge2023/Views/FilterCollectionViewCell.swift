@@ -33,11 +33,11 @@ class FilterCollectionViewCell: UICollectionViewCell {
         category_id.text = category
         
         if filterSelected == category {
-            category_id.backgroundColor = UIColor.hc.pastelBlue
-            category_id.textColor = UIColor.hc.ivory
+            category_id.backgroundColor = UIColor(red: 73/255, green: 207/255, blue: 204/255, alpha: 1.0)
+            category_id.textColor = UIColor.white
         } else {
-            category_id.backgroundColor = UIColor.hc.cream
-            category_id.textColor = UIColor.hc.black
+            category_id.backgroundColor = UIColor(red: 198/255, green: 237/255, blue: 235/255, alpha: 1.0)
+            category_id.textColor = UIColor(red: 28/255, green: 132/255, blue: 130/255, alpha: 1.0)
         }
     }
     
