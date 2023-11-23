@@ -26,10 +26,12 @@ class PostAppVC: UIViewController {
     private let websiteLinkLabel = UILabel()
     private let websiteLinkTextfield = UITextField()
     private let coffeeChatLabel = UILabel()
-    private let coffeeChatField = UITextField()
+    private let coffeeChatTextField = UITextField()
     private let postButton = UIButton()
+    private let categoryPickerView = UIPickerView()
     
     // MARK: - Properties Data
+    private let categories = filters
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -51,6 +53,7 @@ class PostAppVC: UIViewController {
         setupWebsiteLinkTextField()
         setupCoffeeChatLabel()
         setupCoffeeChatTextField()
+        setupPostButton()
         
         //Date Picker
         let datePicker = UIDatePicker()
@@ -266,16 +269,16 @@ class PostAppVC: UIViewController {
     }
     
     private func setupCoffeeChatTextField(){
-        coffeeChatField.placeholder = "optional"
-        coffeeChatField.font = .systemFont(ofSize: 14)
-        coffeeChatField.layer.borderWidth = 0.2
-        coffeeChatField.layer.borderColor = UIColor.hc.black.cgColor
-        coffeeChatField.layer.cornerRadius = 10
-        coffeeChatField.layer.masksToBounds = true
+        coffeeChatTextField.placeholder = "optional"
+        coffeeChatTextField.font = .systemFont(ofSize: 14)
+        coffeeChatTextField.layer.borderWidth = 0.2
+        coffeeChatTextField.layer.borderColor = UIColor.hc.black.cgColor
+        coffeeChatTextField.layer.cornerRadius = 10
+        coffeeChatTextField.layer.masksToBounds = true
         
-        view.addSubview(coffeeChatField)
+        view.addSubview(coffeeChatTextField)
         
-        coffeeChatField.snp.makeConstraints { make in
+        coffeeChatTextField.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
             make.top.equalTo(coffeeChatLabel.snp.bottom).offset(9)
             make.height.equalTo(33)
@@ -283,7 +286,24 @@ class PostAppVC: UIViewController {
         }
     }
     
-    private func setupPostButton(){}
+    private func setupPostButton(){
+        postButton.backgroundColor = UIColor.hc.orangeRed
+        postButton.layer.cornerRadius = 20
+        postButton.setTitle("-> Post", for: .normal)
+        postButton.setTitleColor(UIColor.hc.white, for: .normal)
+        postButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        postButton.addTarget(self, action: #selector(postApp), for: .touchUpInside)
+
+        view.addSubview(postButton)
+        
+        postButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(-10)
+            make.trailing.equalTo(coffeeChatTextField)
+            make.height.equalTo(39)
+            make.width.equalTo(81)
+        }
+        
+    }
     
     
     // select application deadline
@@ -297,6 +317,12 @@ class PostAppVC: UIViewController {
         return formatter.string(from: date)
     }
     
+    //post application
+    @objc func postApp(){
+        
+        
+        
+    }
 }
 
 
