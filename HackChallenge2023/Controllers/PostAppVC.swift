@@ -19,11 +19,13 @@ class PostAppVC: UIViewController {
     private let uploadImageButton = UIButton()
     private let categoryLabel = UILabel()
     //category cells?
-    private let appLinkLebel = UILabel()
+    private let appLinkLabel = UILabel()
     private let appLinkTextField = UITextField()
-    private let appDeadlineLebel = UILabel()
+    private let appDeadlineLabel = UILabel()
     private let appDeadlineTextField = UITextField()
-    private let coffeeChatLebel = UILabel()
+    private let websiteLinkLabel = UILabel()
+    private let websiteLinkTextfield = UITextField()
+    private let coffeeChatLabel = UILabel()
     private let coffeeChatField = UITextField()
     private let postButton = UIButton()
     
@@ -41,6 +43,28 @@ class PostAppVC: UIViewController {
         setupUploadImageLabel()
         setupUploadImageButton()
         setupCategoryLabel()
+        setupAppLinkLabel()
+        setupAppLinkTextField()
+        setupAppDeadlineLabel()
+        setupAppDeadlineTextField()
+        setupWebsiteLinkLabel()
+        setupWebsiteLinkTextField()
+        setupCoffeeChatLabel()
+        setupCoffeeChatTextField()
+        
+        //Date Picker
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(self, action: #selector( selectDate(datePicker:)), for: UIControl.Event.valueChanged)
+        datePicker.frame.size = CGSize(width: 0, height: 300)
+        datePicker.minimumDate = Date()
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        appDeadlineTextField.inputView = datePicker
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -135,21 +159,144 @@ class PostAppVC: UIViewController {
         }
     }
     
-    private func setupAppLinkLabel(){}
+    private func setupAppLinkLabel(){
+        appLinkLabel.text = "Application Link*"
+        appLinkLabel.textColor = UIColor.hc.black
+        appLinkLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(appLinkLabel)
+        
+        appLinkLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(categoryLabel.snp.bottom).offset(97)
+        }
+    }
     
-    private func setupAppLinkTextField(){}
+    private func setupAppLinkTextField(){
+        appLinkTextField.font = .systemFont(ofSize: 14)
+        appLinkTextField.layer.borderWidth = 0.2
+        appLinkTextField.layer.borderColor = UIColor.hc.black.cgColor
+        appLinkTextField.layer.cornerRadius = 10
+        appLinkTextField.layer.masksToBounds = true
+        
+        view.addSubview(appLinkTextField)
+        
+        appLinkTextField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(appLinkLabel.snp.bottom).offset(9)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
     
-    private func setupAppDeadlineLabel(){}
+    private func setupAppDeadlineLabel(){
+        appDeadlineLabel.text = "Application Deadline*"
+        appDeadlineLabel.textColor = UIColor.hc.black
+        appDeadlineLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(appDeadlineLabel)
+        
+        appDeadlineLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(appLinkTextField.snp.bottom).offset(12)
+        }
+        
+    }
     
-    private func setupAppDeadlineTextField(){}
+    private func setupAppDeadlineTextField(){
+//        appDeadlineTextField.text = formatDate(date: Date())  today's date
+        appDeadlineTextField.font = .systemFont(ofSize: 14)
+        appDeadlineTextField.layer.borderWidth = 0.2
+        appDeadlineTextField.layer.borderColor = UIColor.hc.black.cgColor
+        appDeadlineTextField.layer.cornerRadius = 10
+        appDeadlineTextField.layer.masksToBounds = true
+        
+        view.addSubview(appDeadlineTextField)
+        
+        appDeadlineTextField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(appDeadlineLabel.snp.bottom).offset(9)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
     
-    private func setupCoffeeChatLabel(){}
+    private func setupWebsiteLinkLabel(){
+        websiteLinkLabel.text = "Organization Website Link"
+        websiteLinkLabel.textColor = UIColor.hc.black
+        websiteLinkLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(websiteLinkLabel)
+        
+        websiteLinkLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(appDeadlineTextField.snp.bottom).offset(12)
+        }
+    }
     
-    private func setupCoffeeChatTextField(){}
+    private func setupWebsiteLinkTextField(){
+        websiteLinkTextfield.placeholder = "optional"
+        websiteLinkTextfield.font = .systemFont(ofSize: 14)
+        websiteLinkTextfield.layer.borderWidth = 0.2
+        websiteLinkTextfield.layer.borderColor = UIColor.hc.black.cgColor
+        websiteLinkTextfield.layer.cornerRadius = 10
+        websiteLinkTextfield.layer.masksToBounds = true
+        
+        view.addSubview(websiteLinkTextfield)
+        
+        websiteLinkTextfield.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(websiteLinkLabel.snp.bottom).offset(9)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
+    
+    private func setupCoffeeChatLabel(){
+        coffeeChatLabel.text = "Coffee Chat Registration Link"
+        coffeeChatLabel.textColor = UIColor.hc.black
+        coffeeChatLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(coffeeChatLabel)
+        
+        coffeeChatLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(websiteLinkTextfield.snp.bottom).offset(12)
+        }
+    }
+    
+    private func setupCoffeeChatTextField(){
+        coffeeChatField.placeholder = "optional"
+        coffeeChatField.font = .systemFont(ofSize: 14)
+        coffeeChatField.layer.borderWidth = 0.2
+        coffeeChatField.layer.borderColor = UIColor.hc.black.cgColor
+        coffeeChatField.layer.cornerRadius = 10
+        coffeeChatField.layer.masksToBounds = true
+        
+        view.addSubview(coffeeChatField)
+        
+        coffeeChatField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(coffeeChatLabel.snp.bottom).offset(9)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
     
     private func setupPostButton(){}
     
     
+    // select application deadline
+    @objc func selectDate(datePicker: UIDatePicker){
+        appDeadlineTextField.text = formatDate(date: datePicker.date)
+    }
     
+    func formatDate(date: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy HH:mm"
+        return formatter.string(from: date)
+    }
     
 }
+
+
