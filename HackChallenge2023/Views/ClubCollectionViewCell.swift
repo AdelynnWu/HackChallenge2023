@@ -30,16 +30,16 @@ class ClubCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.hc.cream
         self.layer.cornerRadius = 10
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.hc.offWhite.cgColor
+//        self.layer.borderWidth = 2
+//        self.layer.borderColor = UIColor.hc.offWhite.cgColor
         
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        layer.shadowRadius = 2.0
-        layer.shadowOpacity = 0.5
-        layer.masksToBounds = false
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+//        layer.shadowRadius = 2.0
+//        layer.shadowOpacity = 0.5
+//        layer.masksToBounds = false
         
         
         setUpImage()
@@ -66,7 +66,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
         if starred{
             // is starred
             starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            starButton.tintColor = UIColor(red: 1, green: 70/255, blue: 140/255, alpha: 1.0)
+            starButton.tintColor = UIColor.hc.pastelBlue
+//            starButton.tintColor = UIColor(red: 1, green: 70/255, blue: 140/255, alpha: 1.0)
         } else {
             // not starred
             starButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -95,7 +96,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpClubName(){
-        club_name.textColor = UIColor.black
+        club_name.textColor = UIColor.hc.black
         club_name.font = .systemFont(ofSize: 16, weight: .semibold)
         club_name.numberOfLines = 1
         
@@ -108,7 +109,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpDescription(){
-        descriptions.textColor = UIColor.black
+        descriptions.textColor = UIColor.hc.black
         descriptions.font = .systemFont(ofSize: 10)
         descriptions.numberOfLines = 3
         descriptions.lineBreakMode = .byWordWrapping

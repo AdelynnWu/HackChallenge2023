@@ -43,8 +43,9 @@ class FeedVC: UIViewController {
         
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        //view.backgroundColor = UIColor.white
-        view.backgroundColor = UIColor(red: 222/255, green: 246/255, blue: 239/255, alpha: 1.0)
+//        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.hc.babyBlue
+//        view.backgroundColor = UIColor(red: 222/255, green: 246/255, blue: 239/255, alpha: 1.0)
         
 //      fetchData func
 // setup collectionView func
@@ -58,10 +59,11 @@ class FeedVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = false
 
             let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+//            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+        appearance.backgroundColor = UIColor.hc.babyBlue
 //            appearance.backgroundColor = UIColor.systemPink
-            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.hc.cream]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.hc.cream]
         
 
             navigationController?.navigationBar.tintColor = .white
