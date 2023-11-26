@@ -16,6 +16,7 @@ class FeedVC: UIViewController {
     private var clubCollectionView: UICollectionView!
     private var filterCollectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
+    private let searchController = UISearchController(searchResultsController: nil)
     
     
     // MARK: Properties Data
@@ -32,7 +33,8 @@ class FeedVC: UIViewController {
         super.viewDidLoad()
 //        navigationController?.hidesBarsOnSwipe = true
 
-        
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+        self.navigationItem.searchController = searchController
         self.navigationItem.title = "Organizations"
         self.navigationController?.navigationBar.prefersLargeTitles = false
 
