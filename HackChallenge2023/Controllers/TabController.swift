@@ -33,7 +33,7 @@ class TabController: UITabBarController {
     private func setupTabs(){
         let home = self.createNav(with: "Organizations", and: UIImage(systemName: "person.3.fill"), vc: FeedVC())
         let profile = self.createNav(with: "Saved", and: UIImage(systemName: "star"), vc: ProfileVC())
-        let post = self.createNav(with: "Post", and: UIImage(systemName: "square.and.pencil.circle"), vc: PostAppVC())
+        let post = self.createNav(with: "Post", and: UIImage(systemName: "square.and.pencil"), vc: PostAppVC())
 //        let vc = FeedVC()
 //        vc.tabBarItem.image
         self.setViewControllers([home,profile,post], animated: true)

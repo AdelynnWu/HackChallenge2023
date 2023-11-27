@@ -23,7 +23,7 @@ class ProfileVC: UIViewController {
     //MARK: ViewdidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = "Starred Application"
         self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationController?.hidesBarsOnSwipe = true
@@ -33,9 +33,13 @@ class ProfileVC: UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
             
-            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
-            //UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
-            UIColor(red: 145/255, green: 87/255, blue: 207/255, alpha: 1.0).cgColor,
+            UIColor.hc.gradientCream.cgColor,
+            UIColor.hc.gradientOrange.cgColor,
+            UIColor.hc.gradientPink.cgColor,
+            UIColor.hc.gradientBlue.cgColor
+//            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
+//            //UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
+//            UIColor(red: 145/255, green: 87/255, blue: 207/255, alpha: 1.0).cgColor,
         ]
         view.layer.addSublayer(gradientLayer)
         updateFavorites()
@@ -66,7 +70,8 @@ class ProfileVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
 
             let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+//            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+        appearance.backgroundColor = UIColor.hc.gradientCream
 //            appearance.backgroundColor = UIColor.systemPink
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]

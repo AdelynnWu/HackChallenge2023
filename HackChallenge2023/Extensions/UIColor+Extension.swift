@@ -29,6 +29,19 @@ extension UIColor {
         let ivory = UIColor(red: 241/255, green: 240/255, blue: 232/255, alpha: 1)
 //        let yellowOrange = UIColor(red: 255/255, green: 150/255, blue: 26/255, alpha: 1)
         
+        //priofileVC gradient
+        let gradientCream = UIColor(red: 255/255, green: 237/255, blue: 215/255, alpha: 1)
+        let gradientOrange = UIColor(red: 254/255, green: 222/255, blue: 209/255, alpha: 1)
+        let gradientPink = UIColor(red: 251/255, green: 183/255, blue: 198/255, alpha: 1)
+        let gradientBlue = UIColor(red: 125/255, green: 195/255, blue: 192/255, alpha: 1)
+        
+        //postVC gradient
+        let gradientPink1 = UIColor(red: 255/255, green: 157/255, blue: 157/255, alpha: 1)
+        let gradientPink2 = UIColor(red: 255/255, green: 195/255, blue: 195/255, alpha: 1)
+        let gradientPink3 = UIColor(red: 255/255, green: 210/255, blue: 210/255, alpha: 1)
+        let gradientPink4 = UIColor(red: 255/255, green: 225/255, blue: 225/255, alpha: 1)
+        
+        
     }
 
 }

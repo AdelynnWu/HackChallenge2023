@@ -43,9 +43,10 @@ class PostAppVC: UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
             
-            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
-            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
-            //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+            UIColor.hc.gradientPink1.cgColor,
+            UIColor.hc.gradientPink2.cgColor,
+            UIColor.hc.gradientPink3.cgColor,
+            UIColor.hc.gradientPink4.cgColor
         ]
         view.layer.addSublayer(gradientLayer)
         
@@ -85,7 +86,7 @@ class PostAppVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
 
             let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+            appearance.backgroundColor = UIColor.hc.gradientPink1
 //            appearance.backgroundColor = UIColor.systemPink
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]

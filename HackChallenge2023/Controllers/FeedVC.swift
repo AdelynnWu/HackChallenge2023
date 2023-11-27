@@ -55,9 +55,12 @@ class FeedVC: UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
             
-            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
-            UIColor(red: 87/255, green: 189/255, blue: 207/255, alpha: 1.0).cgColor,
-            UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
+            UIColor.hc.orangePink.cgColor,
+            UIColor.hc.pink.cgColor,
+            UIColor.hc.pastelPink.cgColor
+//            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
+//            UIColor(red: 87/255, green: 189/255, blue: 207/255, alpha: 1.0).cgColor,
+//            UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
             //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
         ]
         view.layer.addSublayer(gradientLayer)
@@ -72,7 +75,8 @@ class FeedVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = false
 
             let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
+        appearance.backgroundColor = UIColor.hc.orangePink
+//            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
  //       appearance.backgroundColor = UIColor.hc.babyBlue
 //            appearance.backgroundColor = UIColor.systemPink
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
