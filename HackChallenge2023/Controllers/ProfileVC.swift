@@ -28,6 +28,16 @@ class ProfileVC: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            
+            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
+            UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
+            UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+        ]
+        view.layer.addSublayer(gradientLayer)
         updateFavorites()
         setupClubCollectionView()
         
@@ -66,6 +76,8 @@ class ProfileVC: UIViewController {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            
+        
     }
     
 //    private func setUpNavigationBar() {
@@ -230,6 +242,7 @@ extension ProfileVC: UICollectionViewDataSource {
 //MARK: UIDelegateFlowLayout
 extension ProfileVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.backgroundColor = UIColor.clear
         return CGSize(width: 327, height: 110)
     }
 }

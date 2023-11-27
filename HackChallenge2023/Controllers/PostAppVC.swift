@@ -39,6 +39,15 @@ class PostAppVC: UIViewController {
         self.navigationItem.title = "Post Application"
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            
+            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
+            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
+            //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+        ]
+        view.layer.addSublayer(gradientLayer)
         
         setupOrgNameLabel()
         setupOrgNameTextField()

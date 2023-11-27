@@ -51,9 +51,19 @@ class FeedVC: UIViewController {
         
 //      fetchData func
 // setup collectionView func
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            
+            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
+            UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
+            //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+        ]
+        view.layer.addSublayer(gradientLayer)
 
         setupFilterCollectionView()
         setupClubCollectionView()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
 
