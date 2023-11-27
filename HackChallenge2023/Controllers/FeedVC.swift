@@ -56,6 +56,7 @@ class FeedVC: UIViewController {
         gradientLayer.colors = [
             
             UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
+            UIColor(red: 87/255, green: 189/255, blue: 207/255, alpha: 1.0).cgColor,
             UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
             //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
         ]
