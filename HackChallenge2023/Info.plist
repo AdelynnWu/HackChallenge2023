@@ -23,13 +23,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>launchscreencolor</string>
-		<key>UIImageName</key>
-		<string>launchscreenlogo</string>
-	</dict>
 	<key>UILaunchScreens</key>
 	<dict>
 		<key>UIDefaultLaunchScreen</key>

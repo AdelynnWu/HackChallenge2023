@@ -27,6 +27,7 @@
 		D83E1C742B07227000B9955F /* DetailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C732B07227000B9955F /* DetailedVC.swift */; };
 		D83E1C762B07228B00B9955F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C752B07228B00B9955F /* ProfileVC.swift */; };
 		D83E1C782B07229E00B9955F /* PostAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C772B07229E00B9955F /* PostAppVC.swift */; };
+		D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8588BFF2B154584007B2BFE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		D83E1C732B07227000B9955F /* DetailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedVC.swift; sourceTree = "<group>"; };
 		D83E1C752B07228B00B9955F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D83E1C772B07229E00B9955F /* PostAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppVC.swift; sourceTree = "<group>"; };
+		D8588BFF2B154584007B2BFE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D83E1C4B2B06923800B9955F /* Assets.xcassets */,
 				D83E1C502B06923800B9955F /* Info.plist */,
 				6045BF602B0DA03C00A9C3AB /* Fonts */,
+				D8588BFF2B154584007B2BFE /* LaunchScreen.storyboard */,
 			);
 			path = HackChallenge2023;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */,
+				D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +386,7 @@
 				INFOPLIST_FILE = HackChallenge2023/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -410,6 +415,7 @@
 				INFOPLIST_FILE = HackChallenge2023/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
