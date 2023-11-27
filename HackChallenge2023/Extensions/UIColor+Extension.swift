@@ -41,7 +41,10 @@ extension UIColor {
         let gradientPink3 = UIColor(red: 255/255, green: 210/255, blue: 210/255, alpha: 1)
         let gradientPink4 = UIColor(red: 255/255, green: 225/255, blue: 225/255, alpha: 1)
         
-        
+        let gradientPink5 = UIColor(red: 250/255, green: 209/255, blue: 215/255, alpha: 1)
+        let gradientDarkPink = UIColor(red: 245/255, green: 177/255, blue: 204/255, alpha: 1)
+        let gradientPurple = UIColor(red: 212/255, green: 178/255, blue: 214/255, alpha: 1)
+        let gradientPurpleBlue = UIColor(red: 171/255, green: 186/255, blue: 229/255, alpha: 1)
     }
 
 }
