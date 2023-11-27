@@ -34,6 +34,7 @@ class ProfileVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         updateFavorites()
         clubCollectionView.reloadData()
     }
@@ -229,7 +230,7 @@ extension ProfileVC: UICollectionViewDataSource {
 //MARK: UIDelegateFlowLayout
 extension ProfileVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 327, height: 103)
+        return CGSize(width: 327, height: 110)
     }
 }
 //MARK: delegate for star butgton
