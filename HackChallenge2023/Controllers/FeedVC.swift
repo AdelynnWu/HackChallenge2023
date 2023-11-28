@@ -58,19 +58,17 @@ class FeedVC: UIViewController {
             UIColor.hc.orangePink.cgColor,
             UIColor.hc.pink.cgColor,
             UIColor.hc.pastelPink.cgColor
-//            UIColor(red: 6/255, green: 137/255, blue: 152/255, alpha: 1.0).cgColor,
-//            UIColor(red: 87/255, green: 189/255, blue: 207/255, alpha: 1.0).cgColor,
-//            UIColor(red: 155/255, green: 255/255, blue: 215/255, alpha: 1.0).cgColor,
-            //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+
         ]
         view.layer.addSublayer(gradientLayer)
 
         setupFilterCollectionView()
         setupClubCollectionView()
+        searchController.searchResultsUpdater = self
         
     }
     override func viewWillAppear(_ animated: Bool) {
-
+        
             super.viewWillAppear(animated)
             navigationController?.navigationBar.prefersLargeTitles = false
 
@@ -87,7 +85,7 @@ class FeedVC: UIViewController {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
+            clubCollectionView.reloadData()
     }
     
     //MARK: Networking
@@ -254,4 +252,22 @@ protocol starredClubsDelegate: AnyObject {
     func updateStarred(clubName: String)
 }
 
+extension FeedVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        
+        if text == ""{
+            selected_clubs = clubs
+        }
+        selected_clubs = clubs.filter({ club in
+            club.club_name.contains(text)
+        })
+        
+
+        clubCollectionView.reloadData()
+
+    }
+
+}
 
