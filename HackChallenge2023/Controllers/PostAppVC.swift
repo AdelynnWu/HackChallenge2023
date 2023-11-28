@@ -18,7 +18,7 @@ class PostAppVC: UIViewController {
     private let uploadImageLabel = UILabel()
     private let uploadImageButton = UIButton()
     private let categoryLabel = UILabel()
-    //category cells?
+    private let categoryTextField = UITextField()
     private let appLinkLabel = UILabel()
     private let appLinkTextField = UITextField()
     private let appDeadlineLabel = UILabel()
@@ -48,13 +48,17 @@ class PostAppVC: UIViewController {
                     //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
                 ]
         view.layer.addSublayer(gradientLayer)
-
+        
+        //pickerView
+        categoryPickerView.delegate = self
+        categoryPickerView.dataSource = self
         
         setupOrgNameLabel()
         setupOrgNameTextField()
         setupUploadImageLabel()
         setupUploadImageButton()
         setupCategoryLabel()
+        setupCategoryTextField()
         setupAppLinkLabel()
         setupAppLinkTextField()
         setupAppDeadlineLabel()
@@ -78,8 +82,9 @@ class PostAppVC: UIViewController {
         }
         
         appDeadlineTextField.inputView = datePicker
-        
+        categoryTextField.inputView = categoryPickerView
     }
+    
     override func viewWillAppear(_ animated: Bool) {
 
             super.viewWillAppear(animated)
@@ -172,6 +177,24 @@ class PostAppVC: UIViewController {
         }
     }
     
+    private func setupCategoryTextField(){
+        categoryTextField.font = .systemFont(ofSize: 14)
+        categoryTextField.layer.borderWidth = 0.2
+        categoryTextField.layer.borderColor = UIColor.hc.black.cgColor
+        categoryTextField.layer.cornerRadius = 10
+        categoryTextField.layer.masksToBounds = true
+        
+        view.addSubview(categoryTextField)
+        
+        categoryTextField.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.bottom).offset(9)
+            make.leading.equalTo(categoryLabel)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+        
+    }
+    
     private func setupAppLinkLabel(){
         appLinkLabel.text = "Application Link*"
         appLinkLabel.textColor = UIColor.hc.black
@@ -181,7 +204,7 @@ class PostAppVC: UIViewController {
         
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
-            make.top.equalTo(categoryLabel.snp.bottom).offset(97)
+            make.top.equalTo(categoryTextField.snp.bottom).offset(12)
         }
     }
     
@@ -307,7 +330,7 @@ class PostAppVC: UIViewController {
         view.addSubview(postButton)
         
         postButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(-10)
+            make.top.equalTo(coffeeChatTextField.snp.bottom).inset(-30)
             make.trailing.equalTo(coffeeChatTextField)
             make.height.equalTo(39)
             make.width.equalTo(81)
@@ -336,3 +359,21 @@ class PostAppVC: UIViewController {
 }
 
 
+extension PostAppVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return filters.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return filters[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = filters[row]
+        categoryTextField.resignFirstResponder()
+    }
+}
