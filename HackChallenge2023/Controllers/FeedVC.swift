@@ -22,7 +22,8 @@ class FeedVC: UIViewController {
     // MARK: Properties Data
     var clubs: [Club] = dummyData
     var selected_clubs: [Club] = dummyData
-    var filter: [String] = filters
+//    var filter: [String] = filters
+    var filter: [Category] = []
     var starredClubs: [String]  {
         UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
     }
@@ -46,11 +47,7 @@ class FeedVC: UIViewController {
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
 //        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
-//        view.backgroundColor = UIColor(red: 31/255, green: 86/255, blue: 171/255, alpha: 1.0)
-//        view.backgroundColor = UIColor(red: 222/255, green: 246/255, blue: 239/255, alpha: 1.0)
         
-//      fetchData func
-// setup collectionView func
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
@@ -65,7 +62,7 @@ class FeedVC: UIViewController {
 
         ]
         view.layer.addSublayer(gradientLayer)
-
+        getFilters()
         setupFilterCollectionView()
         setupClubCollectionView()
         searchController.searchResultsUpdater = self
@@ -94,8 +91,20 @@ class FeedVC: UIViewController {
     
     //MARK: Networking
     
-    //MARK: SetUpViews
+    @objc private func getFilters() {
+        NetworkManager.shared.fetchCategories { [weak self] categories in
+            guard let self = self else { return }
+            self.filter = categories.categories
+            
+            DispatchQueue.main.async {
+                self.filterCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+            
+        } // the thing in the brackets is a function we pass it into completion, it retrieves as posts
+    }
     
+    //MARK: SetUpViews
     
     private func setupFilterCollectionView(){
         
@@ -113,6 +122,10 @@ class FeedVC: UIViewController {
         
         view.addSubview(filterCollectionView)
         
+        
+//        refreshControl.addTarget(self, action: #selector(getFilters), for: .valueChanged)
+//        filterCollectionView.refreshControl = refreshControl
+//
         // Constraints
         filterCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -165,7 +178,7 @@ extension FeedVC: UICollectionViewDelegate {
             navigationController?.pushViewController(detailedVC, animated: true)
             
         } else if collectionView == filterCollectionView {
-            let selectedFilter = self.filter[indexPath.row]
+            let selectedFilter = self.filter[indexPath.row].name
             filterSelected = selectedFilter
             selected_clubs = clubs
             if selectedFilter == "All"{
@@ -195,7 +208,7 @@ extension FeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == filterCollectionView {
             if let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.reuse, for: indexPath) as? FilterCollectionViewCell {
-                let filter = filter[indexPath.row]
+                let filter = filter[indexPath.row].name
                 cell.configure(category: filter, filterSelected: filterSelected)
                 return cell
             }

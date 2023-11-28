@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct Categories: Codable{
-    var category_id: String
+struct Category: Codable {
+    let id: Int
+    let name: String
+}
+
+struct Categories: Codable {
+    let categories: [Category]
 }

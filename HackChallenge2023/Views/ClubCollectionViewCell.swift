@@ -176,12 +176,13 @@ class ClubCollectionViewCell: UICollectionViewCell {
     
     @objc func starClub(){
         UIButton.animate(withDuration: 0.6, animations: {self.starButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
-            UIButton.animate(withDuration: 0.6, animations: {
+            UIButton.animate(withDuration: 0.6, animations: { [self] in
                 self.starButton.transform = CGAffineTransform.identity
+                self.delegate?.updateStarred(clubName: self.clubName)
             })
         }
         )
-        delegate?.updateStarred(clubName: clubName)
+        
     }
     
 //    @objc private func starAnimation(){
