@@ -8,12 +8,22 @@
 import Foundation
 
 struct Club: Codable {
-    var id: String
-    var club_name: String
-    var descriptions: String
-    var app_link: String
-    var club_link: String
-    var category_id: String
-    var deadline: String
-    var imageUrl: String
+    
+    let id: Int
+    let category: Category
+    let title: String
+    let club_name: String
+    let description: String
+    let app_link: String
+    let club_link: String
+    let month: Int
+    let day: Int
+    let year: Int
+    
+//    let deadline: String
+//    var imageUrl: String
+}
+
+struct Clubs: Codable {
+    let applications: [Club]
 }

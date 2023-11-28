@@ -31,7 +31,7 @@ class NetworkManager {
                 switch response.result {
                 case .success(let categories):
                     completion(categories)
-                    print(categories)
+                    
                 case .failure(let error):
                     print("Error in NetworkManager.fetchCategories: \(error.localizedDescription)")
                     
@@ -40,20 +40,20 @@ class NetworkManager {
     }
     
     //fetch applications
-    func fetchClubs(completion: @escaping ([Club]) -> Void) {
+    func fetchClubs(completion: @escaping (Clubs) -> Void) {
         
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
         
-        AF.request(endpoint+"applications/", method: .get)
+        AF.request("http://34.48.50.89/api/applications/", method: .get)
             .validate()
-            .responseDecodable(of: [Club].self, decoder: decoder) { response in
+            .responseDecodable(of: Clubs.self, decoder: decoder) { response in
                 switch response.result {
-                case .success(let club):
-                    completion(club)
+                case .success(let clubs):
+                    completion(clubs)
+                   
                 case .failure(let error):
-                    print("Error in NetworkManager.fetchClub: \(error.localizedDescription)")
-                    completion([])
+                    print("Error in NetworkManager.fetchClub: \(error)")
+
                 }
             }
     }

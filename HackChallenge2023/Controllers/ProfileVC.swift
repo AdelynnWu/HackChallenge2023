@@ -13,12 +13,14 @@ import SnapKit
 class ProfileVC: UIViewController {
     //MARK: PropertiesView
     private var clubCollectionView: UICollectionView!
-    
+    private let refreshControl = UIRefreshControl()
+
     // MARK: Properties Data
-    var clubs: [Club] = dummyData
+    var clubs: [Club] = []
     var starredClubs: [String] = []
-    var selected_clubs: [Club] = dummyData
+    var selected_clubs: [Club] = []
     var favorites = [Club]()
+    
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ class ProfileVC: UIViewController {
             UIColor.hc.gradientPink4.cgColor
         ]
         view.layer.addSublayer(gradientLayer)
+        getClubs()
         updateFavorites()
         setupClubCollectionView()
         
@@ -181,6 +184,21 @@ class ProfileVC: UIViewController {
 ////            self.navigationController?.setToolbarHidden(true, animated: true)
 //        }
 //    }
+    // MARK: Networking
+
+    @objc private func getClubs() {
+        NetworkManager.shared.fetchClubs { [weak self] clubs in
+            guard let self = self else { return }
+            self.clubs = clubs.applications
+            self.selected_clubs = clubs.applications
+            
+            DispatchQueue.main.async {
+                self.clubCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+            
+        } // the thing in the brackets is a function we pass it into completion, it retrieves as posts
+    }
 }
 
 
@@ -266,6 +284,7 @@ extension ProfileVC: starredClubsDelegate{
     
     
     }
+
 
 
 

@@ -20,8 +20,8 @@ class FeedVC: UIViewController {
     
     
     // MARK: Properties Data
-    var clubs: [Club] = dummyData
-    var selected_clubs: [Club] = dummyData
+    var clubs: [Club] = []
+    var selected_clubs: [Club] = []
 //    var filter: [String] = filters
     var filter: [Category] = []
     var starredClubs: [String]  {
@@ -63,6 +63,7 @@ class FeedVC: UIViewController {
         ]
         view.layer.addSublayer(gradientLayer)
         getFilters()
+        getClubs()
         setupFilterCollectionView()
         setupClubCollectionView()
         searchController.searchResultsUpdater = self
@@ -98,6 +99,20 @@ class FeedVC: UIViewController {
             
             DispatchQueue.main.async {
                 self.filterCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+            
+        } // the thing in the brackets is a function we pass it into completion, it retrieves as posts
+    }
+    
+    @objc private func getClubs() {
+        NetworkManager.shared.fetchClubs { [weak self] clubs in
+            guard let self = self else { return }
+            self.clubs = clubs.applications
+            self.selected_clubs = clubs.applications
+            
+            DispatchQueue.main.async {
+                self.clubCollectionView.reloadData()
                 self.refreshControl.endRefreshing()
             }
             
@@ -154,8 +169,8 @@ class FeedVC: UIViewController {
 
         view.addSubview(clubCollectionView)
         
-//        refreshControl.addTarget(self, action: #selector(getRecipe), for: .valueChanged)
-//        clubCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(getClubs), for: .valueChanged)
+        clubCollectionView.refreshControl = refreshControl
         
         // constraints
         clubCollectionView.snp.makeConstraints { make in
@@ -184,7 +199,7 @@ extension FeedVC: UICollectionViewDelegate {
             if selectedFilter == "All"{
                 selected_clubs = clubs
             } else {
-                let ls = clubs.filter ({ $0.category_id == selectedFilter})
+                let ls = clubs.filter ({ $0.category.name == selectedFilter})
                 selected_clubs = ls
             }
             clubCollectionView.reloadData()
@@ -258,6 +273,7 @@ extension FeedVC: starredClubsDelegate{
                 var newStarredClubs = self.starredClubs
                 newStarredClubs.append(clubName)
                 UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+                print(UserDefaults.standard.array(forKey: "starred") as? [String] ?? [])
             }
             clubCollectionView.reloadData()
         }
