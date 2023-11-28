@@ -12,8 +12,7 @@
 		6000E66F2B069821001ACF2C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E66E2B069821001ACF2C /* SDWebImageMapKit */; };
 		6000E6722B069839001ACF2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E6712B069839001ACF2C /* SnapKit */; };
 		603FCC602B095A14002C6BA9 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603FCC5F2B095A14002C6BA9 /* TabController.swift */; };
-		60927BCD2B15861900AD5598 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 60927BCC2B15861900AD5598 /* Fonts */; };
-		60927BCF2B15862C00AD5598 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 60927BCE2B15862C00AD5598 /* Fonts */; };
+		60927BD32B15885D00AD5598 /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */; };
 		D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C422B06923600B9955F /* AppDelegate.swift */; };
 		D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C442B06923600B9955F /* SceneDelegate.swift */; };
 		D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83E1C4B2B06923800B9955F /* Assets.xcassets */; };
@@ -34,9 +33,7 @@
 
 /* Begin PBXFileReference section */
 		603FCC5F2B095A14002C6BA9 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
-		60927BCC2B15861900AD5598 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; sourceTree = "<group>"; };
-		60927BCE2B15862C00AD5598 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; sourceTree = "<group>"; };
-		60927BD12B1586AF00AD5598 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		D83E1C3F2B06923500B9955F /* HackChallenge2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackChallenge2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E1C422B06923600B9955F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D83E1C442B06923600B9955F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,9 +72,7 @@
 		6045BF602B0DA03C00A9C3AB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				60927BD12B1586AF00AD5598 /* Oswald-Regular.ttf */,
-				60927BCC2B15861900AD5598 /* Fonts */,
-				60927BCE2B15862C00AD5598 /* Fonts */,
+				60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -233,10 +228,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60927BCD2B15861900AD5598 /* Fonts in Resources */,
 				D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */,
+				60927BD32B15885D00AD5598 /* Lora-SemiBold.ttf in Resources */,
 				D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */,
-				60927BCF2B15862C00AD5598 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

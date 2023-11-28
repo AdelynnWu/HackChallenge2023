@@ -14,7 +14,7 @@ let dummyData = [
           app_link: "http//somethingsomething",
           club_link: "http//appdevcornell",
           category_id: "Project Team",
-          deadline: "10/16/2024",
+          deadline: "10/11/2024",
           imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiEEtS9X2_cMkLSN6Dq92CzA4WpnmFmRTiBPSy4TYxNUi1q8Dd-oYIqrBBnAUt7xlK9kA&usqp=CAU"
           ),
     Club(id: "asdfasdf2q3q5",
@@ -23,7 +23,7 @@ let dummyData = [
           app_link: "http//somethingsomethinggoogleform",
           club_link: "http//mutualinvestmentcornell",
           category_id: "Business",
-          deadline: "10/16/2024",
+          deadline: "10/12/2024",
           imageUrl: "https://media.licdn.com/dms/image/C560BAQF6BdkkywgBhQ/company-logo_200_200/0/1631391332655?e=2147483647&v=beta&t=tqHePxQsTKsPVgSW7OtZV3oaMSt586YT4QyEVjp32zU"
           ),
     Club(id: "asdfasdf2q3q5",
@@ -32,7 +32,7 @@ let dummyData = [
           app_link: "http//somethingsomething",
           club_link: "http://aguaclara.cornell.edu",
           category_id: "Project Team",
-          deadline: "10/16/2024",
+          deadline: "11/17/2024",
           imageUrl: "https://res.cloudinary.com/scalefunder/image/fetch/s--7ZiRgq59--/f_auto,fl_lossy,q_auto/https://github.com/AguaClara/public_relations/blob/master/AguaClara%2520Official%2520Logo/FINAL%2520LOGO%25202.0.png%3Fraw%3Dtrue"
           ),
     Club(id: "asdfasdf2q3q5",
@@ -41,7 +41,7 @@ let dummyData = [
           app_link: "http//somethingsomethinggoogleform",
           club_link: "http//curobotics",
           category_id: "Project Team",
-          deadline: "10/16/2024",
+          deadline: "10/30/2024",
           imageUrl: "https://combatrobotics.engineering.cornell.edu/images/logo.png"
           ),
     Club(id: "asdfasdf2q3q5",
@@ -50,7 +50,7 @@ let dummyData = [
           app_link: "http//somethingsomething",
           club_link: "http//gvacornell",
           category_id: "Arts",
-          deadline: "10/16/2024",
+          deadline: "10/22/2024",
           imageUrl: "https://ugc.production.linktr.ee/pjRzetioSJiCJKju2qMm_RlCL2tUZlUwDmw5X"
           ),
     Club(id: "asdfasdf2q3q5",
