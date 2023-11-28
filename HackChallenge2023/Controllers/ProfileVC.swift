@@ -72,6 +72,7 @@ class ProfileVC: UIViewController {
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
+            
 
             navigationController?.navigationBar.tintColor = .white
             navigationController?.navigationBar.standardAppearance = appearance
@@ -150,6 +151,7 @@ class ProfileVC: UIViewController {
         clubCollectionView.dataSource = self
         clubCollectionView.alwaysBounceVertical = true
         clubCollectionView.showsVerticalScrollIndicator = false
+        clubCollectionView.backgroundColor = UIColor.clear
 
         view.addSubview(clubCollectionView)
         
