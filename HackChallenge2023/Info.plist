@@ -4,6 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Lora-SemiBold.ttf</string>
+		<string>Karla-SemiBold.ttf</string>
+		<string>Karla.ttf</string>
 		<string>Oswald-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

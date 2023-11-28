@@ -12,6 +12,9 @@
 		6000E66F2B069821001ACF2C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E66E2B069821001ACF2C /* SDWebImageMapKit */; };
 		6000E6722B069839001ACF2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E6712B069839001ACF2C /* SnapKit */; };
 		603FCC602B095A14002C6BA9 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603FCC5F2B095A14002C6BA9 /* TabController.swift */; };
+		60927BC72B156D3A00AD5598 /* Karla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60927BC62B156D3A00AD5598 /* Karla.ttf */; };
+		60927BC92B1570D400AD5598 /* Karla-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60927BC82B1570D400AD5598 /* Karla-SemiBold.ttf */; };
+		60927BCB2B15726C00AD5598 /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60927BCA2B15726C00AD5598 /* Lora-SemiBold.ttf */; };
 		D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C422B06923600B9955F /* AppDelegate.swift */; };
 		D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C442B06923600B9955F /* SceneDelegate.swift */; };
 		D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83E1C4B2B06923800B9955F /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		603FCC5F2B095A14002C6BA9 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		6045BF652B0DA0CD00A9C3AB /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		60927BC62B156D3A00AD5598 /* Karla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Karla.ttf; path = ../../../../../../../Downloads/Karla/Karla.ttf; sourceTree = "<group>"; };
+		60927BC82B1570D400AD5598 /* Karla-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Karla-SemiBold.ttf"; path = "../../../../../../../Downloads/Karla/static/Karla-SemiBold.ttf"; sourceTree = "<group>"; };
+		60927BCA2B15726C00AD5598 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-SemiBold.ttf"; path = "../../../../../../../Downloads/Lora/static/Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		D83E1C3F2B06923500B9955F /* HackChallenge2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackChallenge2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E1C422B06923600B9955F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D83E1C442B06923600B9955F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 		6045BF602B0DA03C00A9C3AB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				60927BCA2B15726C00AD5598 /* Lora-SemiBold.ttf */,
+				60927BC62B156D3A00AD5598 /* Karla.ttf */,
+				60927BC82B1570D400AD5598 /* Karla-SemiBold.ttf */,
 				6045BF652B0DA0CD00A9C3AB /* Oswald-Regular.ttf */,
 			);
 			path = Fonts;
@@ -227,6 +236,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60927BC72B156D3A00AD5598 /* Karla.ttf in Resources */,
+				60927BCB2B15726C00AD5598 /* Lora-SemiBold.ttf in Resources */,
+				60927BC92B1570D400AD5598 /* Karla-SemiBold.ttf in Resources */,
 				D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */,
 				D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */,
 			);

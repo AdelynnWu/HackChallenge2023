@@ -30,16 +30,16 @@ class ClubCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         // Do any additional setup after loading the view.
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
         self.layer.cornerRadius = 10
 //        self.layer.borderWidth = 2
 //        self.layer.borderColor = UIColor.hc.offWhite.cgColor
         
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        layer.shadowRadius = 2.0
-        layer.shadowOpacity = 0.5
-        layer.masksToBounds = false
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+//        layer.shadowRadius = 2.0
+//        layer.shadowOpacity = 0.5
+//        layer.masksToBounds = false
         
         
         setUpImage()
@@ -98,7 +98,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
     
     private func setUpClubName(){
         club_name.textColor = UIColor.hc.black
-        club_name.font = .systemFont(ofSize: 16, weight: .semibold)
+        //club_name.font = .systemFont(ofSize: 16, weight: .semibold)
+        club_name.font = UIFont(name: "Lora-SemiBold", size:16)
         club_name.numberOfLines = 1
         
         contentView.addSubview(club_name)
