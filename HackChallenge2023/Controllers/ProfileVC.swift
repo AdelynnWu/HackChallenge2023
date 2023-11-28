@@ -33,9 +33,10 @@ class ProfileVC: UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
             
-            UIColor.hc.orangePink.cgColor,
-            UIColor.hc.pink.cgColor,
-            UIColor.hc.pastelPink.cgColor
+            UIColor.hc.gradientPink1.cgColor,
+            UIColor.hc.gradientPink2.cgColor,
+            UIColor.hc.gradientPink3.cgColor,
+            UIColor.hc.gradientPink4.cgColor
         ]
         view.layer.addSublayer(gradientLayer)
         updateFavorites()
@@ -67,7 +68,7 @@ class ProfileVC: UIViewController {
 
             let appearance = UINavigationBarAppearance()
 //            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
-        appearance.backgroundColor = UIColor.hc.orangePink
+        appearance.backgroundColor = UIColor.hc.gradientPink1
 //            appearance.backgroundColor = UIColor.systemPink
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]

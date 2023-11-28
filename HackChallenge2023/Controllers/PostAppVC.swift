@@ -104,10 +104,10 @@ class PostAppVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
 
             let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.hc.orangePink
+        appearance.backgroundColor = UIColor.hc.white
 //            appearance.backgroundColor = UIColor.systemPink
-            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         
 
             navigationController?.navigationBar.tintColor = .white
