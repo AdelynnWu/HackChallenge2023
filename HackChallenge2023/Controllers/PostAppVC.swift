@@ -30,6 +30,18 @@ class PostAppVC: UIViewController {
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
     
+    private let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = UIColor.hc.white
+        return sv
+    }()
+    
+    private let contentView: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.hc.white
+        return v
+    }()
+    
     // MARK: - Properties Data
     private let categories = filters
     
@@ -53,6 +65,7 @@ class PostAppVC: UIViewController {
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
         
+        setupUI()
         setupOrgNameLabel()
         setupOrgNameTextField()
         setupUploadImageLabel()
@@ -76,7 +89,7 @@ class PostAppVC: UIViewController {
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.minimumDate = Date()
         if #available(iOS 14.0, *) {
-            datePicker.preferredDatePickerStyle = .inline
+            datePicker.preferredDatePickerStyle = .wheels
         } else {
             // Fallback on earlier versions
         }
@@ -106,6 +119,23 @@ class PostAppVC: UIViewController {
     // MARK: - Networking
     
     // MARK: - setup views
+    
+    private func setupUI(){
+        self.view.backgroundColor = UIColor.hc.white
+        
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView.snp.width)
+            make.height.equalTo(scrollView.snp.height).multipliedBy(2)
+        }
+        
+    }
+    
     private func setupOrgNameLabel(){
         orgNameLabel.text = "Organization Name*"
         orgNameLabel.textColor = UIColor.hc.black
@@ -114,7 +144,7 @@ class PostAppVC: UIViewController {
         view.addSubview(orgNameLabel)
         
         orgNameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -203,7 +233,7 @@ class PostAppVC: UIViewController {
         view.addSubview(appLinkLabel)
         
         appLinkLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(categoryTextField.snp.bottom).offset(12)
         }
     }
@@ -218,7 +248,7 @@ class PostAppVC: UIViewController {
         view.addSubview(appLinkTextField)
         
         appLinkTextField.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(appLinkLabel.snp.bottom).offset(9)
             make.height.equalTo(33)
             make.width.equalTo(328)
@@ -233,7 +263,7 @@ class PostAppVC: UIViewController {
         view.addSubview(appDeadlineLabel)
         
         appDeadlineLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(appLinkTextField.snp.bottom).offset(12)
         }
         
@@ -250,7 +280,7 @@ class PostAppVC: UIViewController {
         view.addSubview(appDeadlineTextField)
         
         appDeadlineTextField.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(appDeadlineLabel.snp.bottom).offset(9)
             make.height.equalTo(33)
             make.width.equalTo(328)
@@ -265,7 +295,7 @@ class PostAppVC: UIViewController {
         view.addSubview(websiteLinkLabel)
         
         websiteLinkLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(appDeadlineTextField.snp.bottom).offset(12)
         }
     }
@@ -281,7 +311,7 @@ class PostAppVC: UIViewController {
         view.addSubview(websiteLinkTextfield)
         
         websiteLinkTextfield.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(websiteLinkLabel.snp.bottom).offset(9)
             make.height.equalTo(33)
             make.width.equalTo(328)
@@ -296,7 +326,7 @@ class PostAppVC: UIViewController {
         view.addSubview(coffeeChatLabel)
         
         coffeeChatLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(websiteLinkTextfield.snp.bottom).offset(12)
         }
     }
@@ -312,7 +342,7 @@ class PostAppVC: UIViewController {
         view.addSubview(coffeeChatTextField)
         
         coffeeChatTextField.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
+            make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(coffeeChatLabel.snp.bottom).offset(9)
             make.height.equalTo(33)
             make.width.equalTo(328)

@@ -74,7 +74,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
             starButton.tintColor = UIColor.hc.gray
         }
         
-//        starButton.addTarget(self, action: #selector(starAnimation), for: .touchUpInside)
+        starButton.addTarget(self, action: #selector(starClub), for: .touchUpInside)
 
     }
     
@@ -175,24 +175,23 @@ class ClubCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func starClub(){
-     
-        delegate?.updateStarred(clubName: clubName)
         UIButton.animate(withDuration: 0.6, animations: {self.starButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
             UIButton.animate(withDuration: 0.6, animations: {
                 self.starButton.transform = CGAffineTransform.identity
             })
         }
         )
+        delegate?.updateStarred(clubName: clubName)
     }
     
-    @objc private func starAnimation(){
-        UIButton.animate(withDuration: 0.6, animations: {self.starButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
-            UIButton.animate(withDuration: 0.6, animations: {
-                self.starButton.transform = CGAffineTransform.identity
-            })
-        }
-        )
-    }
+//    @objc private func starAnimation(){
+//        UIButton.animate(withDuration: 0.6, animations: {self.starButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
+//            UIButton.animate(withDuration: 0.6, animations: {
+//                self.starButton.transform = CGAffineTransform.identity
+//            })
+//        }
+//        )
+//    }
     
 }
 
