@@ -54,7 +54,7 @@ class FeedVC: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
-            
+
             UIColor.hc.orangePink.cgColor,
             UIColor.hc.pink.cgColor,
             UIColor.hc.pastelPink.cgColor
@@ -198,6 +198,7 @@ extension FeedVC: UICollectionViewDataSource {
         }
         else if collectionView == clubCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCollectionViewCell.reuse, for: indexPath) as? ClubCollectionViewCell{
+                
                 let clubs = selected_clubs[indexPath.row]
                 var isStarred = self.starredClubs.contains(clubs.club_name)
                 cell.delegate = self

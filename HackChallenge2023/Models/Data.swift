@@ -7,18 +7,21 @@
 
 import Foundation
 
+//let dateFormatter = DateFormatter()
+//dateFormatter.dateFormat = "MM/dd/yyyy"
+
 let dummyData = [
     Club(id: "asdfasdf2q3q5",
-          club_name: "Cornell AppDev",
-          descriptions: "Recruiting for all positions no first semester freshmen",
-          app_link: "http//somethingsomething",
-          club_link: "http//appdevcornell",
-          category_id: "Project Team",
-          deadline: "10/11/2024",
-          imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiEEtS9X2_cMkLSN6Dq92CzA4WpnmFmRTiBPSy4TYxNUi1q8Dd-oYIqrBBnAUt7xlK9kA&usqp=CAU"
-          ),
+         club_name: "Cornell AppDev",
+         descriptions: "Recruiting for all positions no first semester freshmen",
+         app_link: "http//somethingsomething",
+         club_link: "http//appdevcornell",
+         category_id: "Project Team",
+         deadline: "10/11/2024",
+         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiEEtS9X2_cMkLSN6Dq92CzA4WpnmFmRTiBPSy4TYxNUi1q8Dd-oYIqrBBnAUt7xlK9kA&usqp=CAU"
+        ),
     Club(id: "asdfasdf2q3q5",
-          club_name: "Mutual Investment Club",
+         club_name: "Mutual Investment Club",
           descriptions: "Recruiting for junior analysts",
           app_link: "http//somethingsomethinggoogleform",
           club_link: "http//mutualinvestmentcornell",
