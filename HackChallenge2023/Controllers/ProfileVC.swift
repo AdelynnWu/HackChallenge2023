@@ -23,7 +23,7 @@ class ProfileVC: UIViewController {
     //MARK: ViewdidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Starred Application"
+        self.navigationItem.title = "Saved"
         self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationController?.hidesBarsOnSwipe = true

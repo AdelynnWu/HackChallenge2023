@@ -25,7 +25,7 @@ class TabController: UITabBarController {
 
 //        self.tabBar.tintColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
         
-        self.tabBar.tintColor = UIColor.systemPink
+        self.tabBar.tintColor = UIColor.hc.orangeRed
         self.tabBar.isTranslucent = false
 //        self.tabBar.backgroundColor = UIColor.hc.babyBlue
         
@@ -39,7 +39,7 @@ class TabController: UITabBarController {
     
     private func setupTabs(){
         let home = self.createNav(with: "Organizations", and: UIImage(systemName: "person.3.fill"), vc: FeedVC())
-        let profile = self.createNav(with: "Saved", and: UIImage(systemName: "star"), vc: ProfileVC())
+        let profile = self.createNav(with: "Saved", and: UIImage(systemName: "star.fill"), vc: ProfileVC())
         let post = self.createNav(with: "Post", and: UIImage(systemName: "square.and.pencil"), vc: PostAppVC())
 //        let vc = FeedVC()
 //        vc.tabBarItem.image
