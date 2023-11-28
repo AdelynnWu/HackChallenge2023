@@ -24,7 +24,15 @@ class DetailedVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.hc.white
-        
+        let gradientLayer = CAGradientLayer()
+                gradientLayer.frame = view.bounds
+                gradientLayer.colors = [
+
+                    UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
+                    UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor,
+                    //UIColor(red: 174/255, green: 93/255, blue: 246/255, alpha: 1.0).cgColor,
+                ]
+        view.layer.addSublayer(gradientLayer)
     }
     
     init() {
