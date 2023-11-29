@@ -23,6 +23,7 @@ class ProfileVC: UIViewController {
     
     
     //MARK: ViewdidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Saved"
@@ -44,7 +45,7 @@ class ProfileVC: UIViewController {
         getClubs()
         updateFavorites()
         setupClubCollectionView()
-        
+        clubCollectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,8 +83,9 @@ class ProfileVC: UIViewController {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            clubCollectionView.reloadData()
+
             
-        
     }
     
 //    private func setUpNavigationBar() {

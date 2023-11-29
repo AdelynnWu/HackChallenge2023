@@ -37,7 +37,7 @@ class DetailedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = UIColor.hc.white
         let gradientLayer = CAGradientLayer()
                 gradientLayer.frame = view.bounds
