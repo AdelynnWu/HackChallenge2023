@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 import SDWebImage
+import SafariServices
 
 // for detailed page of the application/club
 
@@ -22,6 +23,7 @@ class DetailedVC: UIViewController {
     private let year = UILabel()
     private let deadline = UILabel()
     private let image = UIImageView()
+    
     private let app_link = UILabel()
     private let club_link = UILabel()
     private let deadlineLabel = UILabel()
@@ -34,7 +36,12 @@ class DetailedVC: UIViewController {
     private let websiteIconView = UIImageView()
     private let chat_link = UILabel()
     private let chat_label = UILabel()
-    
+    private let app_button = UIButton()
+    private let website_button = UIButton()
+    private let chat_button = UIButton()
+    private let website_descrip = UILabel()
+    private let chat_descrip = UILabel()
+    private let category_label = UILabel()
     // MARK: - Properties (data)
     var club: Club
     
@@ -58,19 +65,21 @@ class DetailedVC: UIViewController {
         
         setUpImage()
         setUpClubName()
+        //setUpCategoryLabel()
         setUpDescription()
-        setUpAppIconView()
-        setUpDeadLineLabel()
-        setUpDeadline()
+
         setUpApplicationIconView()
         setUpAppLinkLabel()
-        setUpAppLink()
+        setUpDeadline()
+        setUpAppButton()
         setUpClubIconView()
         setUpClubLinkLabel()
-        setUpClublink()
+        setUpWebsiteDescrip()
+        setUpClubButton()
         setUpChatIcon()
         setUpCoffeeChatLabel()
-        setUpCoffeeChatLink()
+        setUpChatDescrip()
+        setUpCoffeeButton()
    
         
         
@@ -80,7 +89,7 @@ class DetailedVC: UIViewController {
         appearance.backgroundColor = UIColor.clear
     }
     
-    init(club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,club: Club) {
+    init(club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,category: Category,club: Club) {
         
         self.image.sd_setImage(with: URL(string: club.image_link))
 
@@ -94,6 +103,7 @@ class DetailedVC: UIViewController {
         self.app_link.text = app_link
         self.club_link.text = club_link
         self.chat_link.text = chat_link
+//       self.category_label.text = category as! String
         self.club = club
         super.init(nibName: nil, bundle: nil)
     }
@@ -134,6 +144,24 @@ class DetailedVC: UIViewController {
             make.top.equalTo(image.snp.bottom).offset(10)
         }
     }
+    private func setUpCategoryLabel() {
+        category_label.backgroundColor = UIColor.hc.white
+        category_label.layer.cornerRadius = 20
+        category_label.layer.borderWidth = 1
+        category_label.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        category_label.textColor = UIColor.hc.orangeRed
+        category_label.font = .systemFont(ofSize: 10, weight: .semibold)
+    
+
+        view.addSubview(category_label)
+        
+        category_label.snp.makeConstraints { make in
+            make.top.equalTo(image.snp.bottom).offset(24)
+            make.leading.equalTo(club_name.snp.trailing).offset(12)
+            make.height.equalTo(20)
+            make.width.equalTo(78)
+        }
+    }
     private func setUpDescription() {
         descriptions.font = .systemFont(ofSize: 14)
         descriptions.numberOfLines = 10
@@ -147,28 +175,54 @@ class DetailedVC: UIViewController {
             make.top.equalTo(club_name.snp.bottom).offset(12)
         }
     }
-    private func setUpAppIconView() {
-        appIconView.image = UIImage(systemName: "clock")
-        appIconView.tintColor = UIColor.hc.gray
+//    private func setUpAppIconView() {
+//        appIconView.image = UIImage(systemName: "clock")
+//        appIconView.tintColor = UIColor.hc.gray
+//
+//        view.addSubview(appIconView)
+//
+//        appIconView.snp.makeConstraints {make in
+//            make.top.equalTo(descriptions.snp.bottom).offset(60)
+//            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
+//            make.size.equalTo(20)
+//        }
+//    }
+//    private func setUpDeadLineLabel() {
+//        deadlineLabel.textColor = UIColor.hc.black
+//        deadlineLabel.text = "Deadline"
+//        deadlineLabel.font = UIFont(name: "Lora-SemiBold", size:20)
+//        deadlineLabel.numberOfLines = 1
+//
+//        view.addSubview(deadlineLabel)
+//
+//        deadlineLabel.snp.makeConstraints { make in
+//            make.leading.equalTo(appIconView.snp.trailing).offset(3)
+//            make.trailing.equalToSuperview().inset(10)
+//            make.top.equalTo(descriptions.snp.bottom).offset(60)
+//        }
+//    }
+
+    private func setUpApplicationIconView() {
+        applicationIconView.image = UIImage(systemName: "square.and.pencil")
+        applicationIconView.tintColor = UIColor.hc.gray
         
-        view.addSubview(appIconView)
+        view.addSubview(applicationIconView)
         
-        appIconView.snp.makeConstraints {make in
+        applicationIconView.snp.makeConstraints {make in
             make.top.equalTo(descriptions.snp.bottom).offset(60)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
     }
-    private func setUpDeadLineLabel() {
-        deadlineLabel.textColor = UIColor.hc.black
-        deadlineLabel.text = "Application"
-        deadlineLabel.font = UIFont(name: "Lora-SemiBold", size:20)
-        deadlineLabel.numberOfLines = 1
+    private func setUpAppLinkLabel() {
+        appLinkLabel.text = "Application "
+        appLinkLabel.font = UIFont(name: "Lora-SemiBold", size:20)
+        appLinkLabel.numberOfLines = 1
         
-        view.addSubview(deadlineLabel)
+        view.addSubview(appLinkLabel)
         
-        deadlineLabel.snp.makeConstraints { make in
-            make.leading.equalTo(appIconView.snp.trailing).offset(3)
+        appLinkLabel.snp.makeConstraints { make in
+            make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
             make.trailing.equalToSuperview().inset(10)
             make.top.equalTo(descriptions.snp.bottom).offset(60)
         }
@@ -184,46 +238,26 @@ class DetailedVC: UIViewController {
         deadline.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(deadlineLabel.snp.bottom).offset(8)
+            make.top.equalTo(appLinkLabel.snp.bottom).offset(8)
         }
     }
-    private func setUpApplicationIconView() {
-        applicationIconView.image = UIImage(systemName: "square.and.pencil")
-        applicationIconView.tintColor = UIColor.hc.gray
+    private func setUpAppButton() {
+        app_button.backgroundColor = UIColor.hc.white
+        app_button.layer.cornerRadius = 20
+        app_button.layer.borderWidth = 1
+        app_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        app_button.setTitle("Application link", for: .normal)
+        app_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        app_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        app_button.addTarget(self, action: #selector(selectorApp), for: .touchUpInside)
+
+        view.addSubview(app_button)
         
-        view.addSubview(applicationIconView)
-        
-        applicationIconView.snp.makeConstraints {make in
+        app_button.snp.makeConstraints { make in
             make.top.equalTo(deadline.snp.bottom).offset(24)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.size.equalTo(20)
-        }
-    }
-    private func setUpAppLinkLabel() {
-        appLinkLabel.text = "Application "
-        appLinkLabel.font = UIFont(name: "Lora-SemiBold", size:20)
-        appLinkLabel.numberOfLines = 1
-        
-        view.addSubview(appLinkLabel)
-        
-        appLinkLabel.snp.makeConstraints { make in
-            make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
-            make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(deadline.snp.bottom).offset(24)
-        }
-    }
-    private func setUpAppLink() {
-        app_link.font = UIFont(name: "Lora-SemiBold", size:15)
-        app_link.textColor = UIColor.blue
-        app_link.numberOfLines = 4
-        app_link.lineBreakMode = .byWordWrapping
-        
-        view.addSubview(app_link)
-        
-        app_link.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(appLinkLabel.snp.bottom).offset(24)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.height.equalTo(40)
+            make.width.equalTo(187)
         }
     }
     private func setUpClubIconView() {
@@ -233,7 +267,7 @@ class DetailedVC: UIViewController {
         view.addSubview(websiteIconView)
         
         websiteIconView.snp.makeConstraints {make in
-            make.top.equalTo(app_link.snp.bottom).offset(7)
+            make.top.equalTo(app_button.snp.bottom).offset(7)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -248,21 +282,40 @@ class DetailedVC: UIViewController {
         clubLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(websiteIconView.snp.trailing).offset(3)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(app_link.snp.bottom).offset(7)
+            make.top.equalTo(app_button.snp.bottom).offset(7)
         }
     }
-    private func setUpClublink() {
-        club_link.font = UIFont(name: "Lora-SemiBold", size:15)
-        club_link.textColor = UIColor.blue
-        club_link.numberOfLines = 4
-        club_link.lineBreakMode = .byWordWrapping
+    private func setUpWebsiteDescrip(){
+        website_descrip.text = "Visit our website for more info"
+        website_descrip.textColor = UIColor.gray
+        website_descrip.font = UIFont(name: "Lora-SemiBold", size:12)
+        website_descrip.numberOfLines = 1
         
-        view.addSubview(club_link)
+        view.addSubview(website_descrip)
         
-        club_link.snp.makeConstraints { make in
+        website_descrip.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(clubLinkLabel.snp.bottom).offset(7)
+            make.top.equalTo(clubLinkLabel.snp.bottom).offset(8)
+        }
+    }
+    private func setUpClubButton() {
+        website_button.backgroundColor = UIColor.hc.white
+        website_button.layer.cornerRadius = 20
+        website_button.layer.borderWidth = 1
+        website_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        website_button.setTitle("Website Link", for: .normal)
+        website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        website_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        website_button.addTarget(self, action: #selector(selectorWebsite), for: .touchUpInside)
+
+        view.addSubview(website_button)
+        
+        website_button.snp.makeConstraints { make in
+            make.top.equalTo(website_descrip.snp.bottom).offset(27)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.height.equalTo(40)
+            make.width.equalTo(187)
         }
     }
     private func setUpChatIcon() {
@@ -272,7 +325,7 @@ class DetailedVC: UIViewController {
         view.addSubview(coffeeIconView)
         
         coffeeIconView.snp.makeConstraints {make in
-            make.top.equalTo(club_link.snp.bottom).offset(7)
+            make.top.equalTo(website_button.snp.bottom).offset(7)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -287,24 +340,72 @@ class DetailedVC: UIViewController {
         chat_label.snp.makeConstraints { make in
             make.leading.equalTo(coffeeIconView.snp.trailing).offset(3)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(club_link.snp.bottom).offset(7)
+            make.top.equalTo(website_button.snp.bottom).offset(7)
         }
     }
-    private func setUpCoffeeChatLink() {
-        chat_link.font = UIFont(name: "Lora-SemiBold", size:15)
-        chat_link.textColor = UIColor.blue
-        chat_link.numberOfLines = 4
-        chat_link.lineBreakMode = .byWordWrapping
+    private func setUpChatDescrip() {
+        chat_descrip.text = "Sign up for a coffee chat and get paired with a member"
+        chat_descrip.textColor = UIColor.gray
+        chat_descrip.font = UIFont(name: "Lora-SemiBold", size:12)
+        chat_descrip.numberOfLines = 1
         
-        view.addSubview(chat_link)
+        view.addSubview(chat_descrip)
         
-        chat_link.snp.makeConstraints { make in
+        chat_descrip.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(chat_label.snp.bottom).offset(7)
+            make.top.equalTo(chat_label.snp.bottom).offset(8)
         }
     }
+    
+    private func setUpCoffeeButton() {
+        chat_button.backgroundColor = UIColor.hc.white
+        chat_button.layer.cornerRadius = 20
+        chat_button.layer.borderWidth = 1
+        chat_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        chat_button.setTitle("Coffee Chat Link", for: .normal)
+        chat_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        chat_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        chat_button.addTarget(self, action: #selector(selectorCoffee), for: .touchUpInside)
 
+        view.addSubview(chat_button)
+        
+        chat_button.snp.makeConstraints { make in
+            make.top.equalTo(chat_descrip.snp.bottom).offset(27)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.height.equalTo(40)
+            make.width.equalTo(187)
+        }
+    }
+  
+    
+    @objc func selectorApp() {
+        if let url = URL(string: app_link.text!)
+     {
+
+       let safariVC = SFSafariViewController(url: url)
+       present(safariVC, animated: true, completion: nil)
+
+     }
+    }
+    @objc func selectorWebsite() {
+        if let url = URL(string: club_link.text!)
+     {
+
+       let safariVC = SFSafariViewController(url: url)
+       present(safariVC, animated: true, completion: nil)
+
+     }
+    }
+    @objc func selectorCoffee() {
+        if let url = URL(string: chat_link.text!)
+     {
+
+       let safariVC = SFSafariViewController(url: url)
+       present(safariVC, animated: true, completion: nil)
+
+     }
+    }
 
     
 }
