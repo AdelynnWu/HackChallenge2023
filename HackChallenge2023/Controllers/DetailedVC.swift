@@ -42,6 +42,18 @@ class DetailedVC: UIViewController {
     private let website_descrip = UILabel()
     private let chat_descrip = UILabel()
     private let category_label = UILabel()
+    private let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = UIColor.hc.white
+        return sv
+    }()
+    
+    private let contentView: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.hc.white
+        return v
+    }()
+    
     // MARK: - Properties (data)
     var club: Club
     
@@ -62,7 +74,7 @@ class DetailedVC: UIViewController {
                 ]
         view.layer.addSublayer(gradientLayer)
         
-        
+        setupUI()
         setUpImage()
         setUpClubName()
         //setUpCategoryLabel()
@@ -114,19 +126,36 @@ class DetailedVC: UIViewController {
     }
     
     // MARK: - setup views
+    
+    private func setupUI(){
+        self.view.backgroundColor = UIColor.hc.white
+        
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView.snp.width)
+            make.height.equalTo(scrollView.snp.height).multipliedBy(2)
+        }
+        
+    }
+    
     private func setUpImage() {
         image.contentMode = .scaleAspectFit
 //        image.layer.cornerRadius = 10
 //        image.clipsToBounds = true
         
-        view.addSubview(image)
+       view.addSubview(image)
         
         image.snp.makeConstraints {make in
 //            make.leading.equalToSuperview().offset(10)
 //            make.top.equalToSuperview().offset(26.5)
 //            make.size.equalTo(50)
-            make.top.equalToSuperview().offset(200)
-            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(contentView).offset(200)
+            make.leading.equalTo(contentView).offset(24)
             make.size.equalTo(70)
         }
     }
@@ -139,8 +168,8 @@ class DetailedVC: UIViewController {
         view.addSubview(club_name)
         
         club_name.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(contentView).offset(24)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(image.snp.bottom).offset(10)
         }
     }
@@ -170,8 +199,8 @@ class DetailedVC: UIViewController {
         view.addSubview(descriptions)
         
         descriptions.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(club_name.snp.bottom).offset(12)
         }
     }
@@ -210,7 +239,7 @@ class DetailedVC: UIViewController {
         
         applicationIconView.snp.makeConstraints {make in
             make.top.equalTo(descriptions.snp.bottom).offset(60)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
     }
@@ -223,7 +252,7 @@ class DetailedVC: UIViewController {
         
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(descriptions.snp.bottom).offset(60)
         }
     }
@@ -236,8 +265,8 @@ class DetailedVC: UIViewController {
         view.addSubview(deadline)
         
         deadline.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(appLinkLabel.snp.bottom).offset(8)
         }
     }
@@ -255,7 +284,7 @@ class DetailedVC: UIViewController {
         
         app_button.snp.makeConstraints { make in
             make.top.equalTo(deadline.snp.bottom).offset(24)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
         }
@@ -268,7 +297,7 @@ class DetailedVC: UIViewController {
         
         websiteIconView.snp.makeConstraints {make in
             make.top.equalTo(app_button.snp.bottom).offset(7)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
     }
@@ -281,7 +310,7 @@ class DetailedVC: UIViewController {
         
         clubLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(websiteIconView.snp.trailing).offset(3)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(app_button.snp.bottom).offset(7)
         }
     }
@@ -294,8 +323,8 @@ class DetailedVC: UIViewController {
         view.addSubview(website_descrip)
         
         website_descrip.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(clubLinkLabel.snp.bottom).offset(8)
         }
     }
@@ -313,7 +342,7 @@ class DetailedVC: UIViewController {
         
         website_button.snp.makeConstraints { make in
             make.top.equalTo(website_descrip.snp.bottom).offset(27)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
         }
@@ -326,7 +355,7 @@ class DetailedVC: UIViewController {
         
         coffeeIconView.snp.makeConstraints {make in
             make.top.equalTo(website_button.snp.bottom).offset(7)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
     }
@@ -339,7 +368,7 @@ class DetailedVC: UIViewController {
         
         chat_label.snp.makeConstraints { make in
             make.leading.equalTo(coffeeIconView.snp.trailing).offset(3)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(website_button.snp.bottom).offset(7)
         }
     }
@@ -352,8 +381,8 @@ class DetailedVC: UIViewController {
         view.addSubview(chat_descrip)
         
         chat_descrip.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(24)
-            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
+            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(chat_label.snp.bottom).offset(8)
         }
     }
@@ -372,7 +401,7 @@ class DetailedVC: UIViewController {
         
         chat_button.snp.makeConstraints { make in
             make.top.equalTo(chat_descrip.snp.bottom).offset(27)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(92)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
         }
