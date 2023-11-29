@@ -58,7 +58,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     func configure(club: Club, starred: Bool){
         self.clubName = club.club_name
         
-//        image.sd_setImage(with: URL(string: club.imageUrl))
+        image.sd_setImage(with: URL(string: club.image_link))
         club_name.text = club.club_name
         descriptions.text = club.description
         deadline.text = String(club.month)+"/"+String(club.day)+"/"+String(club.year)

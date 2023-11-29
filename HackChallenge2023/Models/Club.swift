@@ -16,6 +16,8 @@ struct Club: Codable {
     let description: String
     let app_link: String
     let club_link: String
+    let image_link: String
+    let chat_link: String
     let month: Int
     let day: Int
     let year: Int
