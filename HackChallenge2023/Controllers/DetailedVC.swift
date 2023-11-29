@@ -15,6 +15,14 @@ import SDWebImage
 class DetailedVC: UIViewController {
     
     // MARK: - Properties (views)
+    private let club_name = UILabel()
+    private let descriptions = UILabel()
+    private let deadline = UILabel()
+    private let image = UIImageView()
+    private let app_link = UILabel()
+    private let club_link = UILabel()
+    
+    private var club: Club?
     
     // MARK: - Properties (data)
     
@@ -47,6 +55,20 @@ class DetailedVC: UIViewController {
     }
     
     // MARK: - setup views
-    
+    private func setUpImage() {
+        
+    }
+    private func setUpClubName() {
+        
+    }
+    private func setUpDeadline(){
+        
+    }
+    private func setUpDescription() {
+        
+    }
+    private func setUpAppLink() {
+        
+    }
     
 }

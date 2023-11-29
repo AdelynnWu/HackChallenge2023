@@ -58,26 +58,36 @@ class NetworkManager {
             }
     }
     
-    func addToClub(newClub: Club, completion: @escaping (Bool) -> Void) {
+    func addToClub(newClub: Club, completion: @escaping (Club) -> Void) {
+        let endpoint = "http://34.48.50.89/api/applications/"
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
         // encoding into json format
-        let message: Parameters = [
-            "message": message
+        let parameters: Parameters = [
+            "category": newClub.category,
+            "title": newClub.title,
+            "club_name": newClub.club_name,
+            "description": newClub.description,
+            "app_link": newClub.app_link,
+            "club_link": newClub.club_link,
+            "month": newClub.month,
+            "day": newClub.day,
+            "year": newClub.year
+            
         ]
         
-        AF.request(endpoint+"/api/posts/create/", method: .post, parameters: message)
+        AF.request(endpoint, method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: Club.self, decoder: decoder) { response in
                 switch response.result{
-                case .success:
-                    print("Successfully added to clubs")
-                    completion(true)
+                case .success(let newClub):
+                    print("Successfully added to clubs \(newClub.club_name)")
+                    completion(newClub)
                 case .failure(let error):
-                    print("Error in NetworkManager.addToPost: \(error.localizedDescription)")
-                    completion(false)
+                    print("Error in NetworkManager.addToClub: \(error.localizedDescription)")
+                   
                 }
             }
         

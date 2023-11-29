@@ -273,7 +273,7 @@ extension FeedVC: starredClubsDelegate{
                 var newStarredClubs = self.starredClubs
                 newStarredClubs.append(clubName)
                 UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
-                print(UserDefaults.standard.array(forKey: "starred") as? [String] ?? [])
+//                print(UserDefaults.standard.array(forKey: "starred") as? [String] ?? [])
             }
             clubCollectionView.reloadData()
         }

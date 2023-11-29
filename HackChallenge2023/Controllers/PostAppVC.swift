@@ -27,6 +27,8 @@ class PostAppVC: UIViewController {
     private let websiteLinkTextfield = UITextField()
     private let coffeeChatLabel = UILabel()
     private let coffeeChatTextField = UITextField()
+    private let descriptionLabel = UILabel()
+    private let descriptionTextField = UITextField()
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
     
@@ -80,6 +82,8 @@ class PostAppVC: UIViewController {
         setupWebsiteLinkTextField()
         setupCoffeeChatLabel()
         setupCoffeeChatTextField()
+        setupDescriptionLabel()
+        setupDescriptionTextField()
         setupPostButton()
         
         //Date Picker
@@ -348,6 +352,35 @@ class PostAppVC: UIViewController {
             make.width.equalTo(328)
         }
     }
+    private func setupDescriptionLabel(){
+        descriptionLabel.text = "Coffee Chat Registration Link"
+        descriptionLabel.textColor = UIColor.hc.black
+        descriptionLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(descriptionLabel)
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).offset(24)
+            make.top.equalTo(coffeeChatTextField.snp.bottom).offset(12)
+        }
+    }
+    private func setupDescriptionTextField(){
+        descriptionTextField.placeholder = "optional"
+        descriptionTextField.font = .systemFont(ofSize: 14)
+        descriptionTextField.layer.borderWidth = 0.2
+        descriptionTextField.layer.borderColor = UIColor.hc.black.cgColor
+        descriptionTextField.layer.cornerRadius = 10
+        descriptionTextField.layer.masksToBounds = true
+        
+        view.addSubview(descriptionTextField)
+        
+        descriptionTextField.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).offset(24)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(9)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
     
     private func setupPostButton(){
         postButton.backgroundColor = UIColor.hc.orangeRed
@@ -360,8 +393,8 @@ class PostAppVC: UIViewController {
         view.addSubview(postButton)
         
         postButton.snp.makeConstraints { make in
-            make.top.equalTo(coffeeChatTextField.snp.bottom).inset(-30)
-            make.trailing.equalTo(coffeeChatTextField)
+            make.top.equalTo(descriptionTextField.snp.bottom).inset(-30)
+            make.trailing.equalTo(descriptionTextField)
             make.height.equalTo(39)
             make.width.equalTo(81)
         }
@@ -382,9 +415,15 @@ class PostAppVC: UIViewController {
     
     //post application
     @objc func postApp(){
+        // TODO: Send a POST request to create a post
         
-        
-        
+//        let newClub = Club(id: 10, category: "project-team", title: "",club_name: orgNameTextField.text!,description:descriptionTextField.text!, app_link: appLinkTextField.text!, club_link: websiteLinkTextfield.text! ,month:10  ,day:1,year:2024)
+//
+//        NetworkManager.shared.addToClub(newClub: newClub) {[weak self] newClub in
+//            guard let self = self else {return}
+//            print("\(newClub.club_name) was successfully added to the feed!")
+//        }
+//
     }
 }
 
