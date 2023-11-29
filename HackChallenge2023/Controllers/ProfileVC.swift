@@ -216,7 +216,7 @@ extension ProfileVC: UICollectionViewDelegate {
 //            }
 //        }
         let selectedItem = favorites[indexPath.row]
-        let detailedVC = DetailedVC()
+        let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, club: selectedItem)
         navigationController?.pushViewController(detailedVC, animated: true)
 //        clubCollectionView.reloadData()
     }
