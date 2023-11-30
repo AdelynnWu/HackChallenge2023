@@ -18,6 +18,8 @@ struct Club: Codable {
     let club_link: String
     let image_link: String
     let chat_link: String
+    let minute: Int
+    let hour: Int
     let month: Int
     let day: Int
     let year: Int

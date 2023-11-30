@@ -31,6 +31,7 @@ class PostAppVC: UIViewController {
     private let descriptionTextField = UITextField()
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
+    private let uploadImageTextField = UITextField()
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -71,7 +72,8 @@ class PostAppVC: UIViewController {
         setupOrgNameLabel()
         setupOrgNameTextField()
         setupUploadImageLabel()
-        setupUploadImageButton()
+        //setupUploadImageButton()
+        setUpImageTextField()
         setupCategoryLabel()
         setupCategoryTextField()
         setupAppLinkLabel()
@@ -195,6 +197,22 @@ class PostAppVC: UIViewController {
             make.top.equalTo(uploadImageLabel.snp.bottom).offset(10)
             make.size.equalTo(74)
             // change size of icon and add padding
+        }
+    }
+    private func setUpImageTextField(){
+        uploadImageTextField.font = .systemFont(ofSize: 14)
+        uploadImageTextField.layer.borderWidth = 0.2
+        uploadImageTextField.layer.borderColor = UIColor.hc.black.cgColor
+        uploadImageTextField.layer.cornerRadius = 10
+        uploadImageTextField.layer.masksToBounds = true
+        
+        view.addSubview(uploadImageTextField)
+        
+        uploadImageTextField.snp.makeConstraints { make in
+            make.top.equalTo(uploadImageLabel.snp.bottom).offset(10)
+            make.leading.equalTo(orgNameLabel)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
         }
     }
     
@@ -413,17 +431,31 @@ class PostAppVC: UIViewController {
         return formatter.string(from: date)
     }
     
+    func reverseFormatDate(string: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy HH:mm"
+        return formatter.date(from: string) ?? Date()
+    }
+    
     //post application
     @objc func postApp(){
         // TODO: Send a POST request to create a post
+        let dateText = appDeadlineTextField.text
+        let date = reverseFormatDate(string: dateText ?? "")
         
-//        let newClub = Club(id: 10, category: "project-team", title: "",club_name: orgNameTextField.text!,description:descriptionTextField.text!, app_link: appLinkTextField.text!, club_link: websiteLinkTextfield.text! ,month:10  ,day:1,year:2024)
-//
-//        NetworkManager.shared.addToClub(newClub: newClub) {[weak self] newClub in
-//            guard let self = self else {return}
-//            print("\(newClub.club_name) was successfully added to the feed!")
-//        }
-//
+        let month = date.get(.month)
+        let year = date.get(.year)
+        let day = date.get(.day)
+        let hour = date.get(.hour)
+        let minute = date.get(.minute)
+ 
+        
+        
+        NetworkManager.shared.addToClub(category: categoryTextField.text ?? "" , title: "App", club_name: orgNameTextField.text ?? "", description: descriptionTextField.text ?? "", app_link: appLinkTextField.text ?? "", club_link: websiteLinkTextfield.text ?? "", image_link: uploadImageTextField.text ?? "", chat_link: coffeeChatTextField.text ?? "", month: month, day: day, year: year, hour: hour, minute: minute) {[weak self] newClub in
+            guard let self = self else {return}
+            print("\(newClub.club_name) was successfully added to the feed!")
+        }
+
     }
 }
 
@@ -444,5 +476,14 @@ extension PostAppVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoryTextField.text = filters[row]
         categoryTextField.resignFirstResponder()
+    }
+}
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
     }
 }

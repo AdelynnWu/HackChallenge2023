@@ -58,36 +58,37 @@ class NetworkManager {
             }
     }
     
-    func addToClub(newClub: Club, completion: @escaping (Club) -> Void) {
-        let endpoint = "http://34.48.50.89/api/applications/"
+    func addToClub(category: String, title: String, club_name: String, description: String, app_link: String, club_link:String, image_link: String, chat_link: String, month: Int, day: Int, year: Int, hour: Int, minute: Int, completion: @escaping (Club) -> Void) {
+        //        let endpoint = "http://34.48.50.89/api/applications/"
         
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        //        decoder.dateDecodingStrategy = .iso8601
         
         // encoding into json format
         let parameters: Parameters = [
-            "category": newClub.category,
-            "title": newClub.title,
-            "club_name": newClub.club_name,
-            "description": newClub.description,
-            "app_link": newClub.app_link,
-            "club_link": newClub.club_link,
-            "month": newClub.month,
-            "day": newClub.day,
-            "year": newClub.year
-            
+            "category": "stem",
+            "title": "Test application 1",
+            "club_name": "fun stuff Club",
+            "description": "Recruiting analysts who are passionate about investing. Experience needed",
+            "app_link": "https://www.cornellmicc.com/recruitment",
+            "club_link": "https://www.cornellmicc.com/",
+            "image_link":"https://media.licdn.com/dms/image/C560BAQF6BdkkywgBhQ/company-logo_200_200/0/1631391332655?e=2147483647&v=beta&t=tqHePxQsTKsPVgSW7OtZV3oaMSt586YT4QyEVjp32zU",
+            "chat_link": "https://docs.google.com/forms/d/e/1FAIpQLSfyUQOLjgjMJwu29Ae530wo7tsPGKl0ZEjhRcuY_1ZcMYRqPw/closedform",
+            "month": 2,
+            "day": 1,
+            "year": 2023,
+            "hour": 23,
+            "minute": 9
         ]
         
-        AF.request(endpoint, method: .post, parameters: parameters)
-            .validate()
+        AF.request("http://34.48.50.89/api/applications/", method: .post, parameters: parameters)
             .responseDecodable(of: Club.self, decoder: decoder) { response in
                 switch response.result{
                 case .success(let newClub):
                     print("Successfully added to clubs \(newClub.club_name)")
                     completion(newClub)
                 case .failure(let error):
-                    print("Error in NetworkManager.addToClub: \(error.localizedDescription)")
-                   
+                    print("Error in NetworkManager.addToClub: \(error)")
                 }
             }
         
