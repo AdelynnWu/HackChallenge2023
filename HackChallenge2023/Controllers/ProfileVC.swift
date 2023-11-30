@@ -23,8 +23,8 @@ class ProfileVC: UIViewController {
     
     
     //MARK: ViewdidLoad
-
     override func viewDidLoad() {
+        updateFavorites()
         super.viewDidLoad()
         self.navigationItem.title = "Saved"
         self.view.backgroundColor = UIColor.hc.white
@@ -43,7 +43,6 @@ class ProfileVC: UIViewController {
         ]
         view.layer.addSublayer(gradientLayer)
         getClubs()
-        updateFavorites()
         setupClubCollectionView()
         clubCollectionView.reloadData()
     }
@@ -52,6 +51,7 @@ class ProfileVC: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         updateFavorites()
         clubCollectionView.reloadData()
+
     }
     
     func updateFavorites() {
@@ -65,8 +65,8 @@ class ProfileVC: UIViewController {
             }
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-
             super.viewWillAppear(animated)
             navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -76,16 +76,12 @@ class ProfileVC: UIViewController {
 //            appearance.backgroundColor = UIColor.systemPink
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-            
 
             navigationController?.navigationBar.tintColor = .white
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
             clubCollectionView.reloadData()
-
-            
     }
     
 //    private func setUpNavigationBar() {
