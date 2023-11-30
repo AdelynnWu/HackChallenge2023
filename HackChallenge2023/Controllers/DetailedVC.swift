@@ -45,6 +45,7 @@ class DetailedVC: UIViewController {
     private let chat_descrip = UILabel()
     private let category_label = UILabel()
     private let star = UIButton()
+    private let second_image_link = UIImageView()
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = UIColor.hc.white
@@ -79,6 +80,7 @@ class DetailedVC: UIViewController {
         view.layer.addSublayer(gradientLayer)
         
         setupUI()
+        setUpSecondImage()
         setUpImage()
         setUpClubName()
         //setUpCategoryLabel()
@@ -119,8 +121,9 @@ class DetailedVC: UIViewController {
 
     }
     
-    init( club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,minute: Int, hour: Int, category: Category,club: Club) {
+    init( club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,second_image_link: String, chat_link: String,minute: Int, hour: Int, category: Category,club: Club) {
         
+        self.second_image_link.sd_setImage(with: URL(string: club.second_image_link))
         self.image.sd_setImage(with: URL(string: club.image_link))
         self.hour.text = String(hour)
         self.minute.text = String(minute)
@@ -182,6 +185,19 @@ class DetailedVC: UIViewController {
             make.height.equalTo(scrollView.snp.height).multipliedBy(2)
         }
         
+    }
+    private func setUpSecondImage() {
+        second_image_link.contentMode = .scaleAspectFill
+      //  second_image_link.clipsToBounds = true
+        second_image_link.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(second_image_link)
+        
+        second_image_link.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(0)
+            make.leading.equalTo(contentView.snp.leading).offset(0)
+            make.trailing.equalTo(contentView.snp.trailing).inset(0)
+            make.bottom.equalTo(contentView.snp.top).offset(190)
+        }
     }
     
     private func setUpImage() {

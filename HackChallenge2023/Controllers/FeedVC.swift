@@ -191,7 +191,7 @@ extension FeedVC: UICollectionViewDelegate {
         if collectionView == clubCollectionView {
             let clubss = clubs[indexPath.row]
             let selectedItem = self.clubs[indexPath.row]
-            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, chat_link: selectedItem.chat_link,minute: selectedItem.minute, hour: selectedItem.hour, category: selectedItem.category, club: clubss)
+            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, second_image_link: selectedItem.second_image_link, chat_link: selectedItem.chat_link,minute: selectedItem.minute, hour: selectedItem.hour, category: selectedItem.category, club: clubss)
             navigationController?.pushViewController(detailedVC, animated: true)
             
         } else if collectionView == filterCollectionView {
