@@ -371,7 +371,7 @@ class PostAppVC: UIViewController {
         }
     }
     private func setupDescriptionLabel(){
-        descriptionLabel.text = "Coffee Chat Registration Link"
+        descriptionLabel.text = "Description"
         descriptionLabel.textColor = UIColor.hc.black
         descriptionLabel.font = .systemFont(ofSize: 14)
         

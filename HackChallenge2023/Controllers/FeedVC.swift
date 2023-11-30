@@ -76,6 +76,7 @@ class FeedVC: UIViewController {
 
             let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.hc.gradientPink1
+
 //            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
  //       appearance.backgroundColor = UIColor.hc.babyBlue
 //            appearance.backgroundColor = UIColor.systemPink
@@ -190,7 +191,7 @@ extension FeedVC: UICollectionViewDelegate {
         if collectionView == clubCollectionView {
             let clubss = clubs[indexPath.row]
             let selectedItem = self.clubs[indexPath.row]
-            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, chat_link: selectedItem.chat_link,category: selectedItem.category, club: clubss)
+            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, chat_link: selectedItem.chat_link,minute: selectedItem.minute, hour: selectedItem.hour, category: selectedItem.category, club: clubss)
             navigationController?.pushViewController(detailedVC, animated: true)
             
         } else if collectionView == filterCollectionView {

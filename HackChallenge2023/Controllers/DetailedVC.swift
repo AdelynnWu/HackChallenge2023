@@ -23,6 +23,8 @@ class DetailedVC: UIViewController {
     private let year = UILabel()
     private let deadline = UILabel()
     private let image = UIImageView()
+    private let hour = UILabel()
+    private let minute = UILabel()
     
     private let app_link = UILabel()
     private let club_link = UILabel()
@@ -101,16 +103,26 @@ class DetailedVC: UIViewController {
         appearance.backgroundColor = UIColor.clear
     }
     
-    init(club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,category: Category,club: Club) {
+    init(club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,minute: Int, hour: Int, category: Category,club: Club) {
         
         self.image.sd_setImage(with: URL(string: club.image_link))
-
+        self.hour.text = String(hour)
+        self.minute.text = String(minute)
         self.club_name.text = club_name
         self.descriptions.text = description
         self.month.text = String(month)
         self.day.text = String(day)
         self.year.text = String(year)
-        self.deadline.text = String(club.month)+"/"+String(club.day)+"/"+String(club.year)
+        
+        if String(club.minute).count == 1{
+            var new_minute = "0" + String(club.minute)
+            self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
+        }else{
+            var new_minute = String(club.minute)
+            self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
+        }
+        
+//        self.deadline.text = String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
       //  self.image.sd_setImage(with: URL(string: image))
         self.app_link.text = app_link
         self.club_link.text = club_link
@@ -233,7 +245,7 @@ class DetailedVC: UIViewController {
 
     private func setUpApplicationIconView() {
         applicationIconView.image = UIImage(systemName: "square.and.pencil")
-        applicationIconView.tintColor = UIColor.hc.gray
+        applicationIconView.tintColor = UIColor.black
         
         view.addSubview(applicationIconView)
         
@@ -257,9 +269,9 @@ class DetailedVC: UIViewController {
         }
     }
     private func setUpDeadline(){
-        deadline.text = "The last day to apply is: " + String(club.month)+"/"+String(club.day)+"/"+String(club.year)
+//        deadline.text = "The last day to apply is: " + String(club.month)+"/"+String(club.day)+"/"+String(club.year)
         deadline.textColor = UIColor.gray
-        deadline.font = UIFont(name: "Lora-SemiBold", size:12)
+        deadline.font = .systemFont(ofSize: 14)
         deadline.numberOfLines = 1
         
         view.addSubview(deadline)
@@ -275,7 +287,7 @@ class DetailedVC: UIViewController {
         app_button.layer.cornerRadius = 20
         app_button.layer.borderWidth = 1
         app_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
-        app_button.setTitle("Application link", for: .normal)
+        app_button.setTitle("Application link ↗", for: .normal)
         app_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
         app_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         app_button.addTarget(self, action: #selector(selectorApp), for: .touchUpInside)
@@ -291,7 +303,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpClubIconView() {
         websiteIconView.image = UIImage(systemName: "link")
-        websiteIconView.tintColor = UIColor.hc.gray
+        websiteIconView.tintColor = UIColor.black
         
         view.addSubview(websiteIconView)
         
@@ -317,7 +329,7 @@ class DetailedVC: UIViewController {
     private func setUpWebsiteDescrip(){
         website_descrip.text = "Visit our website for more info"
         website_descrip.textColor = UIColor.gray
-        website_descrip.font = UIFont(name: "Lora-SemiBold", size:12)
+        website_descrip.font = .systemFont(ofSize: 14)
         website_descrip.numberOfLines = 1
         
         view.addSubview(website_descrip)
@@ -333,7 +345,7 @@ class DetailedVC: UIViewController {
         website_button.layer.cornerRadius = 20
         website_button.layer.borderWidth = 1
         website_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
-        website_button.setTitle("Website Link", for: .normal)
+        website_button.setTitle("Website Link ↗", for: .normal)
         website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
         website_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         website_button.addTarget(self, action: #selector(selectorWebsite), for: .touchUpInside)
@@ -349,7 +361,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpChatIcon() {
         coffeeIconView.image = UIImage(systemName: "cup.and.saucer")
-        coffeeIconView.tintColor = UIColor.hc.gray
+        coffeeIconView.tintColor = UIColor.black
         
         view.addSubview(coffeeIconView)
         
@@ -375,7 +387,7 @@ class DetailedVC: UIViewController {
     private func setUpChatDescrip() {
         chat_descrip.text = "Sign up for a coffee chat and get paired with a member"
         chat_descrip.textColor = UIColor.gray
-        chat_descrip.font = UIFont(name: "Lora-SemiBold", size:12)
+        chat_descrip.font = .systemFont(ofSize: 14)
         chat_descrip.numberOfLines = 1
         
         view.addSubview(chat_descrip)
@@ -392,7 +404,7 @@ class DetailedVC: UIViewController {
         chat_button.layer.cornerRadius = 20
         chat_button.layer.borderWidth = 1
         chat_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
-        chat_button.setTitle("Coffee Chat Link", for: .normal)
+        chat_button.setTitle("Coffee Chat Link ↗", for: .normal)
         chat_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
         chat_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         chat_button.addTarget(self, action: #selector(selectorCoffee), for: .touchUpInside)
