@@ -80,8 +80,8 @@ class ClubCollectionViewCell: UICollectionViewCell {
     
     private func setUpImage(){
         image.contentMode = .scaleAspectFit
-//        image.layer.cornerRadius = 10
-//        image.clipsToBounds = true
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         
         contentView.addSubview(image)
         
