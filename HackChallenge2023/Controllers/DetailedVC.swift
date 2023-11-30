@@ -211,7 +211,7 @@ class DetailedVC: UIViewController {
 //            make.leading.equalToSuperview().offset(10)
 //            make.top.equalToSuperview().offset(26.5)
 //            make.size.equalTo(50)
-            make.top.equalTo(contentView).offset(200)
+            make.top.equalTo(contentView).offset(180)
             make.leading.equalTo(contentView).offset(24)
             make.size.equalTo(70)
         }
@@ -394,6 +394,15 @@ class DetailedVC: UIViewController {
         website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
         website_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         website_button.addTarget(self, action: #selector(selectorWebsite), for: .touchUpInside)
+        
+//        if website_button.isSelected{
+//            website_button.backgroundColor = UIColor.white
+//            website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+//        }
+//        else{
+//            website_button.backgroundColor = UIColor.hc.orangeRed
+//            website_button.setTitleColor(UIColor.white, for: .normal)
+//        }
 
         view.addSubview(website_button)
         

@@ -58,7 +58,7 @@ class NetworkManager {
             }
     }
     
-    func addToClub(category: String, title: String, club_name: String, description: String, app_link: String, club_link:String, image_link: String, chat_link: String, month: Int, day: Int, year: Int, hour: Int, minute: Int, completion: @escaping (Club) -> Void) {
+    func addToClub(category: String, title: String, club_name: String, description: String, app_link: String, club_link:String, image_link: String, second_image_link: String, chat_link: String, month: Int, day: Int, year: Int, hour: Int, minute: Int, completion: @escaping (Club) -> Void) {
         //        let endpoint = "http://34.48.50.89/api/applications/"
         
         let decoder = JSONDecoder()
@@ -66,22 +66,38 @@ class NetworkManager {
         
         // encoding into json format
         let parameters: Parameters = [
-            "category": "stem",
-            "title": "Test application 1",
-            "club_name": "fun stuff Club",
-            "description": "Recruiting analysts who are passionate about investing. Experience needed",
-            "app_link": "https://www.cornellmicc.com/recruitment",
-            "club_link": "https://www.cornellmicc.com/",
-            "image_link":"https://media.licdn.com/dms/image/C560BAQF6BdkkywgBhQ/company-logo_200_200/0/1631391332655?e=2147483647&v=beta&t=tqHePxQsTKsPVgSW7OtZV3oaMSt586YT4QyEVjp32zU",
-            "chat_link": "https://docs.google.com/forms/d/e/1FAIpQLSfyUQOLjgjMJwu29Ae530wo7tsPGKl0ZEjhRcuY_1ZcMYRqPw/closedform",
-            "month": 2,
-            "day": 1,
-            "year": 2023,
-            "hour": 23,
-            "minute": 9
+            "category": category,
+            "title": title,
+            "club_name": club_name,
+            "description": description,
+            "app_link": app_link,
+            "club_link": club_link,
+            "image_link": image_link,
+            "second_image_link":second_image_link,
+            "chat_link": chat_link,
+            "month": month,
+            "day": day,
+            "year": year,
+            "hour": hour,
+            "minute": minute
+            
+//            "category": category,
+//            "title": "Test application 1",
+ //           "club_name": "AppDev",
+ //           "description": "Recruiting designer, iOS, Android, and backend. Experience preferred but not required.",
+  //          "app_link": "https://www.cornellappdev.com/apply",
+ //           "club_link": "https://www.cornellappdev.com/team",
+  //          "image_link": "https://media.licdn.com/dms/image/C4D0BAQFgEIOD0w6BAg/company-logo_200_200/0/1630519709031/cornell_app_development_cuappdev__logo?e=2147483647&v=beta&t=X2ZrPgxbvJFJb8AnrR6dymg_5v4r2vmys4vqoLP4AKo",
+   //         "second_image_link": "https://i1.wp.com/cornellsun.com/wp-content/uploads/2023/10/Eatery-courtesy-of-Iskander-Khan.jpg?fit=1170%2C779&ssl=1",
+       //     "chat_link": "https://calendly.com/exh2/30min",
+    //        "month": 1,
+    //        "day": 1,
+    //        "year": 2023,
+    //        "hour": 23,
+     //       "minute": 59
         ]
         
-        AF.request("http://34.48.50.89/api/applications/", method: .post, parameters: parameters)
+        AF.request("http://34.48.50.89/api/applications/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseDecodable(of: Club.self, decoder: decoder) { response in
                 switch response.result{
                 case .success(let newClub):

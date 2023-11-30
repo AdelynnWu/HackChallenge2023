@@ -32,6 +32,8 @@ class PostAppVC: UIViewController {
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
     private let uploadImageTextField = UITextField()
+    private let secondImageLabel = UILabel()
+    private let secondImageTextField = UITextField()
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -74,6 +76,8 @@ class PostAppVC: UIViewController {
         setupUploadImageLabel()
         //setupUploadImageButton()
         setUpImageTextField()
+        setUpSecondImageLabel()
+        setUpSecondImageTextField()
         setupCategoryLabel()
         setupCategoryTextField()
         setupAppLinkLabel()
@@ -174,7 +178,7 @@ class PostAppVC: UIViewController {
     }
     
     private func setupUploadImageLabel(){
-        uploadImageLabel.text = "Upload Image"
+        uploadImageLabel.text = "Upload Club Logo"
         uploadImageLabel.textColor = UIColor.hc.black
         uploadImageLabel.font = .systemFont(ofSize: 14)
         
@@ -216,6 +220,35 @@ class PostAppVC: UIViewController {
         }
     }
     
+    private func setUpSecondImageLabel() {
+        secondImageLabel.text = "Upload Background Image"
+        secondImageLabel.textColor = UIColor.hc.black
+        secondImageLabel.font = .systemFont(ofSize: 14)
+        
+        view.addSubview(secondImageLabel)
+        
+        secondImageLabel.snp.makeConstraints { make in
+            make.leading.equalTo(orgNameLabel)
+            make.top.equalTo(uploadImageTextField.snp.bottom).offset(12)
+        }
+    }
+    private func setUpSecondImageTextField() {
+        secondImageTextField.font = .systemFont(ofSize: 14)
+        secondImageTextField.layer.borderWidth = 0.2
+        secondImageTextField.layer.borderColor = UIColor.hc.black.cgColor
+        secondImageTextField.layer.cornerRadius = 10
+        secondImageTextField.layer.masksToBounds = true
+        
+        view.addSubview(secondImageTextField)
+        
+        secondImageTextField.snp.makeConstraints { make in
+            make.top.equalTo(secondImageLabel.snp.bottom).offset(9)
+            make.leading.equalTo(orgNameLabel)
+            make.height.equalTo(33)
+            make.width.equalTo(328)
+        }
+    }
+    
     private func setupCategoryLabel(){
         categoryLabel.text = "Category"
         categoryLabel.textColor = UIColor.hc.black
@@ -225,7 +258,7 @@ class PostAppVC: UIViewController {
         
         categoryLabel.snp.makeConstraints { make in
             make.leading.equalTo(orgNameLabel)
-            make.top.equalTo(uploadImageLabel.snp.bottom).offset(96)
+            make.top.equalTo(secondImageTextField.snp.bottom).offset(10)
         }
     }
     
@@ -407,6 +440,15 @@ class PostAppVC: UIViewController {
         postButton.setTitleColor(UIColor.hc.white, for: .normal)
         postButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         postButton.addTarget(self, action: #selector(postApp), for: .touchUpInside)
+        
+        if postButton.isSelected{
+                postButton.backgroundColor = UIColor.white
+            postButton.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        }
+        else{
+            postButton.backgroundColor = UIColor.hc.orangeRed
+                postButton.setTitleColor(UIColor.white, for: .normal)
+        }
 
         view.addSubview(postButton)
         
@@ -451,7 +493,7 @@ class PostAppVC: UIViewController {
  
         
         
-        NetworkManager.shared.addToClub(category: categoryTextField.text ?? "" , title: "App", club_name: orgNameTextField.text ?? "", description: descriptionTextField.text ?? "", app_link: appLinkTextField.text ?? "", club_link: websiteLinkTextfield.text ?? "", image_link: uploadImageTextField.text ?? "", chat_link: coffeeChatTextField.text ?? "", month: month, day: day, year: year, hour: hour, minute: minute) {[weak self] newClub in
+        NetworkManager.shared.addToClub(category: categoryTextField.text ?? "" , title: "App", club_name: orgNameTextField.text ?? "", description: descriptionTextField.text ?? "", app_link: appLinkTextField.text ?? "", club_link: websiteLinkTextfield.text ?? "", image_link: uploadImageTextField.text ?? "",second_image_link: secondImageTextField.text ?? "", chat_link: coffeeChatTextField.text ?? "", month: month, day: day, year: year, hour: hour, minute: minute) {[weak self] newClub in
             guard let self = self else {return}
             print("\(newClub.club_name) was successfully added to the feed!")
         }
