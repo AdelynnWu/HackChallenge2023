@@ -44,6 +44,7 @@ class DetailedVC: UIViewController {
     private let website_descrip = UILabel()
     private let chat_descrip = UILabel()
     private let category_label = UILabel()
+    private let star = UIButton()
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = UIColor.hc.white
@@ -58,6 +59,7 @@ class DetailedVC: UIViewController {
     
     // MARK: - Properties (data)
     var club: Club
+//    weak var delegate: starredClubsDelegate?
     
     // MARK: init and viewDidLoad
     
@@ -94,16 +96,30 @@ class DetailedVC: UIViewController {
         setUpCoffeeChatLabel()
         setUpChatDescrip()
         setUpCoffeeButton()
-   
+        setUpStar()
         
         
     }
     override func viewDidAppear(_ animated: Bool) {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.clear
+        
+//        if starred{
+//            // is starred
+//            star.setImage(UIImage(systemName: "star.fill"), for: .normal)
+// //           starButton.tintColor = UIColor.hc.pastelBlue
+//            star.tintColor = UIColor(red: 246/255, green: 188/255, blue: 102/255, alpha: 1.0)
+//        } else {
+//            // not starred
+//            star.setImage(UIImage(systemName: "star"), for: .normal)
+//            star.tintColor = UIColor.hc.gray
+//        }
+//
+//        star.addTarget(self, action: #selector(starClub), for: .touchUpInside)
+
     }
     
-    init(club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,minute: Int, hour: Int, category: Category,club: Club) {
+    init( club_name: String,description:String, month: Int, day: Int, year: Int, app_link: String, club_link: String, image_link: String,chat_link: String,minute: Int, hour: Int, category: Category,club: Club) {
         
         self.image.sd_setImage(with: URL(string: club.image_link))
         self.hour.text = String(hour)
@@ -113,7 +129,7 @@ class DetailedVC: UIViewController {
         self.month.text = String(month)
         self.day.text = String(day)
         self.year.text = String(year)
-        
+//        self.category_label.text = category
         if String(club.minute).count == 1{
             var new_minute = "0" + String(club.minute)
             self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
@@ -130,6 +146,19 @@ class DetailedVC: UIViewController {
 //       self.category_label.text = category as! String
         self.club = club
         super.init(nibName: nil, bundle: nil)
+        
+//                if starred{
+//                    // is starred
+//                    star.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//         //           starButton.tintColor = UIColor.hc.pastelBlue
+//                    star.tintColor = UIColor(red: 246/255, green: 188/255, blue: 102/255, alpha: 1.0)
+//                } else {
+//                    // not starred
+//                    star.setImage(UIImage(systemName: "star"), for: .normal)
+//                    star.tintColor = UIColor.hc.gray
+//                }
+//
+//                star.addTarget(self, action: #selector(starClub), for: .touchUpInside)
     }
     
     
@@ -173,7 +202,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpClubName() {
         club_name.textColor = UIColor.hc.black
-        club_name.font = UIFont(name: "Lora-SemiBold", size:35)
+        club_name.font = UIFont(name: "Lora-SemiBold", size:25)
         club_name.numberOfLines = 2
         club_name.lineBreakMode = .byWordWrapping
         
@@ -295,7 +324,7 @@ class DetailedVC: UIViewController {
         view.addSubview(app_button)
         
         app_button.snp.makeConstraints { make in
-            make.top.equalTo(deadline.snp.bottom).offset(24)
+            make.top.equalTo(deadline.snp.bottom).offset(20)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
@@ -308,7 +337,7 @@ class DetailedVC: UIViewController {
         view.addSubview(websiteIconView)
         
         websiteIconView.snp.makeConstraints {make in
-            make.top.equalTo(app_button.snp.bottom).offset(7)
+            make.top.equalTo(app_button.snp.bottom).offset(17)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -322,8 +351,8 @@ class DetailedVC: UIViewController {
         
         clubLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(websiteIconView.snp.trailing).offset(3)
-            make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(app_button.snp.bottom).offset(7)
+            make.trailing.equalTo(contentView).inset(12)
+            make.top.equalTo(app_button.snp.bottom).offset(17)
         }
     }
     private func setUpWebsiteDescrip(){
@@ -353,7 +382,7 @@ class DetailedVC: UIViewController {
         view.addSubview(website_button)
         
         website_button.snp.makeConstraints { make in
-            make.top.equalTo(website_descrip.snp.bottom).offset(27)
+            make.top.equalTo(website_descrip.snp.bottom).offset(20)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
@@ -366,7 +395,7 @@ class DetailedVC: UIViewController {
         view.addSubview(coffeeIconView)
         
         coffeeIconView.snp.makeConstraints {make in
-            make.top.equalTo(website_button.snp.bottom).offset(7)
+            make.top.equalTo(website_button.snp.bottom).offset(17)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -381,7 +410,7 @@ class DetailedVC: UIViewController {
         chat_label.snp.makeConstraints { make in
             make.leading.equalTo(coffeeIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(website_button.snp.bottom).offset(7)
+            make.top.equalTo(website_button.snp.bottom).offset(17)
         }
     }
     private func setUpChatDescrip() {
@@ -412,12 +441,37 @@ class DetailedVC: UIViewController {
         view.addSubview(chat_button)
         
         chat_button.snp.makeConstraints { make in
-            make.top.equalTo(chat_descrip.snp.bottom).offset(27)
+            make.top.equalTo(chat_descrip.snp.bottom).offset(20)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(92)
             make.height.equalTo(40)
             make.width.equalTo(187)
         }
     }
+    private func setUpStar() {
+        contentView.addSubview(star)
+        
+        // button being clicked -> call func
+        // don't know why animation applies to another cell's star button when one is clicked
+//        starButton.addTarget(self, action: #selector(starAnimation), for: .touchUpInside)
+        star.isUserInteractionEnabled = true
+        
+        star.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(image.snp.bottom).offset(10)
+            make.size.equalTo(21)
+        }
+    }
+//    @objc func starClub(){
+//        UIButton.animate(withDuration: 0.6, animations: {self.star.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
+//            UIButton.animate(withDuration: 0.6, animations: { [self] in
+//                self.star.transform = CGAffineTransform.identity
+//                self.delegate?.updateStarred(clubName: self.club_name.text ?? "")
+//            })
+//        }
+//        )
+//
+//    }
+    
   
     
     @objc func selectorApp() {
