@@ -183,7 +183,7 @@ class DetailedVC: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView)
             make.width.equalTo(scrollView.snp.width)
-            make.height.equalTo(scrollView.snp.height).multipliedBy(2)
+            make.height.equalTo(scrollView.snp.height)
         }
         
     }
@@ -301,7 +301,7 @@ class DetailedVC: UIViewController {
         view.addSubview(applicationIconView)
         
         applicationIconView.snp.makeConstraints {make in
-            make.top.equalTo(descriptions.snp.bottom).offset(10)
+            make.top.equalTo(descriptions.snp.bottom).offset(36)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -316,7 +316,7 @@ class DetailedVC: UIViewController {
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(descriptions.snp.bottom).offset(10)
+            make.top.equalTo(descriptions.snp.bottom).offset(36)
         }
     }
     private func setUpDeadline(){
@@ -359,7 +359,7 @@ class DetailedVC: UIViewController {
         view.addSubview(websiteIconView)
         
         websiteIconView.snp.makeConstraints {make in
-            make.top.equalTo(app_button.snp.bottom).offset(17)
+            make.top.equalTo(app_button.snp.bottom).offset(25)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -374,7 +374,7 @@ class DetailedVC: UIViewController {
         clubLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(websiteIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(12)
-            make.top.equalTo(app_button.snp.bottom).offset(17)
+            make.top.equalTo(app_button.snp.bottom).offset(25)
         }
     }
     private func setUpWebsiteDescrip(){
@@ -426,7 +426,7 @@ class DetailedVC: UIViewController {
         view.addSubview(coffeeIconView)
         
         coffeeIconView.snp.makeConstraints {make in
-            make.top.equalTo(website_button.snp.bottom).offset(17)
+            make.top.equalTo(website_button.snp.bottom).offset(25)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -441,7 +441,7 @@ class DetailedVC: UIViewController {
         chat_label.snp.makeConstraints { make in
             make.leading.equalTo(coffeeIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(website_button.snp.bottom).offset(17)
+            make.top.equalTo(website_button.snp.bottom).offset(25)
         }
     }
     private func setUpChatDescrip() {
