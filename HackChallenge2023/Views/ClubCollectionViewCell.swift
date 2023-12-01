@@ -79,10 +79,11 @@ class ClubCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpImage(){
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
-        
+        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.borderWidth = 0.5
         contentView.addSubview(image)
         
         image.snp.makeConstraints {make in
@@ -100,13 +101,15 @@ class ClubCollectionViewCell: UICollectionViewCell {
         club_name.textColor = UIColor.hc.black
         //club_name.font = .systemFont(ofSize: 16, weight: .semibold)
         club_name.font = UIFont(name: "Lora-SemiBold", size:16)
-        club_name.numberOfLines = 1
+        club_name.numberOfLines = 2
+        club_name.lineBreakMode = .byWordWrapping
         
         contentView.addSubview(club_name)
         
         club_name.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(74)
             make.top.equalToSuperview().offset(10)
+            make.width.equalTo(225)
         }
     }
     
@@ -124,7 +127,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
 //            make.width.equalTo(243)
             make.leading.equalToSuperview().offset(74)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalToSuperview().offset(31)
+            make.top.equalTo(club_name.snp.bottom).offset(7)
         }
     }
 

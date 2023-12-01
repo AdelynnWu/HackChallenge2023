@@ -205,9 +205,11 @@ class DetailedVC: UIViewController {
     }
     
     private func setUpImage() {
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
+        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.borderWidth = 0.8
         
        view.addSubview(image)
         
