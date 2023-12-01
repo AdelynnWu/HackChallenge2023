@@ -275,7 +275,7 @@ class DetailedVC: UIViewController {
         
         category_button.snp.makeConstraints { make in
             make.top.equalTo(image.snp.bottom).offset(18)
-            make.leading.equalTo(club_name.snp.trailing).offset(25)
+            make.leading.equalTo(club_name.snp.trailing).offset(5)
             make.height.equalTo(20)
             make.width.equalTo(100)
         }
