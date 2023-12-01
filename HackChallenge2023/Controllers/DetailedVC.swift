@@ -258,16 +258,16 @@ class DetailedVC: UIViewController {
         }
     }
     private func setUpCategoryButton() {
-        category_button.backgroundColor = UIColor.hc.orangeRed
+        category_button.backgroundColor = UIColor.hc.white
         category_button.layer.cornerRadius = 10
         category_button.layer.borderWidth = 1
-        category_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        category_button.layer.borderColor = UIColor.hc.lightNavy.cgColor
         category_button.setTitle(category_label.text , for: .normal)
-        category_button.setTitleColor(UIColor.white, for: .normal)
+        category_button.setTitleColor(UIColor.hc.lightNavy, for: .normal)
         category_button.titleLabel?.font = .systemFont(ofSize: 12, weight: .semibold)
 
         
-//        category_button.textColor = UIColor.hc.orangeRed
+//        category_button.textColor = UIColor.hc.navy
 //        category_button.font = .systemFont(ofSize: 10, weight: .semibold)
     
 
@@ -360,12 +360,12 @@ class DetailedVC: UIViewController {
         }
     }
     private func setUpAppButton() {
-        app_button.backgroundColor = UIColor.hc.white
+        app_button.backgroundColor = UIColor.hc.lightNavy
         app_button.layer.cornerRadius = 20
         app_button.layer.borderWidth = 1
-        app_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        app_button.layer.borderColor = UIColor.hc.lightNavy.cgColor
         app_button.setTitle("Application link ↗", for: .normal)
-        app_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        app_button.setTitleColor(UIColor.hc.white, for: .normal)
         app_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         app_button.addTarget(self, action: #selector(selectorApp), for: .touchUpInside)
 
@@ -421,18 +421,18 @@ class DetailedVC: UIViewController {
         website_button.backgroundColor = UIColor.hc.white
         website_button.layer.cornerRadius = 20
         website_button.layer.borderWidth = 1
-        website_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        website_button.layer.borderColor = UIColor.hc.lightNavy.cgColor
         website_button.setTitle("Website Link ↗", for: .normal)
-        website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        website_button.setTitleColor(UIColor.hc.lightNavy, for: .normal)
         website_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         website_button.addTarget(self, action: #selector(selectorWebsite), for: .touchUpInside)
         
 //        if website_button.isSelected{
 //            website_button.backgroundColor = UIColor.white
-//            website_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+//            website_button.setTitleColor(UIColor.hc.navy, for: .normal)
 //        }
 //        else{
-//            website_button.backgroundColor = UIColor.hc.orangeRed
+//            website_button.backgroundColor = UIColor.hc.navy
 //            website_button.setTitleColor(UIColor.white, for: .normal)
 //        }
 
@@ -486,12 +486,12 @@ class DetailedVC: UIViewController {
     }
     
     private func setUpCoffeeButton() {
-        chat_button.backgroundColor = UIColor.hc.white
+        chat_button.backgroundColor = UIColor.hc.lightNavy
         chat_button.layer.cornerRadius = 20
         chat_button.layer.borderWidth = 1
-        chat_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        chat_button.layer.borderColor = UIColor.hc.lightNavy.cgColor
         chat_button.setTitle("Coffee Chat Link ↗", for: .normal)
-        chat_button.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+        chat_button.setTitleColor(UIColor.hc.white, for: .normal)
         chat_button.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         chat_button.addTarget(self, action: #selector(selectorCoffee), for: .touchUpInside)
 

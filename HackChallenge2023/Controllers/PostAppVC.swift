@@ -150,7 +150,7 @@ class PostAppVC: UIViewController {
     
     private func setupOrgNameLabel(){
         orgNameLabel.text = "Organization Name"
-        orgNameLabel.textColor = UIColor.hc.gray
+        orgNameLabel.textColor = UIColor.hc.white
         orgNameLabel.font = .systemFont(ofSize: 14)
         
         contentView.addSubview(orgNameLabel)
@@ -183,7 +183,7 @@ class PostAppVC: UIViewController {
     
     private func setupCategoryLabel(){
         categoryLabel.text = "Category"
-        categoryLabel.textColor = UIColor.hc.gray
+        categoryLabel.textColor = UIColor.hc.white
         categoryLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(categoryLabel)
@@ -216,7 +216,7 @@ class PostAppVC: UIViewController {
     
     private func setupDescriptionLabel(){
         descriptionLabel.text = "Description"
-        descriptionLabel.textColor = UIColor.hc.gray
+        descriptionLabel.textColor = UIColor.hc.white
         descriptionLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(descriptionLabel)
@@ -247,7 +247,7 @@ class PostAppVC: UIViewController {
     
     private func setupUploadImageLabel(){
         uploadImageLabel.text = "Upload Profile Photo"
-        uploadImageLabel.textColor = UIColor.hc.gray
+        uploadImageLabel.textColor = UIColor.hc.white
         uploadImageLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(uploadImageLabel)
@@ -260,7 +260,7 @@ class PostAppVC: UIViewController {
     
 //    private func setupUploadImageButton(){
 //        uploadImageButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-//        uploadImageLabel.tintColor = UIColor.hc.gray
+//        uploadImageLabel.tintColor = UIColor.hc.white
 //
 //        view.addSubview(uploadImageButton)
 //
@@ -292,7 +292,7 @@ class PostAppVC: UIViewController {
     
     private func setUpSecondImageLabel() {
         secondImageLabel.text = "Upload Cover Photo"
-        secondImageLabel.textColor = UIColor.hc.gray
+        secondImageLabel.textColor = UIColor.hc.white
         secondImageLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(secondImageLabel)
@@ -324,7 +324,7 @@ class PostAppVC: UIViewController {
     
     private func setupAppLinkLabel(){
         appLinkLabel.text = "Application Link"
-        appLinkLabel.textColor = UIColor.hc.gray
+        appLinkLabel.textColor = UIColor.hc.white
         appLinkLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(appLinkLabel)
@@ -356,7 +356,7 @@ class PostAppVC: UIViewController {
     
     private func setupAppDeadlineLabel(){
         appDeadlineLabel.text = "Application Deadline"
-        appDeadlineLabel.textColor = UIColor.hc.gray
+        appDeadlineLabel.textColor = UIColor.hc.white
         appDeadlineLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(appDeadlineLabel)
@@ -390,7 +390,7 @@ class PostAppVC: UIViewController {
     
     private func setupWebsiteLinkLabel(){
         websiteLinkLabel.text = "Website Link"
-        websiteLinkLabel.textColor = UIColor.hc.gray
+        websiteLinkLabel.textColor = UIColor.hc.white
         websiteLinkLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(websiteLinkLabel)
@@ -423,7 +423,7 @@ class PostAppVC: UIViewController {
     
     private func setupCoffeeChatLabel(){
         coffeeChatLabel.text = "Coffee Chat Registration"
-        coffeeChatLabel.textColor = UIColor.hc.gray
+        coffeeChatLabel.textColor = UIColor.hc.white
         coffeeChatLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(coffeeChatLabel)
@@ -455,7 +455,7 @@ class PostAppVC: UIViewController {
     
     
     private func setupPostButton(){
-        postButton.backgroundColor = UIColor.hc.skin
+        postButton.backgroundColor = UIColor.hc.navy
         postButton.layer.cornerRadius = 20
         postButton.setTitle("➤ Post", for: .normal)
         postButton.setTitleColor(UIColor.hc.white, for: .normal)
@@ -467,7 +467,7 @@ class PostAppVC: UIViewController {
             postButton.setTitleColor(UIColor.hc.darkNavy, for: .normal)
         }
         else{
-            postButton.backgroundColor = UIColor.hc.skin
+            postButton.backgroundColor = UIColor.hc.navy
                 postButton.setTitleColor(UIColor.white, for: .normal)
         }
 
