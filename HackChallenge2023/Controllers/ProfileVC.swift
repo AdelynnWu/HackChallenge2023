@@ -28,6 +28,7 @@ class ProfileVC: UIViewController {
         updateFavorites()
         self.navigationItem.title = "Saved"
         self.view.backgroundColor = UIColor.hc.lightNavy
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)

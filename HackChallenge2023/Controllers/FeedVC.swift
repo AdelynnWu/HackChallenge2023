@@ -51,11 +51,12 @@ class FeedVC: UIViewController {
                 navigationItem.searchController = searchController
                 definesPresentationContext = true
 
-
+        let image = UIImage(named: "navigationbar")
+        navigationItem.titleView = UIImageView(image: image)
 
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.navigationItem.searchController = searchController
-        self.navigationItem.title = "Organizations"
+//        self.navigationItem.title = "AppHub"
         self.navigationController?.navigationBar.prefersLargeTitles = false
 
 //        self.navigationItem.largeTitleDisplayMode = .never

@@ -14,7 +14,7 @@ extension UIColor {
     struct HC {
         let black = UIColor.black
         let offWhite = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
-        let lightgray = UIColor(red: 232/255, green: 231/255, blue: 230/255, alpha: 1)
+        let lightgray = UIColor(red: 225/255, green: 231/255, blue: 230/255, alpha: 0.9)
         let gray = UIColor(red: 110/255, green: 110/255, blue: 110/255, alpha: 1)
         let white = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         let postWhite = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
