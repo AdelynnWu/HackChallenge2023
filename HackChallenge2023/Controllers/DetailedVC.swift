@@ -25,6 +25,7 @@ class DetailedVC: UIViewController {
     private let image = UIImageView()
     private let hour = UILabel()
     private let minute = UILabel()
+    private let background = UIImageView()
     
     private let app_link = UILabel()
     private let club_link = UILabel()
@@ -85,6 +86,7 @@ class DetailedVC: UIViewController {
         
         setupUI()
         setUpSecondImage()
+        setUpBackground()
         setUpImage()
         setUpClubName()
         setUpCategoryButton()
@@ -203,10 +205,28 @@ class DetailedVC: UIViewController {
             make.bottom.equalTo(contentView.snp.top).offset(190)
         }
     }
+    private func setUpBackground() {
+        background.contentMode = .scaleAspectFill
+        background.layer.cornerRadius = 5
+        background.clipsToBounds = true
+        background.sd_setImage(with: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-qNCiCiWRmRuRuPhiFBLADfIxJoBfFkfiVA&usqp=CAU"))
+//        background.layer.borderColor = UIColor.lightGray.cgColor
+//        background.layer.borderWidth = 0.5
+        view.addSubview(background)
+        
+        background.snp.makeConstraints {make in
+//            make.leading.equalToSuperview().offset(10)
+//            make.top.equalToSuperview().offset(26.5)
+//            make.size.equalTo(50)
+            make.top.equalTo(second_image_link.snp.bottom).offset(-40)
+            make.leading.equalTo(contentView).offset(24)
+            make.size.equalTo(70)
+        }
+    }
     
     private func setUpImage() {
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = 5
         image.clipsToBounds = true
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.layer.borderWidth = 0.8

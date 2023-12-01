@@ -18,6 +18,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     private let descriptions = UILabel()
     private let deadline = UILabel()
     private let image = UIImageView()
+    private let background = UIImageView()
     private var club: Club?
     private let clockIconView = UIImageView()
     private let starButton = UIButton()
@@ -41,7 +42,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
 //        layer.shadowOpacity = 0.5
 //        layer.masksToBounds = false
         
-        
+        setUpBackground()
         setUpImage()
         setUpClubName()
         setUpDescription()
@@ -76,6 +77,25 @@ class ClubCollectionViewCell: UICollectionViewCell {
         
         starButton.addTarget(self, action: #selector(starClub), for: .touchUpInside)
 
+    }
+    private func setUpBackground() {
+        background.contentMode = .scaleAspectFill
+        background.layer.cornerRadius = 5
+        background.clipsToBounds = true
+        background.sd_setImage(with: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-qNCiCiWRmRuRuPhiFBLADfIxJoBfFkfiVA&usqp=CAU"))
+//        background.layer.borderColor = UIColor.lightGray.cgColor
+//        background.layer.borderWidth = 0.5
+        contentView.addSubview(background)
+        
+        background.snp.makeConstraints {make in
+//            make.leading.equalToSuperview().offset(10)
+//            make.top.equalToSuperview().offset(26.5)
+//            make.size.equalTo(50)
+            make.top.equalToSuperview().offset(26.5)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().inset(267)
+            make.height.equalTo(50)
+        }
     }
     
     private func setUpImage(){
