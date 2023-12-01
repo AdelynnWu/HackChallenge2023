@@ -20,24 +20,24 @@ class NetworkManager {
     }
     
     //fetch filters
-    func fetchCategories(completion: @escaping (Categories) -> Void) {
-        
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        AF.request("http://34.48.50.89/api/categories/", method: .get)
-            .validate()
-            .responseDecodable(of: Categories.self, decoder: decoder) { response in
-                switch response.result {
-                case .success(let categories):
-                    completion(categories)
-                    
-                case .failure(let error):
-                    print("Error in NetworkManager.fetchCategories: \(error.localizedDescription)")
-                    
-                }
-            }
-    }
+//    func fetchCategories(completion: @escaping (Categories) -> Void) {
+//        
+//        let decoder = JSONDecoder()
+//        decoder.keyDecodingStrategy = .convertFromSnakeCase
+//        
+//        AF.request("http://34.48.50.89/api/categories/", method: .get)
+//            .validate()
+//            .responseDecodable(of: Categories.self, decoder: decoder) { response in
+//                switch response.result {
+//                case .success(let categories):
+//                    completion(categories)
+//                    
+//                case .failure(let error):
+//                    print("Error in NetworkManager.fetchCategories: \(error.localizedDescription)")
+//                    
+//                }
+//            }
+//    }
     
     //fetch applications
     func fetchClubs(completion: @escaping (Clubs) -> Void) {

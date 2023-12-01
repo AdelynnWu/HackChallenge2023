@@ -24,8 +24,8 @@ class ProfileVC: UIViewController {
     
     //MARK: ViewdidLoad
     override func viewDidLoad() {
-        updateFavorites()
         super.viewDidLoad()
+        updateFavorites()
         self.navigationItem.title = "Saved"
         self.view.backgroundColor = UIColor.hc.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -49,7 +49,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        updateFavorites()
+//        updateFavorites()
         clubCollectionView.reloadData()
 
     }
@@ -193,6 +193,7 @@ class ProfileVC: UIViewController {
             DispatchQueue.main.async {
                 self.clubCollectionView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.updateFavorites()
             }
             
         } // the thing in the brackets is a function we pass it into completion, it retrieves as posts
