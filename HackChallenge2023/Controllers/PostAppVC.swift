@@ -46,6 +46,7 @@ class PostAppVC: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.navigationItem.title = "Post Application"
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -108,10 +109,10 @@ class PostAppVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
 
             let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.hc.white
+        appearance.backgroundColor = UIColor.hc.gradientPink1
 //            appearance.backgroundColor = UIColor.systemPink
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.hc.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.hc.white]
         
 
             navigationController?.navigationBar.tintColor = .white
@@ -538,5 +539,17 @@ extension Date {
 
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

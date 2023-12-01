@@ -319,7 +319,7 @@ class DetailedVC: UIViewController {
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(descriptions.snp.bottom).offset(36)
+            make.centerY.equalTo(applicationIconView.snp.centerY)
         }
     }
     private func setUpDeadline(){
