@@ -12,6 +12,10 @@
 		6000E66F2B069821001ACF2C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E66E2B069821001ACF2C /* SDWebImageMapKit */; };
 		6000E6722B069839001ACF2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6000E6712B069839001ACF2C /* SnapKit */; };
 		603FCC602B095A14002C6BA9 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603FCC5F2B095A14002C6BA9 /* TabController.swift */; };
+		607664462B1980E200844020 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 607664452B1980E200844020 /* Poppins-Bold.ttf */; };
+		607664482B1980F600844020 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 607664472B1980F600844020 /* Poppins-SemiBold.ttf */; };
+		6076644A2B19810C00844020 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 607664492B19810C00844020 /* Poppins-Regular.ttf */; };
+		6076644C2B19811E00844020 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6076644B2B19811E00844020 /* Poppins-Light.ttf */; };
 		60927BD32B15885D00AD5598 /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */; };
 		D83E1C432B06923600B9955F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C422B06923600B9955F /* AppDelegate.swift */; };
 		D83E1C452B06923600B9955F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C442B06923600B9955F /* SceneDelegate.swift */; };
@@ -33,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		603FCC5F2B095A14002C6BA9 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		607664452B1980E200844020 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		607664472B1980F600844020 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		607664492B19810C00844020 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		6076644B2B19811E00844020 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		D83E1C3F2B06923500B9955F /* HackChallenge2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackChallenge2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E1C422B06923600B9955F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 		6045BF602B0DA03C00A9C3AB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6076644B2B19811E00844020 /* Poppins-Light.ttf */,
+				607664492B19810C00844020 /* Poppins-Regular.ttf */,
+				607664472B1980F600844020 /* Poppins-SemiBold.ttf */,
+				607664452B1980E200844020 /* Poppins-Bold.ttf */,
 				60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */,
 			);
 			path = Fonts;
@@ -228,9 +240,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6076644C2B19811E00844020 /* Poppins-Light.ttf in Resources */,
+				607664482B1980F600844020 /* Poppins-SemiBold.ttf in Resources */,
 				D83E1C4C2B06923800B9955F /* Assets.xcassets in Resources */,
 				60927BD32B15885D00AD5598 /* Lora-SemiBold.ttf in Resources */,
+				6076644A2B19810C00844020 /* Poppins-Regular.ttf in Resources */,
 				D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */,
+				607664462B1980E200844020 /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
