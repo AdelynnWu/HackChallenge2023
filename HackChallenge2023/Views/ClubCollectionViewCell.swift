@@ -80,7 +80,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     
     private func setUpImage(){
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = 5
         image.clipsToBounds = true
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.layer.borderWidth = 0.5
