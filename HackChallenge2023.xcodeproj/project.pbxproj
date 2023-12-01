@@ -33,6 +33,7 @@
 		D83E1C762B07228B00B9955F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C752B07228B00B9955F /* ProfileVC.swift */; };
 		D83E1C782B07229E00B9955F /* PostAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E1C772B07229E00B9955F /* PostAppVC.swift */; };
 		D8588C002B154584007B2BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8588BFF2B154584007B2BFE /* LaunchScreen.storyboard */; };
+		D87B78B92B199A2F006C5C64 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B78B82B199A2F006C5C64 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		D83E1C752B07228B00B9955F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D83E1C772B07229E00B9955F /* PostAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppVC.swift; sourceTree = "<group>"; };
 		D8588BFF2B154584007B2BFE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D87B78B82B199A2F006C5C64 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				D83E1C5F2B06949500B9955F /* ClubCollectionViewCell.swift */,
 				D83E1C612B0694E600B9955F /* FilterCollectionViewCell.swift */,
+				D87B78B82B199A2F006C5C64 /* TextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				D83E1C652B06951D00B9955F /* NetworkManager.swift in Sources */,
 				D83E1C672B06956700B9955F /* FeedVC.swift in Sources */,
 				D83E1C782B07229E00B9955F /* PostAppVC.swift in Sources */,
+				D87B78B92B199A2F006C5C64 /* TextField.swift in Sources */,
 				D83E1C602B06949500B9955F /* ClubCollectionViewCell.swift in Sources */,
 				D83E1C722B07157100B9955F /* UIColor+Extension.swift in Sources */,
 				D83E1C5E2B06941A00B9955F /* Data.swift in Sources */,

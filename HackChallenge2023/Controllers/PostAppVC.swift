@@ -10,30 +10,31 @@ import UIKit
 import SnapKit
 import SwiftUI
 // for posting new application
+
 class PostAppVC: UIViewController {
     
     // MARK: - Properties Views
     private let orgNameLabel = UILabel()
-    private let orgNameTextField = UITextField()
+    private let orgNameTextField = TextField()
     private let uploadImageLabel = UILabel()
     private let uploadImageButton = UIButton()
     private let categoryLabel = UILabel()
-    private let categoryTextField = UITextField()
+    private let categoryTextField = TextField()
     private let appLinkLabel = UILabel()
-    private let appLinkTextField = UITextField()
+    private let appLinkTextField = TextField()
     private let appDeadlineLabel = UILabel()
-    private let appDeadlineTextField = UITextField()
+    private let appDeadlineTextField = TextField()
     private let websiteLinkLabel = UILabel()
-    private let websiteLinkTextfield = UITextField()
+    private let websiteLinkTextfield = TextField()
     private let coffeeChatLabel = UILabel()
-    private let coffeeChatTextField = UITextField()
+    private let coffeeChatTextField = TextField()
     private let descriptionLabel = UILabel()
     private let descriptionTextField = UITextView()
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
-    private let uploadImageTextField = UITextField()
+    private let uploadImageTextField = TextField()
     private let secondImageLabel = UILabel()
-    private let secondImageTextField = UITextField()
+    private let secondImageTextField = TextField()
     
     
     private let scrollView = UIScrollView()
