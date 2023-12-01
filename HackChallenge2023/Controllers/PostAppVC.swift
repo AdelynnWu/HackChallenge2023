@@ -541,15 +541,15 @@ extension PostAppVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return filters.count
+        return filters1.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return filters[row]
+        return filters1[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryTextField.text = filters[row]
+        categoryTextField.text = filters1[row]
         categoryTextField.resignFirstResponder()
     }
 }
