@@ -28,24 +28,16 @@ class PostAppVC: UIViewController {
     private let coffeeChatLabel = UILabel()
     private let coffeeChatTextField = UITextField()
     private let descriptionLabel = UILabel()
-    private let descriptionTextField = UITextField()
+    private let descriptionTextField = UITextView()
     private let postButton = UIButton()
     private let categoryPickerView = UIPickerView()
     private let uploadImageTextField = UITextField()
     private let secondImageLabel = UILabel()
     private let secondImageTextField = UITextField()
     
-    private let scrollView: UIScrollView = {
-        let sv = UIScrollView()
-        sv.backgroundColor = UIColor.hc.white
-        return sv
-    }()
     
-    private let contentView: UIView = {
-        let v = UIView()
-        v.backgroundColor = UIColor.hc.orangeRed
-        return v
-    }()
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     
     // MARK: - Properties Data
     private let categories = filters
@@ -91,6 +83,7 @@ class PostAppVC: UIViewController {
         setupDescriptionLabel()
         setupDescriptionTextField()
         setupPostButton()
+
         
         //Date Picker
         let datePicker = UIDatePicker()
@@ -133,19 +126,23 @@ class PostAppVC: UIViewController {
     private func setupUI(){
         self.view.backgroundColor = UIColor.hc.white
         
-        self.view.addSubview(scrollView)
-        self.scrollView.addSubview(contentView)
+        view.addSubview(scrollView)
+        
         scrollView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(50)
+            make.edges.equalToSuperview()
         }
+        
+        contentView.isUserInteractionEnabled = true
+        scrollView.addSubview(contentView)
+        
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
 //            make.width.equalTo(scrollView.snp.width)
             make.height.equalTo(scrollView.snp.height)
         }
-        
-        scrollView.contentSize = contentView.frame.size
+
+// Don't need this:
+//        scrollView.contentSize = contentView.frame.size
         
     }
     
@@ -158,18 +155,18 @@ class PostAppVC: UIViewController {
         
         orgNameLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(15)
         }
     }
     
     private func setupOrgNameTextField(){
-//        orgNameTextField.placeholder = ""
         orgNameTextField.font = .systemFont(ofSize: 14)
         orgNameTextField.layer.borderWidth = 0.2
         orgNameTextField.layer.borderColor = UIColor.hc.black.cgColor
         orgNameTextField.layer.cornerRadius = 10
         orgNameTextField.layer.masksToBounds = true
-        contentView.addSubview(orgNameTextField)
+        orgNameTextField.isUserInteractionEnabled = true
+        view.addSubview(orgNameTextField)
         
         orgNameTextField.snp.makeConstraints { make in
             make.top.equalTo(orgNameLabel.snp.bottom).offset(9)
@@ -185,7 +182,7 @@ class PostAppVC: UIViewController {
         uploadImageLabel.textColor = UIColor.hc.black
         uploadImageLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(uploadImageLabel)
+        view.addSubview(uploadImageLabel)
         
         uploadImageLabel.snp.makeConstraints { make in
             make.leading.equalTo(orgNameLabel)
@@ -197,7 +194,7 @@ class PostAppVC: UIViewController {
         uploadImageButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         uploadImageLabel.tintColor = UIColor.hc.gray
         
-        contentView.addSubview(uploadImageButton)
+        view.addSubview(uploadImageButton)
         
         uploadImageButton.snp.makeConstraints { make in
             make.leading.equalTo(orgNameLabel)
@@ -213,7 +210,7 @@ class PostAppVC: UIViewController {
         uploadImageTextField.layer.cornerRadius = 10
         uploadImageTextField.layer.masksToBounds = true
         
-        contentView.addSubview(uploadImageTextField)
+        view.addSubview(uploadImageTextField)
         
         uploadImageTextField.snp.makeConstraints { make in
             make.top.equalTo(uploadImageLabel.snp.bottom).offset(10)
@@ -228,7 +225,7 @@ class PostAppVC: UIViewController {
         secondImageLabel.textColor = UIColor.hc.black
         secondImageLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(secondImageLabel)
+        view.addSubview(secondImageLabel)
         
         secondImageLabel.snp.makeConstraints { make in
             make.leading.equalTo(orgNameLabel)
@@ -242,7 +239,7 @@ class PostAppVC: UIViewController {
         secondImageTextField.layer.cornerRadius = 10
         secondImageTextField.layer.masksToBounds = true
         
-        contentView.addSubview(secondImageTextField)
+        view.addSubview(secondImageTextField)
         
         secondImageTextField.snp.makeConstraints { make in
             make.top.equalTo(secondImageLabel.snp.bottom).offset(9)
@@ -257,7 +254,7 @@ class PostAppVC: UIViewController {
         categoryLabel.textColor = UIColor.hc.black
         categoryLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(categoryLabel)
+        view.addSubview(categoryLabel)
         
         categoryLabel.snp.makeConstraints { make in
             make.leading.equalTo(orgNameLabel)
@@ -272,7 +269,7 @@ class PostAppVC: UIViewController {
         categoryTextField.layer.cornerRadius = 10
         categoryTextField.layer.masksToBounds = true
         
-        contentView.addSubview(categoryTextField)
+        view.addSubview(categoryTextField)
         
         categoryTextField.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(9)
@@ -288,7 +285,7 @@ class PostAppVC: UIViewController {
         appLinkLabel.textColor = UIColor.hc.black
         appLinkLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(appLinkLabel)
+        view.addSubview(appLinkLabel)
         
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -303,7 +300,7 @@ class PostAppVC: UIViewController {
         appLinkTextField.layer.cornerRadius = 10
         appLinkTextField.layer.masksToBounds = true
         
-        contentView.addSubview(appLinkTextField)
+        view.addSubview(appLinkTextField)
         
         appLinkTextField.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -318,7 +315,7 @@ class PostAppVC: UIViewController {
         appDeadlineLabel.textColor = UIColor.hc.black
         appDeadlineLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(appDeadlineLabel)
+        view.addSubview(appDeadlineLabel)
         
         appDeadlineLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -335,7 +332,7 @@ class PostAppVC: UIViewController {
         appDeadlineTextField.layer.cornerRadius = 10
         appDeadlineTextField.layer.masksToBounds = true
         
-        contentView.addSubview(appDeadlineTextField)
+        view.addSubview(appDeadlineTextField)
         
         appDeadlineTextField.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -350,7 +347,7 @@ class PostAppVC: UIViewController {
         websiteLinkLabel.textColor = UIColor.hc.black
         websiteLinkLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(websiteLinkLabel)
+        view.addSubview(websiteLinkLabel)
         
         websiteLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -359,14 +356,14 @@ class PostAppVC: UIViewController {
     }
     
     private func setupWebsiteLinkTextField(){
-        websiteLinkTextfield.placeholder = "optional"
+        
         websiteLinkTextfield.font = .systemFont(ofSize: 14)
         websiteLinkTextfield.layer.borderWidth = 0.2
         websiteLinkTextfield.layer.borderColor = UIColor.hc.black.cgColor
         websiteLinkTextfield.layer.cornerRadius = 10
         websiteLinkTextfield.layer.masksToBounds = true
         
-        contentView.addSubview(websiteLinkTextfield)
+        view.addSubview(websiteLinkTextfield)
         
         websiteLinkTextfield.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -381,7 +378,7 @@ class PostAppVC: UIViewController {
         coffeeChatLabel.textColor = UIColor.hc.black
         coffeeChatLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(coffeeChatLabel)
+        view.addSubview(coffeeChatLabel)
         
         coffeeChatLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -390,14 +387,13 @@ class PostAppVC: UIViewController {
     }
     
     private func setupCoffeeChatTextField(){
-        coffeeChatTextField.placeholder = "optional"
         coffeeChatTextField.font = .systemFont(ofSize: 14)
         coffeeChatTextField.layer.borderWidth = 0.2
         coffeeChatTextField.layer.borderColor = UIColor.hc.black.cgColor
         coffeeChatTextField.layer.cornerRadius = 10
         coffeeChatTextField.layer.masksToBounds = true
         
-        contentView.addSubview(coffeeChatTextField)
+        view.addSubview(coffeeChatTextField)
         
         coffeeChatTextField.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -411,7 +407,7 @@ class PostAppVC: UIViewController {
         descriptionLabel.textColor = UIColor.hc.black
         descriptionLabel.font = .systemFont(ofSize: 14)
         
-        contentView.addSubview(descriptionLabel)
+        view.addSubview(descriptionLabel)
         
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
@@ -419,19 +415,18 @@ class PostAppVC: UIViewController {
         }
     }
     private func setupDescriptionTextField(){
-        descriptionTextField.placeholder = "optional"
         descriptionTextField.font = .systemFont(ofSize: 14)
         descriptionTextField.layer.borderWidth = 0.2
         descriptionTextField.layer.borderColor = UIColor.hc.black.cgColor
         descriptionTextField.layer.cornerRadius = 10
         descriptionTextField.layer.masksToBounds = true
-        
-        contentView.addSubview(descriptionTextField)
+        descriptionTextField.textContainer.lineBreakMode = .byWordWrapping
+        view.addSubview(descriptionTextField)
         
         descriptionTextField.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(9)
-            make.height.equalTo(33)
+            make.height.equalTo(70)
             make.width.equalTo(328)
         }
     }
@@ -453,7 +448,7 @@ class PostAppVC: UIViewController {
                 postButton.setTitleColor(UIColor.white, for: .normal)
         }
 
-        contentView.addSubview(postButton)
+        view.addSubview(postButton)
         
         postButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionTextField.snp.bottom).inset(-30)
@@ -501,6 +496,17 @@ class PostAppVC: UIViewController {
             guard let self = self else {return}
             print("\(newClub.club_name) was successfully added to the feed!")
         }
+        orgNameTextField.text = ""
+        categoryTextField.text = ""
+        orgNameTextField.text = ""
+        uploadImageTextField.text = ""
+        secondImageTextField.text = ""
+        categoryTextField.text = ""
+        appLinkTextField.text = ""
+        appDeadlineTextField.text = ""
+        websiteLinkTextfield.text = ""
+        coffeeChatTextField.text = ""
+        descriptionTextField.text = ""
 
     }
 }

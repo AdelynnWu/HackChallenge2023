@@ -164,7 +164,7 @@ class ProfileVC: UIViewController {
         clubCollectionView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().inset(24)
-            make.top.equalToSuperview().offset(23)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(15)
             make.bottom.equalToSuperview()
         }
     }
