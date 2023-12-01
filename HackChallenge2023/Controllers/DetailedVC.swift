@@ -138,10 +138,10 @@ class DetailedVC: UIViewController {
         self.year.text = String(year)
         self.category_label.text = category.name
         if String(club.minute).count == 1{
-            var new_minute = "0" + String(club.minute)
+            let new_minute = "0" + String(club.minute)
             self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
         }else{
-            var new_minute = String(club.minute)
+            let new_minute = String(club.minute)
             self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
         }
         
@@ -192,7 +192,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpSecondImage() {
         second_image_link.contentMode = .scaleAspectFill
-      //  second_image_link.clipsToBounds = true
+        second_image_link.clipsToBounds = true
         second_image_link.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(second_image_link)
         
@@ -215,7 +215,7 @@ class DetailedVC: UIViewController {
 //            make.leading.equalToSuperview().offset(10)
 //            make.top.equalToSuperview().offset(26.5)
 //            make.size.equalTo(50)
-            make.top.equalTo(contentView).offset(180)
+            make.top.equalTo(second_image_link.snp.bottom).offset(-40)
             make.leading.equalTo(contentView).offset(24)
             make.size.equalTo(70)
         }
@@ -232,6 +232,7 @@ class DetailedVC: UIViewController {
             make.leading.equalTo(contentView).offset(24)
 //            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(image.snp.bottom).offset(10)
+            make.width.equalTo(170)
         }
     }
     private func setUpCategoryButton() {
