@@ -25,7 +25,7 @@ class TabController: UITabBarController {
 
 //        self.tabBar.tintColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
         
-        self.tabBar.tintColor = UIColor.hc.orangeRed
+        self.tabBar.tintColor = UIColor.hc.darkNavy
         self.tabBar.isTranslucent = false
 //        self.tabBar.backgroundColor = UIColor.hc.babyBlue
         

@@ -48,7 +48,7 @@ class PostAppVC: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.navigationItem.title = "Post Application"
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.hc.lightNavy
         self.navigationController?.navigationBar.prefersLargeTitles = true
         let gradientLayer = CAGradientLayer()
                 gradientLayer.frame = view.bounds
@@ -108,7 +108,7 @@ class PostAppVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
 
             let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.hc.gradientPink1
+        appearance.backgroundColor = UIColor.hc.darkNavy
 //            appearance.backgroundColor = UIColor.systemPink
         appearance.titleTextAttributes = [.foregroundColor: UIColor.hc.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.hc.white]
@@ -125,8 +125,9 @@ class PostAppVC: UIViewController {
     // MARK: - setup views
     
     private func setupUI(){
-        self.view.backgroundColor = UIColor.hc.white
-        
+        self.view.backgroundColor = UIColor.hc.lightNavy
+        scrollView.backgroundColor = UIColor.hc.lightNavy
+        contentView.backgroundColor = UIColor.hc.lightNavy
         view.addSubview(scrollView)
         
         scrollView.snp.makeConstraints { make in
@@ -139,7 +140,7 @@ class PostAppVC: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
 //            make.width.equalTo(scrollView.snp.width)
-            make.height.equalTo(scrollView.snp.height)
+            make.height.equalTo(scrollView.snp.height).multipliedBy(1.1)
         }
 
 // Don't need this:
@@ -149,7 +150,7 @@ class PostAppVC: UIViewController {
     
     private func setupOrgNameLabel(){
         orgNameLabel.text = "Organization Name"
-        orgNameLabel.textColor = UIColor.hc.black
+        orgNameLabel.textColor = UIColor.hc.gray
         orgNameLabel.font = .systemFont(ofSize: 14)
         
         contentView.addSubview(orgNameLabel)
@@ -162,8 +163,10 @@ class PostAppVC: UIViewController {
     
     private func setupOrgNameTextField(){
         orgNameTextField.font = .systemFont(ofSize: 14)
+        orgNameTextField.textColor = UIColor.black
         orgNameTextField.layer.borderWidth = 0.2
-        orgNameTextField.layer.borderColor = UIColor.hc.black.cgColor
+        orgNameTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        orgNameTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         orgNameTextField.layer.cornerRadius = 10
         orgNameTextField.layer.masksToBounds = true
         orgNameTextField.isUserInteractionEnabled = true
@@ -180,7 +183,7 @@ class PostAppVC: UIViewController {
     
     private func setupCategoryLabel(){
         categoryLabel.text = "Category"
-        categoryLabel.textColor = UIColor.hc.black
+        categoryLabel.textColor = UIColor.hc.gray
         categoryLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(categoryLabel)
@@ -193,8 +196,10 @@ class PostAppVC: UIViewController {
     
     private func setupCategoryTextField(){
         categoryTextField.font = .systemFont(ofSize: 14)
+        categoryTextField.textColor = UIColor.black
         categoryTextField.layer.borderWidth = 0.2
-        categoryTextField.layer.borderColor = UIColor.hc.black.cgColor
+        categoryTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        categoryTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         categoryTextField.layer.cornerRadius = 10
         categoryTextField.layer.masksToBounds = true
         
@@ -211,7 +216,7 @@ class PostAppVC: UIViewController {
     
     private func setupDescriptionLabel(){
         descriptionLabel.text = "Description"
-        descriptionLabel.textColor = UIColor.hc.black
+        descriptionLabel.textColor = UIColor.hc.gray
         descriptionLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(descriptionLabel)
@@ -223,8 +228,10 @@ class PostAppVC: UIViewController {
     }
     private func setupDescriptionTextField(){
         descriptionTextField.font = .systemFont(ofSize: 14)
+        descriptionTextField.textColor = UIColor.black
         descriptionTextField.layer.borderWidth = 0.2
-        descriptionTextField.layer.borderColor = UIColor.hc.black.cgColor
+        descriptionTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        descriptionTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         descriptionTextField.layer.cornerRadius = 10
         descriptionTextField.layer.masksToBounds = true
         descriptionTextField.textContainer.lineBreakMode = .byWordWrapping
@@ -240,7 +247,7 @@ class PostAppVC: UIViewController {
     
     private func setupUploadImageLabel(){
         uploadImageLabel.text = "Upload Profile Photo"
-        uploadImageLabel.textColor = UIColor.hc.black
+        uploadImageLabel.textColor = UIColor.hc.gray
         uploadImageLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(uploadImageLabel)
@@ -266,8 +273,10 @@ class PostAppVC: UIViewController {
 //    }
     private func setUpImageTextField(){
         uploadImageTextField.font = .systemFont(ofSize: 14)
+        uploadImageTextField.textColor = UIColor.black
         uploadImageTextField.layer.borderWidth = 0.2
-        uploadImageTextField.layer.borderColor = UIColor.hc.black.cgColor
+        uploadImageTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        uploadImageTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         uploadImageTextField.layer.cornerRadius = 10
         uploadImageTextField.layer.masksToBounds = true
         
@@ -283,7 +292,7 @@ class PostAppVC: UIViewController {
     
     private func setUpSecondImageLabel() {
         secondImageLabel.text = "Upload Cover Photo"
-        secondImageLabel.textColor = UIColor.hc.black
+        secondImageLabel.textColor = UIColor.hc.gray
         secondImageLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(secondImageLabel)
@@ -296,8 +305,10 @@ class PostAppVC: UIViewController {
     
     private func setUpSecondImageTextField() {
         secondImageTextField.font = .systemFont(ofSize: 14)
+        secondImageTextField.textColor = UIColor.black
         secondImageTextField.layer.borderWidth = 0.2
-        secondImageTextField.layer.borderColor = UIColor.hc.black.cgColor
+        secondImageTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        secondImageTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         secondImageTextField.layer.cornerRadius = 10
         secondImageTextField.layer.masksToBounds = true
         
@@ -313,7 +324,7 @@ class PostAppVC: UIViewController {
     
     private func setupAppLinkLabel(){
         appLinkLabel.text = "Application Link"
-        appLinkLabel.textColor = UIColor.hc.black
+        appLinkLabel.textColor = UIColor.hc.gray
         appLinkLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(appLinkLabel)
@@ -326,8 +337,10 @@ class PostAppVC: UIViewController {
     
     private func setupAppLinkTextField(){
         appLinkTextField.font = .systemFont(ofSize: 14)
+        appLinkTextField.textColor = UIColor.black
         appLinkTextField.layer.borderWidth = 0.2
-        appLinkTextField.layer.borderColor = UIColor.hc.black.cgColor
+        appLinkTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        appLinkTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         appLinkTextField.layer.cornerRadius = 10
         appLinkTextField.layer.masksToBounds = true
         
@@ -343,7 +356,7 @@ class PostAppVC: UIViewController {
     
     private func setupAppDeadlineLabel(){
         appDeadlineLabel.text = "Application Deadline"
-        appDeadlineLabel.textColor = UIColor.hc.black
+        appDeadlineLabel.textColor = UIColor.hc.gray
         appDeadlineLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(appDeadlineLabel)
@@ -358,8 +371,10 @@ class PostAppVC: UIViewController {
     private func setupAppDeadlineTextField(){
 //        appDeadlineTextField.text = formatDate(date: Date())  today's date
         appDeadlineTextField.font = .systemFont(ofSize: 14)
+        appDeadlineTextField.textColor = UIColor.black
         appDeadlineTextField.layer.borderWidth = 0.2
-        appDeadlineTextField.layer.borderColor = UIColor.hc.black.cgColor
+        appDeadlineTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        appDeadlineTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         appDeadlineTextField.layer.cornerRadius = 10
         appDeadlineTextField.layer.masksToBounds = true
         
@@ -375,7 +390,7 @@ class PostAppVC: UIViewController {
     
     private func setupWebsiteLinkLabel(){
         websiteLinkLabel.text = "Website Link"
-        websiteLinkLabel.textColor = UIColor.hc.black
+        websiteLinkLabel.textColor = UIColor.hc.gray
         websiteLinkLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(websiteLinkLabel)
@@ -389,8 +404,10 @@ class PostAppVC: UIViewController {
     private func setupWebsiteLinkTextField(){
         
         websiteLinkTextfield.font = .systemFont(ofSize: 14)
+        websiteLinkTextfield.textColor = UIColor.black
         websiteLinkTextfield.layer.borderWidth = 0.2
-        websiteLinkTextfield.layer.borderColor = UIColor.hc.black.cgColor
+        websiteLinkTextfield.layer.borderColor = UIColor.hc.postWhite.cgColor
+        websiteLinkTextfield.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         websiteLinkTextfield.layer.cornerRadius = 10
         websiteLinkTextfield.layer.masksToBounds = true
         
@@ -406,7 +423,7 @@ class PostAppVC: UIViewController {
     
     private func setupCoffeeChatLabel(){
         coffeeChatLabel.text = "Coffee Chat Registration"
-        coffeeChatLabel.textColor = UIColor.hc.black
+        coffeeChatLabel.textColor = UIColor.hc.gray
         coffeeChatLabel.font = .systemFont(ofSize: 14)
         
         view.addSubview(coffeeChatLabel)
@@ -419,8 +436,10 @@ class PostAppVC: UIViewController {
     
     private func setupCoffeeChatTextField(){
         coffeeChatTextField.font = .systemFont(ofSize: 14)
+        coffeeChatTextField.textColor = UIColor.black
         coffeeChatTextField.layer.borderWidth = 0.2
-        coffeeChatTextField.layer.borderColor = UIColor.hc.black.cgColor
+        coffeeChatTextField.layer.borderColor = UIColor.hc.postWhite.cgColor
+        coffeeChatTextField.layer.backgroundColor = UIColor.hc.postWhite.cgColor
         coffeeChatTextField.layer.cornerRadius = 10
         coffeeChatTextField.layer.masksToBounds = true
         
@@ -436,19 +455,19 @@ class PostAppVC: UIViewController {
     
     
     private func setupPostButton(){
-        postButton.backgroundColor = UIColor.hc.orangeRed
+        postButton.backgroundColor = UIColor.hc.skin
         postButton.layer.cornerRadius = 20
-        postButton.setTitle("-> Post", for: .normal)
+        postButton.setTitle("➤ Post", for: .normal)
         postButton.setTitleColor(UIColor.hc.white, for: .normal)
         postButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         postButton.addTarget(self, action: #selector(postApp), for: .touchUpInside)
         
         if postButton.isSelected{
                 postButton.backgroundColor = UIColor.white
-            postButton.setTitleColor(UIColor.hc.orangeRed, for: .normal)
+            postButton.setTitleColor(UIColor.hc.darkNavy, for: .normal)
         }
         else{
-            postButton.backgroundColor = UIColor.hc.orangeRed
+            postButton.backgroundColor = UIColor.hc.skin
                 postButton.setTitleColor(UIColor.white, for: .normal)
         }
 

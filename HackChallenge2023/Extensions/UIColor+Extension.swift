@@ -14,8 +14,9 @@ extension UIColor {
     struct HC {
         let black = UIColor.black
         let offWhite = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
-        let gray = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
-        let white = UIColor.white
+        let gray = UIColor(red: 110/255, green: 110/255, blue: 110/255, alpha: 1)
+        let white = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        let postWhite = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
         let yellowOrange = UIColor(red: 255/255, green: 200/255, blue: 88/255, alpha: 1)
         let pastelPink = UIColor(red: 255/255, green: 202/255, blue: 198/255, alpha: 1)
         let pink = UIColor(red: 255/255, green: 176/255, blue: 171/255, alpha: 1)
@@ -45,6 +46,14 @@ extension UIColor {
         let gradientDarkPink = UIColor(red: 245/255, green: 177/255, blue: 204/255, alpha: 1)
         let gradientPurple = UIColor(red: 212/255, green: 178/255, blue: 214/255, alpha: 1)
         let gradientPurpleBlue = UIColor(red: 171/255, green: 186/255, blue: 229/255, alpha: 1)
+        
+        //navy
+        let skin = UIColor(red: 247/255, green: 177/255, blue: 118/255, alpha: 1)
+        let darkNavy = UIColor(red: 79/255, green: 90/255, blue: 118/255, alpha: 1)
+        let lightNavy = UIColor(red: 134/255, green: 151/255, blue: 177/255, alpha: 1)
+        let navy = UIColor(red: 64/255, green: 70/255, blue: 104/255, alpha: 1)
+//        let lightNavy = UIColor(red: 102/255, green: 111/255, blue: 152/255, alpha: 1)
+        
     }
 
 }

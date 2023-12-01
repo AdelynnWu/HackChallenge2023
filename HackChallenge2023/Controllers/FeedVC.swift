@@ -46,7 +46,7 @@ class FeedVC: UIViewController {
         
 //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter Bold", size: 40)!]
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
+        view.backgroundColor = UIColor.hc.lightNavy
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -61,7 +61,7 @@ class FeedVC: UIViewController {
             UIColor.hc.gradientPink4.cgColor
 
         ]
-        view.layer.addSublayer(gradientLayer)
+//        view.layer.addSublayer(gradientLayer)
   //      getFilters()
         getClubs()
         setupFilterCollectionView()
@@ -75,7 +75,7 @@ class FeedVC: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = false
 
             let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.hc.gradientPink1
+        appearance.backgroundColor = UIColor.hc.darkNavy
 
 //            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
  //       appearance.backgroundColor = UIColor.hc.babyBlue

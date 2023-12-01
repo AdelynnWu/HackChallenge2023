@@ -27,7 +27,7 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         updateFavorites()
         self.navigationItem.title = "Saved"
-        self.view.backgroundColor = UIColor.hc.white
+        self.view.backgroundColor = UIColor.hc.lightNavy
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -41,7 +41,7 @@ class ProfileVC: UIViewController {
             UIColor.hc.gradientPink3.cgColor,
             UIColor.hc.gradientPink4.cgColor
         ]
-        view.layer.addSublayer(gradientLayer)
+//        view.layer.addSublayer(gradientLayer)
         getClubs()
         setupClubCollectionView()
         clubCollectionView.reloadData()
@@ -72,7 +72,7 @@ class ProfileVC: UIViewController {
 
             let appearance = UINavigationBarAppearance()
 //            appearance.backgroundColor = UIColor(red: 1, green: 112/255, blue: 103/255, alpha: 1.0)
-        appearance.backgroundColor = UIColor.hc.gradientPink1
+        appearance.backgroundColor = UIColor.hc.darkNavy
 //            appearance.backgroundColor = UIColor.systemPink
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]

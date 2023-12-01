@@ -34,11 +34,11 @@ class FilterCollectionViewCell: UICollectionViewCell {
         
         if filterSelected == category {
 //            category_id.backgroundColor = UIColor(red: 73/255, green: 207/255, blue: 204/255, alpha: 1.0)
-            category_id.backgroundColor = UIColor.hc.orangeRed
+            category_id.backgroundColor = UIColor.hc.darkNavy
             category_id.textColor = UIColor.white
         } else {
 //            category_id.backgroundColor = UIColor(red: 198/255, green: 237/255, blue: 235/255, alpha: 1.0)
-            category_id.backgroundColor = UIColor.hc.white
+            category_id.backgroundColor = UIColor.hc.postWhite
 //            category_id.textColor = UIColor(red: 28/255, green: 132/255, blue: 130/255, alpha: 1.0)
             category_id.textColor = UIColor.hc.black
         }
@@ -54,7 +54,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
         category_id.clipsToBounds = true
 //        category_id.layer.borderColor = UIColor.hc.yellowOrange.cgColor
 //        category_id.layer.borderWidth = 1
-        category_id.backgroundColor = UIColor.hc.offWhite
+        category_id.backgroundColor = UIColor.hc.postWhite
         
         contentView.addSubview(category_id)
         
