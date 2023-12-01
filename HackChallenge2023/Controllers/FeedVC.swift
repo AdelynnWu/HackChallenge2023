@@ -16,7 +16,20 @@ class FeedVC: UIViewController {
     private var clubCollectionView: UICollectionView!
     private var filterCollectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
-    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchController = UISearchController(searchResultsController: nil)
+    
+    private lazy var searchTextField: UITextField? = { [unowned self] in
+            var textField: UITextField?
+            self.searchController.searchBar.subviews.forEach({ view in
+                view.subviews.forEach({ view in
+                    if let view  = view as? UITextField {
+                        textField = view
+                    }
+                })
+            })
+            return textField
+    }()
+   
     
     
     // MARK: Properties Data
@@ -33,6 +46,12 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        navigationController?.hidesBarsOnSwipe = true
+        searchController.obscuresBackgroundDuringPresentation = false
+                searchController.searchBar.placeholder = "Search"
+                navigationItem.searchController = searchController
+                definesPresentationContext = true
+
+
 
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.navigationItem.searchController = searchController
@@ -67,6 +86,11 @@ class FeedVC: UIViewController {
         setupFilterCollectionView()
         setupClubCollectionView()
         searchController.searchResultsUpdater = self
+        
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+       // self.navigationItem.searchController?.view.backgroundColor = UIColor.white
+        
+        searchController.searchBar.searchTextField.backgroundColor = UIColor.hc.lightgray
         
     }
     override func viewWillAppear(_ animated: Bool) {
