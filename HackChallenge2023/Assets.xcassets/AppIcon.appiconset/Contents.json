@@ -31,13 +31,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "ApplyNowIcon120.jpg",
+      "filename" : "ApplyNowLogo-4-4.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "ApplyNowIcon180.jpg",
+      "filename" : "ApplyNowLogo-4-2.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -88,7 +88,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "ApplyNowIcon.jpg",
+      "filename" : "ApplyNowLogo-4-3.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

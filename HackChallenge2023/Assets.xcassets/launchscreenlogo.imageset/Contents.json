@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ApplyNowIcon.png",
+      "filename" : "launchscreen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ApplyNowIcon-1.png",
+      "filename" : "launchscreen-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ApplyNowIcon-2.png",
+      "filename" : "launchscreen-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

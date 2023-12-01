@@ -50,7 +50,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
         category_id.textColor = UIColor.black
 //        category_id.numberOfLines = 1
         category_id.textAlignment = .center
-        category_id.layer.cornerRadius = 16
+        category_id.layer.cornerRadius = 12.5
         category_id.clipsToBounds = true
 //        category_id.layer.borderColor = UIColor.hc.yellowOrange.cgColor
 //        category_id.layer.borderWidth = 1
