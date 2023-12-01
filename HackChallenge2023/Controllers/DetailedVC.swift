@@ -44,7 +44,8 @@ class DetailedVC: UIViewController {
     private let website_descrip = UILabel()
     private let chat_descrip = UILabel()
     private let category_label = UILabel()
-    private let star = UIButton()
+    private let category_button = UIButton()
+    private let star = UIImageView()
     private let second_image_link = UIImageView()
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -83,7 +84,7 @@ class DetailedVC: UIViewController {
         setUpSecondImage()
         setUpImage()
         setUpClubName()
-        //setUpCategoryLabel()
+        setUpCategoryButton()
         setUpDescription()
 
         setUpApplicationIconView()
@@ -132,7 +133,7 @@ class DetailedVC: UIViewController {
         self.month.text = String(month)
         self.day.text = String(day)
         self.year.text = String(year)
-//        self.category_label.text = category
+        self.category_label.text = category.name
         if String(club.minute).count == 1{
             var new_minute = "0" + String(club.minute)
             self.deadline.text = "Apply by " + String(club.month)+"/"+String(club.day)+"/"+String(club.year) + " at " + String(club.hour) + ":" + new_minute
@@ -226,26 +227,31 @@ class DetailedVC: UIViewController {
         
         club_name.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(24)
-            make.trailing.equalTo(contentView).inset(10)
+//            make.trailing.equalTo(contentView).inset(10)
             make.top.equalTo(image.snp.bottom).offset(10)
         }
     }
-    private func setUpCategoryLabel() {
-        category_label.backgroundColor = UIColor.hc.white
-        category_label.layer.cornerRadius = 20
-        category_label.layer.borderWidth = 1
-        category_label.layer.borderColor = UIColor.hc.orangeRed.cgColor
-        category_label.textColor = UIColor.hc.orangeRed
-        category_label.font = .systemFont(ofSize: 10, weight: .semibold)
+    private func setUpCategoryButton() {
+        category_button.backgroundColor = UIColor.hc.orangeRed
+        category_button.layer.cornerRadius = 10
+        category_button.layer.borderWidth = 1
+        category_button.layer.borderColor = UIColor.hc.orangeRed.cgColor
+        category_button.setTitle(category_label.text , for: .normal)
+        category_button.setTitleColor(UIColor.white, for: .normal)
+        category_button.titleLabel?.font = .systemFont(ofSize: 12, weight: .semibold)
+
+        
+//        category_button.textColor = UIColor.hc.orangeRed
+//        category_button.font = .systemFont(ofSize: 10, weight: .semibold)
     
 
-        view.addSubview(category_label)
+        view.addSubview(category_button)
         
-        category_label.snp.makeConstraints { make in
-            make.top.equalTo(image.snp.bottom).offset(24)
-            make.leading.equalTo(club_name.snp.trailing).offset(12)
+        category_button.snp.makeConstraints { make in
+            make.top.equalTo(image.snp.bottom).offset(18)
+            make.leading.equalTo(club_name.snp.trailing).offset(25)
             make.height.equalTo(20)
-            make.width.equalTo(78)
+            make.width.equalTo(100)
         }
     }
     private func setUpDescription() {
@@ -295,7 +301,7 @@ class DetailedVC: UIViewController {
         view.addSubview(applicationIconView)
         
         applicationIconView.snp.makeConstraints {make in
-            make.top.equalTo(descriptions.snp.bottom).offset(60)
+            make.top.equalTo(descriptions.snp.bottom).offset(10)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).offset(24)
             make.size.equalTo(20)
         }
@@ -310,7 +316,7 @@ class DetailedVC: UIViewController {
         appLinkLabel.snp.makeConstraints { make in
             make.leading.equalTo(applicationIconView.snp.trailing).offset(3)
             make.trailing.equalTo(contentView).inset(10)
-            make.top.equalTo(descriptions.snp.bottom).offset(60)
+            make.top.equalTo(descriptions.snp.bottom).offset(10)
         }
     }
     private func setUpDeadline(){
@@ -473,15 +479,16 @@ class DetailedVC: UIViewController {
         }
     }
     private func setUpStar() {
+        star.image = UIImage(systemName: "star.fill")
         contentView.addSubview(star)
-        
+        star.tintColor = UIColor(red: 246/255, green: 188/255, blue: 102/255, alpha: 1.0)
         // button being clicked -> call func
         // don't know why animation applies to another cell's star button when one is clicked
 //        starButton.addTarget(self, action: #selector(starAnimation), for: .touchUpInside)
         star.isUserInteractionEnabled = true
         
         star.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(24)
+            make.trailing.equalTo(contentView).inset(24)
             make.top.equalTo(image.snp.bottom).offset(10)
             make.size.equalTo(21)
         }
