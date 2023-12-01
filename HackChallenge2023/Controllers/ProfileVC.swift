@@ -49,7 +49,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-//        updateFavorites()
+        updateFavorites()
         clubCollectionView.reloadData()
 
     }

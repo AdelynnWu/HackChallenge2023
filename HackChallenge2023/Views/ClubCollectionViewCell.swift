@@ -120,7 +120,7 @@ class ClubCollectionViewCell: UICollectionViewCell {
     private func setUpClubName(){
         club_name.textColor = UIColor.hc.black
         //club_name.font = .systemFont(ofSize: 16, weight: .semibold)
-        club_name.font = UIFont(name: "Lora-SemiBold", size:16)
+        club_name.font = UIFont(name: "Raleway-SemiBold", size:16)
         club_name.numberOfLines = 2
         club_name.lineBreakMode = .byWordWrapping
         

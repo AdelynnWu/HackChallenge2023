@@ -244,7 +244,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpClubName() {
         club_name.textColor = UIColor.hc.black
-        club_name.font = UIFont(name: "Lora-SemiBold", size:25)
+        club_name.font = UIFont(name: "Raleway-Bold", size:25)
         club_name.numberOfLines = 2
         club_name.lineBreakMode = .byWordWrapping
         
@@ -334,7 +334,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpAppLinkLabel() {
         appLinkLabel.text = "Application "
-        appLinkLabel.font = UIFont(name: "Lora-SemiBold", size:20)
+        appLinkLabel.font = UIFont(name: "Raleway-SemiBold", size:20)
         appLinkLabel.numberOfLines = 1
         
         view.addSubview(appLinkLabel)
@@ -392,7 +392,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpClubLinkLabel() {
         clubLinkLabel.text = "Club Website"
-        clubLinkLabel.font = UIFont(name: "Lora-SemiBold", size:20)
+        clubLinkLabel.font = UIFont(name: "Raleway-SemiBold", size:20)
         clubLinkLabel.numberOfLines = 1
         
         view.addSubview(clubLinkLabel)
@@ -459,7 +459,7 @@ class DetailedVC: UIViewController {
     }
     private func setUpCoffeeChatLabel() {
         chat_label.text = "Coffee Chat"
-        chat_label.font = UIFont(name: "Lora-SemiBold", size:20)
+        chat_label.font = UIFont(name: "Raleway-SemiBold", size:20)
         chat_label.numberOfLines = 1
         
         view.addSubview(chat_label)
