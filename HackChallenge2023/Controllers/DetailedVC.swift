@@ -498,7 +498,7 @@ class DetailedVC: UIViewController {
         
         star.snp.makeConstraints { make in
             make.trailing.equalTo(contentView).inset(24)
-            make.top.equalTo(image.snp.bottom).offset(10)
+            make.top.equalTo(image.snp.bottom).offset(16)
             make.size.equalTo(21)
         }
     }
