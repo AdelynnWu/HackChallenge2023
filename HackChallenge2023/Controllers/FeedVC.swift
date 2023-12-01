@@ -188,14 +188,8 @@ class FeedVC: UIViewController {
 extension FeedVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == clubCollectionView {
-            let clubss = clubs[indexPath.row]
-            let selectedItem = self.clubs[indexPath.row]
-            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, second_image_link: selectedItem.second_image_link, chat_link: selectedItem.chat_link,minute: selectedItem.minute, hour: selectedItem.hour, category: selectedItem.category, club: clubss)
-            detailedVC.delegate = self
-            navigationController?.pushViewController(detailedVC, animated: true)
-            
-        } else if collectionView == filterCollectionView {
+        
+        if collectionView == filterCollectionView {
             let selectedFilter = self.filter[indexPath.row]
             filterSelected = selectedFilter
             selected_clubs = clubs
@@ -204,9 +198,18 @@ extension FeedVC: UICollectionViewDelegate {
             } else {
                 let ls = clubs.filter ({ $0.category.name == selectedFilter})
                 selected_clubs = ls
+                
             }
             clubCollectionView.reloadData()
             filterCollectionView.reloadData()
+        }else if collectionView == clubCollectionView{
+            let clubss = selected_clubs[indexPath.row]
+            let selectedItem = self.selected_clubs[indexPath.row]
+            
+            let detailedVC = DetailedVC(club_name: selectedItem.club_name,description:selectedItem.description, month: selectedItem.month, day: selectedItem.day, year: selectedItem.year, app_link: selectedItem.app_link, club_link: selectedItem.club_link, image_link: selectedItem.image_link, second_image_link: selectedItem.second_image_link, chat_link: selectedItem.chat_link,minute: selectedItem.minute, hour: selectedItem.hour, category: selectedItem.category, club: clubss)
+            detailedVC.delegate = self
+            navigationController?.pushViewController(detailedVC, animated: true)
+            
         }
     }
     
