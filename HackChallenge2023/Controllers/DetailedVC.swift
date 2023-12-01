@@ -45,7 +45,7 @@ class DetailedVC: UIViewController {
     private let chat_descrip = UILabel()
     private let category_label = UILabel()
     private let category_button = UIButton()
-    private let star = UIImageView()
+    private let star = UIButton()
     private let second_image_link = UIImageView()
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -61,7 +61,10 @@ class DetailedVC: UIViewController {
     
     // MARK: - Properties (data)
     var club: Club
-//    weak var delegate: starredClubsDelegate?
+    var starredClubs: [String]  {
+        UserDefaults.standard.array(forKey: "starred") as? [String] ?? []
+    }
+    weak var delegate: starredClubsDelegate?
     
     // MARK: init and viewDidLoad
     
@@ -479,13 +482,18 @@ class DetailedVC: UIViewController {
         }
     }
     private func setUpStar() {
-        star.image = UIImage(systemName: "star.fill")
         contentView.addSubview(star)
         star.tintColor = UIColor(red: 246/255, green: 188/255, blue: 102/255, alpha: 1.0)
         // button being clicked -> call func
         // don't know why animation applies to another cell's star button when one is clicked
-//        starButton.addTarget(self, action: #selector(starAnimation), for: .touchUpInside)
+        star.addTarget(self, action: #selector(starClub), for: .touchUpInside)
         star.isUserInteractionEnabled = true
+        
+        if starredClubs.contains(club.club_name){
+            star.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            star.setImage(UIImage(systemName: "star"), for: .normal)
+        }
         
         star.snp.makeConstraints { make in
             make.trailing.equalTo(contentView).inset(24)
@@ -493,16 +501,23 @@ class DetailedVC: UIViewController {
             make.size.equalTo(21)
         }
     }
-//    @objc func starClub(){
-//        UIButton.animate(withDuration: 0.6, animations: {self.star.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
-//            UIButton.animate(withDuration: 0.6, animations: { [self] in
-//                self.star.transform = CGAffineTransform.identity
-//                self.delegate?.updateStarred(clubName: self.club_name.text ?? "")
-//            })
-//        }
-//        )
-//
-//    }
+    @objc func starClub(){
+        UIButton.animate(withDuration: 0.6, animations: {self.star.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
+            UIButton.animate(withDuration: 0.6, animations: { [self] in
+                self.star.transform = CGAffineTransform.identity
+                self.delegate?.updateStarred(clubName: self.club_name.text ?? "")
+//                print("star club")
+                
+                if starredClubs.contains(club.club_name){
+                    star.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                } else {
+                    star.setImage(UIImage(systemName: "star"), for: .normal)
+                }
+            })
+        }
+        )
+
+    }
     
   
     
@@ -536,3 +551,23 @@ class DetailedVC: UIViewController {
 
     
 }
+
+extension DetailedVC: starredClubsDelegate{
+    func updateStarred(clubName: String) {
+            if self.starredClubs.contains(clubName){
+                var newStarredClubs = self.starredClubs
+                newStarredClubs.removeAll() { name in
+                    return name == clubName
+                }
+                UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+            } else {
+                var newStarredClubs = self.starredClubs
+                newStarredClubs.append(clubName)
+                UserDefaults.standard.setValue(newStarredClubs, forKey: "starred")
+//                print(UserDefaults.standard.array(forKey: "starred") as? [String] ?? [])
+            }
+          //  clubCollectionView.reloadData()
+        }
+    
+    
+    }
