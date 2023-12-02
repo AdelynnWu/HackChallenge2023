@@ -47,7 +47,7 @@
 		607664492B19810C00844020 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		6076644B2B19811E00844020 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		60927BD22B15885D00AD5598 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-SemiBold.ttf"; sourceTree = "<group>"; };
-		D83E1C3F2B06923500B9955F /* HackChallenge2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackChallenge2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83E1C3F2B06923500B9955F /* AppHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E1C422B06923600B9955F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D83E1C442B06923600B9955F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D83E1C4B2B06923800B9955F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		D83E1C402B06923500B9955F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D83E1C3F2B06923500B9955F /* HackChallenge2023.app */,
+				D83E1C3F2B06923500B9955F /* AppHub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D83E1C3E2B06923500B9955F /* HackChallenge2023 */ = {
+		D83E1C3E2B06923500B9955F /* AppHub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83E1C532B06923800B9955F /* Build configuration list for PBXNativeTarget "HackChallenge2023" */;
+			buildConfigurationList = D83E1C532B06923800B9955F /* Build configuration list for PBXNativeTarget "AppHub" */;
 			buildPhases = (
 				D83E1C3B2B06923500B9955F /* Sources */,
 				D83E1C3C2B06923500B9955F /* Frameworks */,
@@ -195,7 +195,7 @@
 			);
 			dependencies = (
 			);
-			name = HackChallenge2023;
+			name = AppHub;
 			packageProductDependencies = (
 				6000E6692B0697EB001ACF2C /* Alamofire */,
 				6000E66C2B069821001ACF2C /* SDWebImage */,
@@ -203,7 +203,7 @@
 				6000E6712B069839001ACF2C /* SnapKit */,
 			);
 			productName = HackChallenge2023;
-			productReference = D83E1C3F2B06923500B9955F /* HackChallenge2023.app */;
+			productReference = D83E1C3F2B06923500B9955F /* AppHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,7 +239,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D83E1C3E2B06923500B9955F /* HackChallenge2023 */,
+				D83E1C3E2B06923500B9955F /* AppHub */,
 			);
 		};
 /* End PBXProject section */
@@ -474,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83E1C532B06923800B9955F /* Build configuration list for PBXNativeTarget "HackChallenge2023" */ = {
+		D83E1C532B06923800B9955F /* Build configuration list for PBXNativeTarget "AppHub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D83E1C542B06923800B9955F /* Debug */,

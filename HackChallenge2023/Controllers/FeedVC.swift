@@ -52,12 +52,21 @@ class FeedVC: UIViewController {
                 definesPresentationContext = true
 
         let image = UIImage(named: "navigationbar")
-        navigationItem.titleView = UIImageView(image: image)
+        let imageView = UIImageView(image: image)
+        let bannerWidth = navigationController?.navigationBar.frame.size.width
+        let bannerHeight = navigationController?.navigationBar.frame.size.height
+        let bannerX = (bannerWidth ?? 0) / 2 - (image?.size.width)! / 2
+        let bannerY = (bannerHeight ?? 0) / 2 - (image?.size.height)! / 2
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth ?? 0, height: bannerHeight!)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+//        navigationItem.titleView = UIImageView(image: image)
 
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.navigationItem.searchController = searchController
 //        self.navigationItem.title = "AppHub"
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        
 
 //        self.navigationItem.largeTitleDisplayMode = .never
 //        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
@@ -92,8 +101,34 @@ class FeedVC: UIViewController {
        // self.navigationItem.searchController?.view.backgroundColor = UIColor.white
         
         searchController.searchBar.searchTextField.backgroundColor = UIColor.hc.lightgray
+        let backgroundImage = getImageWithCustomColor(color: UIColor.clear, size: CGSize(width: bannerWidth!-60, height: bannerHeight!-18))
+        //390, 44
+        searchController.searchBar.setSearchFieldBackgroundImage(backgroundImage, for: .normal)
+        searchController.searchBar.searchTextField.layer.cornerRadius = 10
+        searchController.searchBar.layer.masksToBounds = true
+
+//        searchController.searchBar.layer.cornerRadius = 10
+//        searchController.searchBar.layer.masksToBounds = true
+//        searchController.searchBar.snp.makeConstraints { make in
+//            make.bottom.equalTo(navigationController?.navigationBar.snp.bottom!).inset(-10)
+//        }
+//        searchController.searchBar.frame.size.equalTo(CGSize(width: bannerWidth!-50, height: bannerHeight!-30))
+//        searchController.searchBar.heightAnchor.constraint(equalToConstant: 10)
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        searchController.searchBar.layoutIfNeeded()
+        searchController.searchBar.layoutSubviews()
+        
+        
+        searchController.searchBar.searchTextField.font = .systemFont(ofSize: 14)
+        //Your custom text size
+        
+        searchController.searchBar.layoutIfNeeded()
+        searchController.searchBar.layoutSubviews()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
             super.viewWillAppear(animated)
@@ -273,6 +308,16 @@ extension FeedVC: UICollectionViewDataSource {
         return UICollectionViewCell()
     }
     
+    func getImageWithCustomColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
 }
 
 //MARK: UIDelegateFlowLayout
@@ -335,4 +380,6 @@ extension FeedVC: UISearchResultsUpdating {
     }
 
 }
+
+
 

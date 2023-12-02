@@ -151,7 +151,7 @@ class PostAppVC: UIViewController {
     private func setupOrgNameLabel(){
         orgNameLabel.text = "Organization Name"
         orgNameLabel.textColor = UIColor.hc.white
-        orgNameLabel.font = .systemFont(ofSize: 14)
+        orgNameLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         contentView.addSubview(orgNameLabel)
         
@@ -184,7 +184,7 @@ class PostAppVC: UIViewController {
     private func setupCategoryLabel(){
         categoryLabel.text = "Category"
         categoryLabel.textColor = UIColor.hc.white
-        categoryLabel.font = .systemFont(ofSize: 14)
+        categoryLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(categoryLabel)
         
@@ -217,7 +217,7 @@ class PostAppVC: UIViewController {
     private func setupDescriptionLabel(){
         descriptionLabel.text = "Description"
         descriptionLabel.textColor = UIColor.hc.white
-        descriptionLabel.font = .systemFont(ofSize: 14)
+        descriptionLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(descriptionLabel)
         
@@ -248,7 +248,7 @@ class PostAppVC: UIViewController {
     private func setupUploadImageLabel(){
         uploadImageLabel.text = "Upload Profile Photo"
         uploadImageLabel.textColor = UIColor.hc.white
-        uploadImageLabel.font = .systemFont(ofSize: 14)
+        uploadImageLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(uploadImageLabel)
         
@@ -293,7 +293,7 @@ class PostAppVC: UIViewController {
     private func setUpSecondImageLabel() {
         secondImageLabel.text = "Upload Cover Photo"
         secondImageLabel.textColor = UIColor.hc.white
-        secondImageLabel.font = .systemFont(ofSize: 14)
+        secondImageLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(secondImageLabel)
         
@@ -325,7 +325,7 @@ class PostAppVC: UIViewController {
     private func setupAppLinkLabel(){
         appLinkLabel.text = "Application Link"
         appLinkLabel.textColor = UIColor.hc.white
-        appLinkLabel.font = .systemFont(ofSize: 14)
+        appLinkLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(appLinkLabel)
         
@@ -357,7 +357,7 @@ class PostAppVC: UIViewController {
     private func setupAppDeadlineLabel(){
         appDeadlineLabel.text = "Application Deadline"
         appDeadlineLabel.textColor = UIColor.hc.white
-        appDeadlineLabel.font = .systemFont(ofSize: 14)
+        appDeadlineLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(appDeadlineLabel)
         
@@ -391,7 +391,7 @@ class PostAppVC: UIViewController {
     private func setupWebsiteLinkLabel(){
         websiteLinkLabel.text = "Website Link"
         websiteLinkLabel.textColor = UIColor.hc.white
-        websiteLinkLabel.font = .systemFont(ofSize: 14)
+        websiteLinkLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(websiteLinkLabel)
         
@@ -424,7 +424,7 @@ class PostAppVC: UIViewController {
     private func setupCoffeeChatLabel(){
         coffeeChatLabel.text = "Coffee Chat Registration"
         coffeeChatLabel.textColor = UIColor.hc.white
-        coffeeChatLabel.font = .systemFont(ofSize: 14)
+        coffeeChatLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         view.addSubview(coffeeChatLabel)
         
@@ -459,7 +459,7 @@ class PostAppVC: UIViewController {
         postButton.layer.cornerRadius = 20
         postButton.setTitle("➤ Post", for: .normal)
         postButton.setTitleColor(UIColor.hc.white, for: .normal)
-        postButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        postButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         postButton.addTarget(self, action: #selector(postApp), for: .touchUpInside)
         
         if postButton.isSelected{

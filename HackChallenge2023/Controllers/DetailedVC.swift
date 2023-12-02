@@ -525,8 +525,8 @@ class DetailedVC: UIViewController {
         }
     }
     @objc func starClub(){
-        UIButton.animate(withDuration: 0.6, animations: {self.star.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
-            UIButton.animate(withDuration: 0.6, animations: { [self] in
+        UIButton.animate(withDuration: 0.15, animations: {self.star.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)}, completion: { (finish) in
+            UIButton.animate(withDuration: 0.15, animations: { [self] in
                 self.star.transform = CGAffineTransform.identity
                 self.delegate?.updateStarred(clubName: self.club_name.text ?? "")
 //                print("star club")
