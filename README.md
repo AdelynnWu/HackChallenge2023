@@ -1,6 +1,9 @@
 # AppHub
 A centralized hub facilitating college club applications
 
+## Introduction Video
+https://youtu.be/51aKJPnO_Zk?feature=shared
+
 ## Backend github
 [BackendRepo](https://github.com/mmoon11/hack-challenge)
 
